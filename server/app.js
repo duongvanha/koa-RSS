@@ -5,4 +5,4 @@ app.use(async (ctx, next) => {
     ctx.body = "hello word";
 });
 
-app.listen(3000);
+app.listen(80);
