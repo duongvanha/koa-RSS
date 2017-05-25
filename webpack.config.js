@@ -7,7 +7,9 @@ const VENDOR_LIBS = [
     'react',
     'react-dom',
     'react-redux',
-    'redux'
+    'redux',
+    'react-tap-event-plugin',
+    'material-ui'
     /**
      * add more name library
      */

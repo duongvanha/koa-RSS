@@ -6,7 +6,7 @@
   "scripts": {
     "start:client": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "clear": "rimraf public",
-    "build": "npm run clear && webpack",
+    "build": "npm run clear && webpack -p",
     "start": "node index.js ",
     "test": "mocha --compilers js:babel-core/register ./test/test_helper.js --recursive ./test",
     "test:watch": "npm run test -- --watch"
