@@ -1,15 +1,8 @@
-// import Koa from 'koa';
-// const app = new Koa();
-//
-// app.use(async (ctx, next) => {
-//     ctx.body = "hello word";
-// });
-//
-// app.listen(process.env.PORT || 5000);
+import Koa from 'koa';
+const app = new Koa();
 
-const http = require('http');
+app.use(async (ctx, next) => {
+    ctx.body = "hello word";
+});
 
-http.createServer((request, response) => {
-    response.writeHead(200, {'Content-Type': 'text/plain'});
-    response.end('okay');
-}).listen(process.env.PORT || 8080);
+app.listen(process.env.PORT || 8080);
