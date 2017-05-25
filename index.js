@@ -1,13 +1,5 @@
-// require('babel-core/register')({
-//     presets: ['es2015', 'es2016']
-// });
-//
-// require('./server/app');
+require('babel-core/register')({
+    presets: ['es2015', 'es2016']
+});
 
-
-const http = require('http');
-
-http.createServer((request, response) => {
-    response.writeHead(200, {'Content-Type': 'text/plain'});
-    response.end('okay');
-}).listen(process.env.PORT || 8080);
+require('./server/app');
