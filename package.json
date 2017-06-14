@@ -21,6 +21,7 @@
     "babel-preset-env": "^1.5.1",
     "chai": "^3.5.0",
     "chai-jquery": "^2.0.0",
+    "chalk": "^1.1.3",
     "css-loader": "^0.28.2",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.11.1",
@@ -48,9 +49,12 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "babel-runtime": "^6.23.0",
+    "bluebird": "latest",
+    "cheerio": "^1.0.0-rc.1",
     "dotenv": "^4.0.0",
     "knex": "^0.13.0",
     "koa": "^2.2.0",
+    "koa-bodyparser": "^4.2.0",
     "koa-router": "^7.2.0",
     "koa-static": "^3.0.0",
     "material-ui": "^0.18.1",
@@ -61,6 +65,7 @@
     "react-redux": "^5.0.5",
     "react-tap-event-plugin": "^2.0.1",
     "redux": "^3.6.0",
-    "sphinx-container": "git+https://github.com/VnValley/es6-container.git"
+    "request": "latest",
+    "sphinx-container": "git://github.com/VnValley/es6-container.git#v2.0"
   }
 }

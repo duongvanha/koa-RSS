@@ -1,12 +1,10 @@
 import knex from '../packages/database';
-import Container from 'sphinx-container';
+import Container from './../packages/container/Container';
 let container = Container.instance();
 
 async function bootsTrapper(app) {
     app.context.db = knex;
-    container.singleton('db', async () => {
-        return await knex;
-    });
+    container.singleton('db', async()=>knex);
     return app;
 }
 
