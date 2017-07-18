@@ -1,5 +1,5 @@
-import knex from '../packages/database';
-import Container from './../packages/container/Container';
+import knex from './packages/database/index';
+import Container from './packages/container/Container';
 let container = Container.instance();
 
 async function bootsTrapper(app) {

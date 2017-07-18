@@ -3,18 +3,22 @@ import path from 'path';
 import bootsTrapper from './bootstrapper';
 import routers from './http/router';
 import bodyParser from 'koa-bodyparser';
-
-const app = new Koa();
+import serve from 'koa-static';
+import nunjuck from 'koa-nunjucks-2';
 
 require('dotenv').config();
 
-const serve = require('koa-static');
+const app = new Koa();
+const dir = path.join(__dirname, 'public');
 
-const dir = path.join(__dirname, '..', 'public');
+app.use(nunjuck({
+    ext : 'html',
+    path: dir
+}));
 
+app.use(serve(dir));
 app.use(bodyParser());
 app.use(routers);
-app.use(serve(dir));
 
 bootsTrapper(app).then((app) => {
     app.listen(process.env.PORT || 8080, () => console.log('app running port 8080'));
