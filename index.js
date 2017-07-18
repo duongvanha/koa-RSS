@@ -1,4 +1,832 @@
-module.exports=function(e){function n(r){if(t[r])return t[r].exports;var o=t[r]={i:r,l:!1,exports:{}};return e[r].call(o.exports,o,o.exports,n),o.l=!0,o.exports}var t={};return n.m=e,n.c=t,n.i=function(e){return e},n.d=function(e,t,r){n.o(e,t)||Object.defineProperty(e,t,{configurable:!1,enumerable:!0,get:r})},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,n){return Object.prototype.hasOwnProperty.call(e,n)},n.p="",n(n.s=55)}([function(e,n){e.exports=require("react")},function(e,n,t){e.exports=t(29)()},function(e,n,t){"use strict";var r=function(){};e.exports=r},function(e,n,t){"use strict";n.__esModule=!0;var r=(n.addLeadingSlash=function(e){return"/"===e.charAt(0)?e:"/"+e},n.stripLeadingSlash=function(e){return"/"===e.charAt(0)?e.substr(1):e},n.hasBasename=function(e,n){return new RegExp("^"+n+"(\\/|\\?|#|$)","i").test(e)});n.stripBasename=function(e,n){return r(e,n)?e.substr(n.length):e},n.stripTrailingSlash=function(e){return"/"===e.charAt(e.length-1)?e.slice(0,-1):e},n.parsePath=function(e){var n=e||"/",t="",r="",o=n.indexOf("#");-1!==o&&(r=n.substr(o),n=n.substr(0,o));var i=n.indexOf("?");return-1!==i&&(t=n.substr(i),n=n.substr(0,i)),{pathname:n,search:"?"===t?"":t,hash:"#"===r?"":r}},n.createPath=function(e){var n=e.pathname,t=e.search,r=e.hash,o=n||"/";return t&&"?"!==t&&(o+="?"===t.charAt(0)?t:"?"+t),r&&"#"!==r&&(o+="#"===r.charAt(0)?r:"#"+r),o}},function(e,n,t){"use strict";function r(e,n){if(!(e instanceof n))throw new TypeError("Cannot call a class as a function")}function o(e,n){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!n||"object"!=typeof n&&"function"!=typeof n?e:n}function i(e,n){if("function"!=typeof n&&null!==n)throw new TypeError("Super expression must either be null or a function, not "+typeof n);e.prototype=Object.create(n&&n.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),n&&(Object.setPrototypeOf?Object.setPrototypeOf(e,n):e.__proto__=n)}var a=t(2),c=t.n(a),p=t(7),s=t.n(p),u=t(0),f=t.n(u),_=t(1),l=t.n(_),d=Object.assign||function(e){for(var n=1;n<arguments.length;n++){var t=arguments[n];for(var r in t)Object.prototype.hasOwnProperty.call(t,r)&&(e[r]=t[r])}return e},m=function(e){function n(){var t,i,a;r(this,n);for(var c=arguments.length,p=Array(c),s=0;s<c;s++)p[s]=arguments[s];return t=i=o(this,e.call.apply(e,[this].concat(p))),i.state={match:i.computeMatch(i.props.history.location.pathname)},a=t,o(i,a)}return i(n,e),n.prototype.getChildContext=function(){return{router:d({},this.context.router,{history:this.props.history,route:{location:this.props.history.location,match:this.state.match}})}},n.prototype.computeMatch=function(e){return{path:"/",url:"/",params:{},isExact:"/"===e}},n.prototype.componentWillMount=function(){var e=this,n=this.props,t=n.children,r=n.history;s()(null==t||1===f.a.Children.count(t),"A <Router> may have only one child element"),this.unlisten=r.listen(function(){e.setState({match:e.computeMatch(r.location.pathname)})})},n.prototype.componentWillReceiveProps=function(e){c()(this.props.history===e.history,"You cannot change <Router history>")},n.prototype.componentWillUnmount=function(){this.unlisten()},n.prototype.render=function(){var e=this.props.children;return e?f.a.Children.only(e):null},n}(f.a.Component);m.propTypes={history:l.a.object.isRequired,children:l.a.node},m.contextTypes={router:l.a.object},m.childContextTypes={router:l.a.object.isRequired},n.a=m},function(e,n,t){"use strict";var r=t(28),o=t.n(r),i={},a=0,c=function(e,n){var t=""+n.end+n.strict,r=i[t]||(i[t]={});if(r[e])return r[e];var c=[],p=o()(e,c,n),s={re:p,keys:c};return a<1e4&&(r[e]=s,a++),s},p=function(e){var n=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{};"string"==typeof n&&(n={path:n});var t=n,r=t.path,o=void 0===r?"/":r,i=t.exact,a=void 0!==i&&i,p=t.strict,s=void 0!==p&&p,u=c(o,{end:a,strict:s}),f=u.re,_=u.keys,l=f.exec(e);if(!l)return null;var d=l[0],m=l.slice(1),h=e===d;return a&&!h?null:{path:o,url:"/"===o&&""===d?"/":d,isExact:h,params:_.reduce(function(e,n,t){return e[n.name]=m[t],e},{})}};n.a=p},function(e,n,t){"use strict";function r(e){return function(){var n=e.apply(this,arguments);return new Promise(function(e,t){function r(o,i){try{var a=n[o](i),c=a.value}catch(e){return void t(e)}if(!a.done)return Promise.resolve(c).then(function(e){r("next",e)},function(e){r("throw",e)});e(c)}return r("next")})}}function o(e,n){if(!(e instanceof n))throw new TypeError("Cannot call a class as a function")}Object.defineProperty(n,"__esModule",{value:!0});var i=function(){function e(e,n){for(var t=0;t<n.length;t++){var r=n[t];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(n,t,r){return t&&e(n.prototype,t),r&&e(n,r),n}}(),a=void 0,c=function(){function e(n){o(this,e),this.bindings={},this.resolved={},this.ee=n}return i(e,null,[{key:"instance",value:function(){return a||(a=new e),a}}]),i(e,[{key:"bind",value:function(e,n){return this.bindings[e]={factory:n,type:"binding"},this}},{key:"value",value:function(e,n){return this.resolved[e]=n,this}},{key:"singleton",value:function(e,n){return this.bindings[e]={factory:n,type:"singleton"},this}},{key:"make",value:function(){function e(e){return n.apply(this,arguments)}var n=r(regeneratorRuntime.mark(function e(n){var t,r;return regeneratorRuntime.wrap(function(e){for(;;)switch(e.prev=e.next){case 0:if(!this.resolved[n]){e.next=2;break}return e.abrupt("return",this.resolved[n]);case 2:if(t=this.bindings[n]){e.next=5;break}throw new Error("E_BINDING: Could not resolve dependency ["+n+"]");case 5:return e.next=7,t.factory(this);case 7:return r=e.sent,"singleton"==t.type&&(this.resolved[n]=r),e.abrupt("return",r);case 10:case"end":return e.stop()}},e,this)}));return e}()},{key:"making",value:function(e,n){return this.ee.on(e+".making",n),this}},{key:"made",value:function(e,n){return this.ee.on(e+".made",n),this}}]),e}();n.default=c},function(e,n,t){"use strict";var r=function(e,n,t,r,o,i,a,c){if(!e){var p;if(void 0===n)p=new Error("Minified exception occurred; use the non-minified dev environment for the full error message and additional helpful warnings.");else{var s=[t,r,o,i,a,c],u=0;p=new Error(n.replace(/%s/g,function(){return s[u++]})),p.name="Invariant Violation"}throw p.framesToPop=1,p}};e.exports=r},function(e,n,t){"use strict";function r(e,n){if(!(e instanceof n))throw new TypeError("Cannot call a class as a function")}function o(e,n){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!n||"object"!=typeof n&&"function"!=typeof n?e:n}function i(e,n){if("function"!=typeof n&&null!==n)throw new TypeError("Super expression must either be null or a function, not "+typeof n);e.prototype=Object.create(n&&n.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),n&&(Object.setPrototypeOf?Object.setPrototypeOf(e,n):e.__proto__=n)}var a=t(2),c=t.n(a),p=t(0),s=t.n(p),u=t(1),f=t.n(u),_=t(5),l=Object.assign||function(e){for(var n=1;n<arguments.length;n++){var t=arguments[n];for(var r in t)Object.prototype.hasOwnProperty.call(t,r)&&(e[r]=t[r])}return e},d=function(e){function n(){var t,i,a;r(this,n);for(var c=arguments.length,p=Array(c),s=0;s<c;s++)p[s]=arguments[s];return t=i=o(this,e.call.apply(e,[this].concat(p))),i.state={match:i.computeMatch(i.props,i.context.router)},a=t,o(i,a)}return i(n,e),n.prototype.getChildContext=function(){return{router:l({},this.context.router,{route:{location:this.props.location||this.context.router.route.location,match:this.state.match}})}},n.prototype.computeMatch=function(e,n){var r=e.computedMatch,o=e.location,i=e.path,a=e.strict,c=e.exact,p=n.route;if(r)return r;var s=(o||p.location).pathname;return i?t.i(_.a)(s,{path:i,strict:a,exact:c}):p.match},n.prototype.componentWillMount=function(){var e=this.props,n=e.component,t=e.render,r=e.children;c()(!(n&&t),"You should not use <Route component> and <Route render> in the same route; <Route render> will be ignored"),c()(!(n&&r),"You should not use <Route component> and <Route children> in the same route; <Route children> will be ignored"),c()(!(t&&r),"You should not use <Route render> and <Route children> in the same route; <Route children> will be ignored")},n.prototype.componentWillReceiveProps=function(e,n){c()(!(e.location&&!this.props.location),'<Route> elements should not change from uncontrolled to controlled (or vice versa). You initially used no "location" prop and then provided one on a subsequent render.'),c()(!(!e.location&&this.props.location),'<Route> elements should not change from controlled to uncontrolled (or vice versa). You provided a "location" prop initially but omitted it on a subsequent render.'),this.setState({match:this.computeMatch(e,n.router)})},n.prototype.render=function(){var e=this.state.match,n=this.props,t=n.children,r=n.component,o=n.render,i=this.context.router,a=i.history,c=i.route,p=i.staticContext,u=this.props.location||c.location,f={match:e,location:u,history:a,staticContext:p};return r?e?s.a.createElement(r,f):null:o?e?o(f):null:t?"function"==typeof t?t(f):!Array.isArray(t)||t.length?s.a.Children.only(t):null:null},n}(s.a.Component);d.propTypes={computedMatch:f.a.object,path:f.a.string,exact:f.a.bool,strict:f.a.bool,component:f.a.func,render:f.a.func,children:f.a.oneOfType([f.a.func,f.a.node]),location:f.a.object},d.contextTypes={router:f.a.shape({history:f.a.object.isRequired,route:f.a.object.isRequired,staticContext:f.a.object})},d.childContextTypes={router:f.a.object.isRequired},n.a=d},function(e,n){e.exports=require("dotenv")},function(e,n){e.exports=require("react-router-config")},function(e,n,t){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}var o=t(44),i=r(o),a=t(52),c=r(a),p=t(16),s=r(p),u=t(17),f=r(u),_=t(45),l=r(_),d=t(48),m=r(d),h=t(46),g=r(h);t(9).config();var b=new i.default,v=c.default.join(__dirname,"public");b.use((0,g.default)({ext:"html",path:v})),b.use((0,m.default)(v)),b.use((0,l.default)()),b.use(f.default),(0,s.default)(b).then(function(e){e.listen({GJS_DEBUG_TOPICS:"JS ERROR;JS LOG",LESSOPEN:"| /usr/bin/lesspipe %s",npm_config_cache_lock_stale:"60000",npm_package_devDependencies_babel_core:"^6.24.1",npm_package_devDependencies_chalk:"^1.1.3",npm_package_dependencies_bluebird:"latest",npm_config_legacy_bundling:"",npm_config_sign_git_tag:"",USER:"sieunhangao",J2SDKDIR:"/usr/lib/jvm/java-8-oracle",LC_TIME:"vi_VN",npm_package_devDependencies_jest:"^20.0.4",npm_config_user_agent:"npm/4.2.0 node/v7.10.0 linux x64",npm_config_always_auth:"",XDG_SEAT:"seat0",npm_config_bin_links:"true",npm_config_key:"",SSH_AGENT_PID:"1316",XDG_SESSION_TYPE:"x11",npm_package_devDependencies_file_loader:"^0.11.1",npm_package_devDependencies_gulp:"github:gulpjs/gulp#4.0",npm_config_description:"true",npm_config_fetch_retries:"2",npm_config_heading:"npm",npm_config_if_present:"",npm_config_init_version:"1.0.0",npm_config_user:"",npm_node_execpath:"/usr/bin/nodejs",LD_LIBRARY_PATH:"/opt/WebStorm-171.4694.29/bin:",SHLVL:"1",J2REDIR:"/usr/lib/jvm/java-8-oracle/jre",npm_package_devDependencies_babel_preset_es2015:"^6.24.1",npm_package_devDependencies_url_loader:"^0.5.8",HOME:"/home/sieunhangao",QT4_IM_MODULE:"xim",npm_config_force:"",DESKTOP_SESSION:"gnome",npm_package_devDependencies_babel_preset_es2017:"^6.24.1",npm_config_only:"",GIO_LAUNCHED_DESKTOP_FILE:"/home/sieunhangao/.local/share/applications/jetbrains-webstorm.desktop",npm_package_scripts_build_w:"webpack -w",npm_package_engines_node:"7.10.0",npm_config_cache_min:"10",npm_config_init_license:"ISC",QT_LINUX_ACCESSIBILITY_ALWAYS_ON:"1",GTK_MODULES:"gail:atk-bridge",npm_package_dependencies_koa_router:"^7.2.0",npm_config_editor:"vi",npm_config_rollback:"true",npm_config_tag_version_prefix:"v",LC_MONETARY:"vi_VN",npm_package_devDependencies_rimraf:"^2.6.1",npm_package_dependencies_react_router_config:"^1.0.0-beta.3",npm_config_cache_max:"Infinity",npm_config_userconfig:"/home/sieunhangao/.npmrc",DBUS_SESSION_BUS_ADDRESS:"unix:abstract=/tmp/dbus-ivVa1rGhmg,guid=eeafc690d9635a9a203e1960596e141f",npm_package_dependencies_koa_nunjucks_2:"^3.0.2",npm_config_engine_strict:"",npm_config_init_author_name:"",npm_config_init_author_url:"",npm_config_tmp:"/tmp",GIO_LAUNCHED_DESKTOP_FILE_PID:"4000",npm_package_description:"",npm_package_scripts_start_client:"node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",npm_package_devDependencies_babel_loader:"^7.0.0",npm_package_dependencies_cheerio:"^1.0.0-rc.1",npm_package_dependencies_material_ui:"^0.18.1",npm_package_dependencies_react_router_dom:"^4.1.2",npm_config_depth:"Infinity",npm_config_save_dev:"",npm_config_usage:"",npm_package_devDependencies_progress_bar_webpack_plugin:"^1.9.3",npm_config_cafile:"",npm_config_metrics_registry:"https://registry.npmjs.org/",npm_config_progress:"true",npm_config_https_proxy:"",MANDATORY_PATH:"/usr/share/gconf/gnome.mandatory.path",npm_package_devDependencies_babel_jest:"^20.0.3",npm_config_onload_script:"",LOGNAME:"sieunhangao",GTK_IM_MODULE:"ibus",npm_package_dependencies_request:"latest",npm_config_rebuild_bundle:"true",npm_config_save_bundle:"",npm_config_shell:"/bin/bash",_:"/usr/bin/npm",npm_package_dependencies_react_tap_event_plugin:"^2.0.1",npm_config_dry_run:"",npm_config_prefix:"/usr",DEFAULTS_PATH:"/usr/share/gconf/gnome.default.path",npm_config_scope:"",npm_config_browser:"",npm_config_cache_lock_wait:"10000",npm_config_registry:"https://registry.npmjs.org/",npm_config_save_optional:"",npm_config_searchopts:"",npm_config_versions:"",XDG_SESSION_ID:"1",TERM:"xterm-256color",USERNAME:"sieunhangao",npm_config_cache:"/home/sieunhangao/.npm",npm_config_proxy:"",npm_config_send_metrics:"",GNOME_DESKTOP_SESSION_ID:"this-is-deprecated",npm_package_scripts_clear:"rimraf public",npm_package_scripts_start:"node index.js ",npm_package_devDependencies_html_webpack_plugin:"^2.28.0",npm_package_devDependencies_webpack_node_externals:"^1.6.0",npm_config_global_style:"",npm_config_ignore_scripts:"",npm_config_version:"",WINDOWPATH:"7",npm_config_local_address:"",npm_config_viewer:"man",PATH:"/usr/lib/node_modules/npm/bin/node-gyp-bin:/media/sieunhangao/Data/Project/react/testing-react/node_modules/.bin:/home/sieunhangao/bin:/home/sieunhangao/.local/bin:/home/sieunhangao/bin:/home/sieunhangao/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/home/sieunhangao/Android/Sdk/tools:/home/sieunhangao/Android/Sdk/platform-tools:/home/sieunhangao/Android/Sdk/tools:/home/sieunhangao/Android/Sdk/platform-tools",DERBY_HOME:"/usr/lib/jvm/java-8-oracle/db",SESSION_MANAGER:"local/sieunhangao-Inspiron-7537:@/tmp/.ICE-unix/1247,unix/sieunhangao-Inspiron-7537:/tmp/.ICE-unix/1247",npm_package_name:"demo",npm_package_dependencies_koa:"^2.2.0",NODE:"/usr/bin/nodejs",LC_ADDRESS:"vi_VN",XDG_MENU_PREFIX:"gnome-",XDG_RUNTIME_DIR:"/run/user/1000",npm_package_devDependencies_babel_polyfill:"^6.23.0",npm_package_dependencies_react_redux:"^5.0.5",npm_config_color:"true",DISPLAY:":0",npm_package_dependencies_koa_static:"^3.0.0",npm_config_fetch_retry_mintimeout:"10000",npm_config_maxsockets:"50",LC_TELEPHONE:"vi_VN",LANG:"en_US.UTF-8",XDG_CURRENT_DESKTOP:"GNOME",npm_package_devDependencies_react_test_renderer:"^15.6.1",npm_package_devDependencies_webpack:"^2.6.0",npm_package_dependencies_react_dom:"^15.5.4",npm_package_dependencies_redux:"^3.6.0",npm_config_umask:"0002",LS_COLORS:"rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:",XMODIFIERS:"@im=ibus",XDG_SESSION_DESKTOP:"gnome",XAUTHORITY:"/run/user/1000/gdm/Xauthority",npm_package_main:"index.js",npm_package_devDependencies_dotenv:"^4.0.0",npm_package_devDependencies_html_loader:"^0.4.5",npm_package_gitHead:"2d50ff5a1b9c48368b66a20ca3878e9c9d3c16a8",npm_config_fetch_retry_maxtimeout:"60000",npm_config_loglevel:"warn",npm_config_logs_max:"10",npm_config_message:"%s",npm_lifecycle_script:"webpack -p",SSH_AUTH_SOCK:"/run/user/1000/keyring/ssh",npm_package_scripts_test:"jest",npm_package_devDependencies_webpack_dev_server:"^2.4.5",npm_config_ca:"",npm_config_cert:"",npm_config_global:"",npm_config_link:"",SHELL:"/bin/bash",LC_NAME:"vi_VN",npm_package_version:"1.0.0",npm_package_dependencies_knex:"^0.13.0",npm_config_access:"",npm_config_also:"",npm_config_save:"",npm_config_unicode:"true",npm_lifecycle_event:"build",QT_ACCESSIBILITY:"1",GDMSESSION:"gnome",npm_package_scripts_build:"webpack -p",npm_config_argv:'{"remain":[],"cooked":["run","build"],"original":["run","build"]}',npm_config_long:"",npm_config_production:"",npm_config_searchlimit:"20",npm_config_unsafe_perm:"true",LESSCLOSE:"/usr/bin/lesspipe %s %s",npm_package_author:"",npm_package_dependencies_koa_bodyparser:"^4.2.0",npm_config_node_version:"7.10.0",npm_config_tag:"latest",LC_MEASUREMENT:"vi_VN",npm_package_devDependencies_babel_preset_stage_0:"^6.24.1",npm_config_git_tag_version:"true",npm_config_shrinkwrap:"true",GJS_DEBUG_OUTPUT:"stderr",LC_IDENTIFICATION:"vi_VN",npm_package_license:"ISC",npm_config_fetch_retry_factor:"10",npm_config_proprietary_attribs:"true",npm_config_save_exact:"",npm_config_strict_ssl:"true",XDG_VTNR:"7",QT_IM_MODULE:"ibus",npm_package_devDependencies_style_loader:"^0.18.0",npm_config_dev:"",npm_config_globalconfig:"/usr/etc/npmrc",npm_config_init_module:"/home/sieunhangao/.npm-init.js",npm_config_parseable:"",PWD:"/media/sieunhangao/Data/Project/react/testing-react",JAVA_HOME:"/usr/lib/jvm/java-8-oracle",npm_package_devDependencies_enzyme:"^2.9.1",npm_config_globalignorefile:"/usr/etc/npmignore",npm_execpath:"/usr/lib/node_modules/npm/bin/npm-cli.js",CLUTTER_IM_MODULE:"xim",ANDROID_HOME:"/home/sieunhangao/Android/Sdk",XDG_CONFIG_DIRS:"/etc/xdg/xdg-gnome:/etc/xdg",XDG_DATA_DIRS:"/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop",npm_package_devDependencies_css_loader:"^0.28.2",npm_package_devDependencies_image_webpack_loader:"^3.3.1",npm_config_cache_lock_retries:"10",npm_config_searchstaleness:"900",LC_NUMERIC:"vi_VN",npm_package_devDependencies_babel_preset_env:"^1.5.1",npm_package_devDependencies_extract_text_webpack_plugin:"^2.1.0",npm_config_save_prefix:"^",npm_config_scripts_prepend_node_path:"warn-only",LC_PAPER:"vi_VN",npm_config_group:"1000",npm_config_init_author_email:"",npm_config_searchexclude:"",npm_config_git:"git",npm_config_optional:"true",npm_package_devDependencies_babel_preset_react:"^6.24.1",npm_package_dependencies_pg:"^6.2.3",npm_package_dependencies_react:"^15.5.4",npm_config_json:"",DATABASE_URL:"postgres://xmvmpwalsagthi:5ecba1004453919d22f093c5bfe251e29844741799525ae02b8d1810fa572993@ec2-54-197-232-155.compute-1.amazonaws.com:5432/dcktrp0qkbns39"}.PORT||8080,function(){return console.log("app running port 8080")})})},function(e,n){e.exports=require("babel-polyfill")},function(e,n,t){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}function o(e,n){if(!(e instanceof n))throw new TypeError("Cannot call a class as a function")}function i(e,n){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!n||"object"!=typeof n&&"function"!=typeof n?e:n}function a(e,n){if("function"!=typeof n&&null!==n)throw new TypeError("Super expression must either be null or a function, not "+typeof n);e.prototype=Object.create(n&&n.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),n&&(Object.setPrototypeOf?Object.setPrototypeOf(e,n):e.__proto__=n)}Object.defineProperty(n,"__esModule",{value:!0});var c=function(){function e(e,n){for(var t=0;t<n.length;t++){var r=n[t];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(n,t,r){return t&&e(n.prototype,t),r&&e(n,r),n}}(),p=t(0),s=r(p),u=t(50),f=(r(u),t(49)),_=(r(f),t(51)),l=(r(_),t(14)),d=r(l),m=function(e){function n(){return o(this,n),i(this,(n.__proto__||Object.getPrototypeOf(n)).apply(this,arguments))}return a(n,e),c(n,[{key:"render",value:function(){return s.default.createElement("div",null,s.default.createElement(d.default,null))}}]),n}(p.PureComponent);n.default=m},function(e,n,t){"use strict";function r(e,n){if(!(e instanceof n))throw new TypeError("Cannot call a class as a function")}function o(e,n){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!n||"object"!=typeof n&&"function"!=typeof n?e:n}function i(e,n){if("function"!=typeof n&&null!==n)throw new TypeError("Super expression must either be null or a function, not "+typeof n);e.prototype=Object.create(n&&n.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),n&&(Object.setPrototypeOf?Object.setPrototypeOf(e,n):e.__proto__=n)}Object.defineProperty(n,"__esModule",{value:!0});var a=function(){function e(e,n){for(var t=0;t<n.length;t++){var r=n[t];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(n,t,r){return t&&e(n.prototype,t),r&&e(n,r),n}}(),c=t(0),p=function(e){return e&&e.__esModule?e:{default:e}}(c),s=function(e){function n(){return r(this,n),o(this,(n.__proto__||Object.getPrototypeOf(n)).apply(this,arguments))}return i(n,e),a(n,[{key:"render",value:function(){return p.default.createElement("div",null,"nav")}}]),n}(c.PureComponent);n.default=s},function(e,n,t){"use strict";Object.defineProperty(n,"__esModule",{value:!0});var r=t(0),o=function(e){if(e&&e.__esModule)return e;var n={};if(null!=e)for(var t in e)Object.prototype.hasOwnProperty.call(e,t)&&(n[t]=e[t]);return n.default=e,n}(r),i=t(10),a=function(e){return o.createElement("div",null,"layout",(0,i.renderRoutes)(e.route.routes))},c=function(e){return o.createElement("div",null,"a component",(0,i.renderRoutes)(e.route.routes))},p=function(e){return o.createElement("div",null,"b component",(0,i.renderRoutes)(e.route.routes))},s=function(e){return o.createElement("div",null,"khong co component")},u=[{path:"/home",component:a,routes:[{path:"/home/",exact:!0,component:c},{path:"/home/a",component:c},{path:"/home/b",component:p}]},{component:s}];n.default=u},function(e,n,t){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}function o(e){return function(){var n=e.apply(this,arguments);return new Promise(function(e,t){function r(o,i){try{var a=n[o](i),c=a.value}catch(e){return void t(e)}if(!a.done)return Promise.resolve(c).then(function(e){r("next",e)},function(e){r("throw",e)});e(c)}return r("next")})}}Object.defineProperty(n,"__esModule",{value:!0});var i=function(){var e=o(regeneratorRuntime.mark(function e(n){var t=this;return regeneratorRuntime.wrap(function(e){for(;;)switch(e.prev=e.next){case 0:return n.context.db=c.default,u.singleton("db",o(regeneratorRuntime.mark(function e(){return regeneratorRuntime.wrap(function(e){for(;;)switch(e.prev=e.next){case 0:return e.abrupt("return",c.default);case 1:case"end":return e.stop()}},e,t)}))),e.abrupt("return",n);case 3:case"end":return e.stop()}},e,this)}));return function(n){return e.apply(this,arguments)}}(),a=t(19),c=r(a),p=t(6),s=r(p),u=s.default.instance();n.default=i},function(e,n,t){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}function o(e){return function(){var n=e.apply(this,arguments);return new Promise(function(e,t){function r(o,i){try{var a=n[o](i),c=a.value}catch(e){return void t(e)}if(!a.done)return Promise.resolve(c).then(function(e){r("next",e)},function(e){r("throw",e)});e(c)}return r("next")})}}var i=t(47),a=r(i),c=t(6),p=r(c),s=t(20),u=t(53),f=r(u),_=t(13),l=(r(_),t(15)),d=r(l),m=t(10),h=t(0),g=function(e){if(e&&e.__esModule)return e;var n={};if(null!=e)for(var t in e)Object.prototype.hasOwnProperty.call(e,t)&&(n[t]=e[t]);return n.default=e,n}(h),b=t(36),v=new a.default,y=p.default.instance();v.get("/api",function(){var e=o(regeneratorRuntime.mark(function e(n){var t,r,o,i;return regeneratorRuntime.wrap(function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,y.make("db");case 2:return t=e.sent,r=n.query.page||0,o=n.query.total||10,i=t.select("*").from("movies"),n.query.search&&(i=i.where("nameEn","like","%"+n.query.search+"%").orWhere("nameVi","like","%"+n.query.search+"%")),i=i.limit(o).offset(r*o),e.next=10,i;case 10:n.body=e.sent;case 11:case"end":return e.stop()}},e,void 0)}));return function(n){return e.apply(this,arguments)}}()),v.post("/api",function(){var e=o(regeneratorRuntime.mark(function e(n){var t;return regeneratorRuntime.wrap(function(e){for(;;)switch(e.prev=e.next){case 0:return t=n.request.body.url,e.next=3,(0,s.getLinkDownloadByUrl)(t);case 3:n.body=e.sent;case 4:case"end":return e.stop()}},e,void 0)}));return function(n){return e.apply(this,arguments)}}()),v.get("*",function(){var e=o(regeneratorRuntime.mark(function e(n){var t,r;return regeneratorRuntime.wrap(function(e){for(;;)switch(e.prev=e.next){case 0:return t={},r=f.default.renderToString(g.createElement(b.StaticRouter,{location:n.request.url,context:t},(0,m.renderRoutes)(d.default))),e.next=4,n.render("layout",{container:r});case 4:case"end":return e.stop()}},e,void 0)}));return function(n){return e.apply(this,arguments)}}()),e.exports=v.routes()},function(e,n,t){"use strict";var r,o,i="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};/**
+module.exports =
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// identity function for calling harmony imports with the correct context
+/******/ 	__webpack_require__.i = function(value) { return value; };
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 35);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports) {
+
+module.exports = require("react");
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-router-config");
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var _instance = void 0;
+
+'use strict';
+
+/**
+ * @class Container
+ */
+
+var Container = function () {
+    _createClass(Container, null, [{
+        key: 'instance',
+        value: function instance() {
+            if (!_instance) {
+                _instance = new Container();
+            }
+            return _instance;
+        }
+
+        /**
+         *
+         * @param {EventEmitter} ee
+         */
+
+    }]);
+
+    function Container(ee) {
+        _classCallCheck(this, Container);
+
+        this.bindings = {};
+        this.resolved = {};
+        this.ee = ee;
+    }
+
+    /**
+     * Register a factory of a dependency to the Container
+     *
+     * @param {string} dependencyName
+     * @param {Function} factory
+     * @returns {Container}
+     */
+
+
+    _createClass(Container, [{
+        key: 'bind',
+        value: function bind(dependencyName, factory) {
+            this.bindings[dependencyName] = {
+                factory: factory,
+                type: 'binding'
+            };
+
+            return this;
+        }
+
+        /**
+         * Register a value as a dependency to the Container
+         *
+         * @param {string} dependencyName
+         * @param value
+         * @return {Container}
+         */
+
+    }, {
+        key: 'value',
+        value: function value(dependencyName, _value) {
+            this.resolved[dependencyName] = _value;
+
+            return this;
+        }
+
+        /**
+         * Register a dependency to the Container as a singleton
+         *
+         * @param {string} dependencyName
+         * @param {Function} factory
+         * @returns {Container}
+         */
+
+    }, {
+        key: 'singleton',
+        value: function singleton(dependencyName, factory) {
+            this.bindings[dependencyName] = {
+                factory: factory,
+                type: 'singleton'
+            };
+
+            return this;
+        }
+
+        /**
+         * Resolve a dependency
+         *
+         * @param {string} dependencyName
+         * @returns {Promise.<*>}
+         */
+
+    }, {
+        key: 'make',
+        value: function () {
+            var _ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee(dependencyName) {
+                var bindingRecipe, resolved;
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                if (!this.resolved[dependencyName]) {
+                                    _context.next = 2;
+                                    break;
+                                }
+
+                                return _context.abrupt('return', this.resolved[dependencyName]);
+
+                            case 2:
+                                bindingRecipe = this.bindings[dependencyName];
+
+                                if (bindingRecipe) {
+                                    _context.next = 5;
+                                    break;
+                                }
+
+                                throw new Error('E_BINDING: Could not resolve dependency [' + dependencyName + ']');
+
+                            case 5:
+                                _context.next = 7;
+                                return bindingRecipe['factory'](this);
+
+                            case 7:
+                                resolved = _context.sent;
+
+
+                                if ('singleton' == bindingRecipe['type']) {
+                                    this.resolved[dependencyName] = resolved;
+                                }
+
+                                return _context.abrupt('return', resolved);
+
+                            case 10:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+
+            function make(_x) {
+                return _ref.apply(this, arguments);
+            }
+
+            return make;
+        }()
+
+        /**
+         * Register an event listener to the Container
+         * to handle right before resolving a dependency
+         *
+         * @param {string} dependencyName
+         * @param {Function} handler
+         * @return {Container}
+         */
+
+    }, {
+        key: 'making',
+        value: function making(dependencyName, handler) {
+            this.ee.on(dependencyName + '.making', handler);
+
+            return this;
+        }
+
+        /**
+         * Register an event listener to the Container
+         * to handle right after resolved a dependency
+         *
+         * @param {string} dependencyName
+         * @param {Function} handler
+         * @return {Container}
+         */
+
+    }, {
+        key: 'made',
+        value: function made(dependencyName, handler) {
+            this.ee.on(dependencyName + '.made', handler);
+
+            return this;
+        }
+    }]);
+
+    return Container;
+}();
+
+exports.default = Container;
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+module.exports = require("dotenv");
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-redux");
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports) {
+
+module.exports = require("redux");
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _koa = __webpack_require__(21);
+
+var _koa2 = _interopRequireDefault(_koa);
+
+var _path = __webpack_require__(30);
+
+var _path2 = _interopRequireDefault(_path);
+
+var _bootstrapper = __webpack_require__(12);
+
+var _bootstrapper2 = _interopRequireDefault(_bootstrapper);
+
+var _router = __webpack_require__(13);
+
+var _router2 = _interopRequireDefault(_router);
+
+var _koaBodyparser = __webpack_require__(22);
+
+var _koaBodyparser2 = _interopRequireDefault(_koaBodyparser);
+
+var _koaStatic = __webpack_require__(25);
+
+var _koaStatic2 = _interopRequireDefault(_koaStatic);
+
+var _koaNunjucks = __webpack_require__(23);
+
+var _koaNunjucks2 = _interopRequireDefault(_koaNunjucks);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+__webpack_require__(3).config();
+
+var app = new _koa2.default();
+var dir = _path2.default.join(__dirname, 'public');
+
+app.use((0, _koaNunjucks2.default)({
+    ext: 'html',
+    path: dir
+}));
+
+app.use((0, _koaStatic2.default)(dir));
+app.use((0, _koaBodyparser2.default)());
+app.use(_router2.default);
+
+(0, _bootstrapper2.default)(app).then(function (app) {
+    app.listen({"GJS_DEBUG_TOPICS":"JS ERROR;JS LOG","LESSOPEN":"| /usr/bin/lesspipe %s","npm_config_cache_lock_stale":"60000","npm_package_devDependencies_babel_core":"^6.24.1","npm_package_devDependencies_chalk":"^1.1.3","npm_package_dependencies_bluebird":"latest","npm_config_legacy_bundling":"","npm_config_sign_git_tag":"","USER":"sieunhangao","J2SDKDIR":"/usr/lib/jvm/java-8-oracle","LC_TIME":"vi_VN","npm_package_devDependencies_jest":"^20.0.4","npm_config_user_agent":"npm/4.2.0 node/v7.10.0 linux x64","npm_config_always_auth":"","XDG_SEAT":"seat0","npm_config_bin_links":"true","npm_config_key":"","SSH_AGENT_PID":"1316","XDG_SESSION_TYPE":"x11","npm_package_devDependencies_file_loader":"^0.11.1","npm_package_devDependencies_gulp":"github:gulpjs/gulp#4.0","npm_config_description":"true","npm_config_fetch_retries":"2","npm_config_heading":"npm","npm_config_if_present":"","npm_config_init_version":"1.0.0","npm_config_user":"","npm_node_execpath":"/usr/bin/nodejs","LD_LIBRARY_PATH":"/opt/WebStorm-171.4694.29/bin:","SHLVL":"1","J2REDIR":"/usr/lib/jvm/java-8-oracle/jre","npm_package_devDependencies_babel_preset_es2015":"^6.24.1","npm_package_devDependencies_url_loader":"^0.5.8","HOME":"/home/sieunhangao","QT4_IM_MODULE":"xim","npm_config_force":"","DESKTOP_SESSION":"gnome","npm_package_devDependencies_babel_preset_es2017":"^6.24.1","npm_config_only":"","GIO_LAUNCHED_DESKTOP_FILE":"/home/sieunhangao/.local/share/applications/jetbrains-webstorm.desktop","npm_package_scripts_build_w":"webpack -w","npm_package_engines_node":"7.10.0","npm_config_cache_min":"10","npm_config_init_license":"ISC","QT_LINUX_ACCESSIBILITY_ALWAYS_ON":"1","GTK_MODULES":"gail:atk-bridge","npm_package_dependencies_koa_router":"^7.2.0","npm_config_editor":"vi","npm_config_rollback":"true","npm_config_tag_version_prefix":"v","LC_MONETARY":"vi_VN","npm_package_devDependencies_rimraf":"^2.6.1","npm_package_dependencies_react_router_config":"^1.0.0-beta.3","npm_config_cache_max":"Infinity","npm_config_userconfig":"/home/sieunhangao/.npmrc","DBUS_SESSION_BUS_ADDRESS":"unix:abstract=/tmp/dbus-ivVa1rGhmg,guid=eeafc690d9635a9a203e1960596e141f","npm_package_dependencies_koa_nunjucks_2":"^3.0.2","npm_config_engine_strict":"","npm_config_init_author_name":"","npm_config_init_author_url":"","npm_config_tmp":"/tmp","GIO_LAUNCHED_DESKTOP_FILE_PID":"4000","npm_package_description":"","npm_package_devDependencies_babel_loader":"^7.0.0","npm_package_dependencies_cheerio":"^1.0.0-rc.1","npm_package_dependencies_material_ui":"^0.18.1","npm_package_dependencies_react_router_dom":"^4.1.2","npm_config_depth":"Infinity","npm_config_save_dev":"","npm_config_usage":"","npm_package_devDependencies_progress_bar_webpack_plugin":"^1.9.3","npm_config_cafile":"","npm_config_metrics_registry":"https://registry.npmjs.org/","npm_config_progress":"true","npm_config_https_proxy":"","MANDATORY_PATH":"/usr/share/gconf/gnome.mandatory.path","npm_package_scripts_dev":"webpack && npm start","npm_package_devDependencies_babel_jest":"^20.0.3","npm_config_onload_script":"","LOGNAME":"sieunhangao","GTK_IM_MODULE":"ibus","npm_package_dependencies_request":"latest","npm_config_rebuild_bundle":"true","npm_config_save_bundle":"","npm_config_shell":"/bin/bash","_":"/usr/bin/npm","npm_package_dependencies_react_tap_event_plugin":"^2.0.1","npm_config_dry_run":"","npm_config_prefix":"/usr","DEFAULTS_PATH":"/usr/share/gconf/gnome.default.path","npm_config_scope":"","npm_config_browser":"","npm_config_cache_lock_wait":"10000","npm_config_registry":"https://registry.npmjs.org/","npm_config_save_optional":"","npm_config_searchopts":"","npm_config_versions":"","XDG_SESSION_ID":"1","TERM":"xterm-256color","USERNAME":"sieunhangao","npm_config_cache":"/home/sieunhangao/.npm","npm_config_proxy":"","npm_config_send_metrics":"","GNOME_DESKTOP_SESSION_ID":"this-is-deprecated","npm_package_scripts_clear":"rimraf public","npm_package_scripts_start":"node index.js ","npm_package_devDependencies_html_webpack_plugin":"^2.28.0","npm_package_devDependencies_webpack_node_externals":"^1.6.0","npm_config_global_style":"","npm_config_ignore_scripts":"","npm_config_version":"","WINDOWPATH":"7","npm_config_local_address":"","npm_config_viewer":"man","PATH":"/usr/lib/node_modules/npm/bin/node-gyp-bin:/media/sieunhangao/Data/Project/react/testing-react/node_modules/.bin:/home/sieunhangao/bin:/home/sieunhangao/.local/bin:/home/sieunhangao/bin:/home/sieunhangao/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/home/sieunhangao/Android/Sdk/tools:/home/sieunhangao/Android/Sdk/platform-tools:/home/sieunhangao/Android/Sdk/tools:/home/sieunhangao/Android/Sdk/platform-tools","DERBY_HOME":"/usr/lib/jvm/java-8-oracle/db","SESSION_MANAGER":"local/sieunhangao-Inspiron-7537:@/tmp/.ICE-unix/1247,unix/sieunhangao-Inspiron-7537:/tmp/.ICE-unix/1247","npm_package_name":"demo","npm_package_dependencies_koa":"^2.2.0","NODE":"/usr/bin/nodejs","LC_ADDRESS":"vi_VN","XDG_MENU_PREFIX":"gnome-","XDG_RUNTIME_DIR":"/run/user/1000","npm_package_devDependencies_babel_polyfill":"^6.23.0","npm_package_dependencies_react_redux":"^5.0.5","npm_config_color":"true","DISPLAY":":0","npm_package_dependencies_koa_static":"^3.0.0","npm_config_fetch_retry_mintimeout":"10000","npm_config_maxsockets":"50","LC_TELEPHONE":"vi_VN","LANG":"en_US.UTF-8","XDG_CURRENT_DESKTOP":"GNOME","npm_package_devDependencies_react_test_renderer":"^15.6.1","npm_package_devDependencies_webpack":"^2.6.0","npm_package_dependencies_react_dom":"^15.5.4","npm_package_dependencies_redux":"^3.6.0","npm_config_umask":"0002","LS_COLORS":"rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:","XMODIFIERS":"@im=ibus","XDG_SESSION_DESKTOP":"gnome","XAUTHORITY":"/run/user/1000/gdm/Xauthority","npm_package_main":"index.js","npm_package_devDependencies_dotenv":"^4.0.0","npm_package_devDependencies_html_loader":"^0.4.5","npm_package_gitHead":"cc9ff99ad8f6e00e98fd33f8d784ed89ff0ca649","npm_config_fetch_retry_maxtimeout":"60000","npm_config_loglevel":"warn","npm_config_logs_max":"10","npm_config_message":"%s","npm_lifecycle_script":"webpack && npm start","SSH_AUTH_SOCK":"/run/user/1000/keyring/ssh","npm_package_scripts_test":"jest","npm_package_devDependencies_webpack_dev_server":"^2.4.5","npm_package_dependencies_react_router":"^4.1.2","npm_config_ca":"","npm_config_cert":"","npm_config_global":"","npm_config_link":"","SHELL":"/bin/bash","LC_NAME":"vi_VN","npm_package_version":"1.0.0","npm_package_dependencies_knex":"^0.13.0","npm_config_access":"","npm_config_also":"","npm_config_save":"","npm_config_unicode":"true","npm_lifecycle_event":"dev","QT_ACCESSIBILITY":"1","GDMSESSION":"gnome","npm_package_scripts_build":"webpack -p","npm_config_argv":"{\"remain\":[],\"cooked\":[\"run\",\"dev\"],\"original\":[\"run\",\"dev\"]}","npm_config_long":"","npm_config_production":"","npm_config_searchlimit":"20","npm_config_unsafe_perm":"true","LESSCLOSE":"/usr/bin/lesspipe %s %s","npm_package_author":"","npm_package_dependencies_koa_bodyparser":"^4.2.0","npm_config_node_version":"7.10.0","npm_config_tag":"latest","LC_MEASUREMENT":"vi_VN","npm_package_devDependencies_babel_preset_stage_0":"^6.24.1","npm_config_git_tag_version":"true","npm_config_shrinkwrap":"true","GJS_DEBUG_OUTPUT":"stderr","LC_IDENTIFICATION":"vi_VN","npm_package_license":"ISC","npm_config_fetch_retry_factor":"10","npm_config_proprietary_attribs":"true","npm_config_save_exact":"","npm_config_strict_ssl":"true","XDG_VTNR":"7","QT_IM_MODULE":"ibus","npm_package_devDependencies_style_loader":"^0.18.0","npm_config_dev":"","npm_config_globalconfig":"/usr/etc/npmrc","npm_config_init_module":"/home/sieunhangao/.npm-init.js","npm_config_parseable":"","PWD":"/media/sieunhangao/Data/Project/react/testing-react","JAVA_HOME":"/usr/lib/jvm/java-8-oracle","npm_package_devDependencies_enzyme":"^2.9.1","npm_config_globalignorefile":"/usr/etc/npmignore","npm_execpath":"/usr/lib/node_modules/npm/bin/npm-cli.js","CLUTTER_IM_MODULE":"xim","ANDROID_HOME":"/home/sieunhangao/Android/Sdk","XDG_CONFIG_DIRS":"/etc/xdg/xdg-gnome:/etc/xdg","XDG_DATA_DIRS":"/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop","npm_package_devDependencies_css_loader":"^0.28.2","npm_package_devDependencies_image_webpack_loader":"^3.3.1","npm_config_cache_lock_retries":"10","npm_config_searchstaleness":"900","LC_NUMERIC":"vi_VN","npm_package_devDependencies_babel_preset_env":"^1.5.1","npm_package_devDependencies_extract_text_webpack_plugin":"^2.1.0","npm_config_save_prefix":"^","npm_config_scripts_prepend_node_path":"warn-only","LC_PAPER":"vi_VN","npm_config_group":"1000","npm_config_init_author_email":"","npm_config_searchexclude":"","npm_config_git":"git","npm_config_optional":"true","npm_package_devDependencies_babel_preset_react":"^6.24.1","npm_package_dependencies_pg":"^6.2.3","npm_package_dependencies_react":"^15.5.4","npm_config_json":"","DATABASE_URL":"postgres://xmvmpwalsagthi:5ecba1004453919d22f093c5bfe251e29844741799525ae02b8d1810fa572993@ec2-54-197-232-155.compute-1.amazonaws.com:5432/dcktrp0qkbns39"}.PORT || 8080, function () {
+        return console.log('app running port 8080');
+    });
+});
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports) {
+
+module.exports = require("babel-polyfill");
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var add = exports.add = function add(text) {
+    return {
+        type: 'add',
+        text: text
+    };
+};
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(4);
+
+var _AppBar = __webpack_require__(26);
+
+var _AppBar2 = _interopRequireDefault(_AppBar);
+
+var _reactRouterConfig = __webpack_require__(1);
+
+var _reactRouterDom = __webpack_require__(33);
+
+var _actions = __webpack_require__(8);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var HomeComponent = function (_PureComponent) {
+    _inherits(HomeComponent, _PureComponent);
+
+    function HomeComponent() {
+        _classCallCheck(this, HomeComponent);
+
+        return _possibleConstructorReturn(this, (HomeComponent.__proto__ || Object.getPrototypeOf(HomeComponent)).apply(this, arguments));
+    }
+
+    _createClass(HomeComponent, [{
+        key: 'componentWillReceiveProps',
+        value: function componentWillReceiveProps() {
+            var _this2 = this;
+
+            setTimeout(function () {
+                _this2.props.add('next');
+            }, 500);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(_AppBar2.default, null),
+                _react2.default.createElement(
+                    _reactRouterDom.Link,
+                    { to: '/home/a' },
+                    'a component'
+                ),
+                _react2.default.createElement(
+                    _reactRouterDom.Link,
+                    { to: '/home/b' },
+                    'b component'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    this.props.text
+                ),
+                (0, _reactRouterConfig.renderRoutes)(this.props.route.routes)
+            );
+        }
+    }]);
+
+    return HomeComponent;
+}(_react.PureComponent);
+
+HomeComponent = (0, _reactRedux.connect)(function (_ref) {
+    var datas = _ref.datas;
+    return datas;
+}, function (dispatch, ownProps) {
+    return {
+        add: function add(text) {
+            return dispatch((0, _actions.add)(text));
+        }
+    };
+})(HomeComponent);
+
+exports.default = HomeComponent;
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _redux = __webpack_require__(5);
+
+var rootReducer = (0, _redux.combineReducers)({
+    datas: function datas() {
+        var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { text: 'hello' };
+        var action = arguments[1];
+
+        switch (action.type) {
+            case 'add':
+                return _extends({}, state, { text: action.text });
+            default:
+                return state;
+        }
+    }
+});
+
+exports.default = rootReducer;
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(0);
+
+var React = _interopRequireWildcard(_react);
+
+var _reactRouterConfig = __webpack_require__(1);
+
+var _home = __webpack_require__(9);
+
+var _home2 = _interopRequireDefault(_home);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+var aComponent = function aComponent(props) {
+    return React.createElement(
+        "div",
+        null,
+        "a component",
+        (0, _reactRouterConfig.renderRoutes)(props.route.routes)
+    );
+};
+
+var bComponent = function bComponent(props) {
+    return React.createElement(
+        "div",
+        null,
+        "b component",
+        (0, _reactRouterConfig.renderRoutes)(props.route.routes)
+    );
+};
+
+var NotFoundComponent = function NotFoundComponent(props) {
+    return React.createElement(
+        "div",
+        null,
+        "404"
+    );
+};
+
+var routes = [{
+    component: _home2.default,
+    routes: [{
+        path: '/home/',
+        exact: true,
+        component: aComponent
+    }, {
+        path: '/home/a',
+        component: aComponent
+    }, {
+        path: '/home/b',
+        component: bComponent
+    }]
+}, {
+    component: NotFoundComponent
+}];
+
+exports.default = routes;
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var bootsTrapper = function () {
+    var _ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee2(app) {
+        var _this = this;
+
+        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+            while (1) {
+                switch (_context2.prev = _context2.next) {
+                    case 0:
+                        app.context.db = _index2.default;
+                        container.singleton('db', _asyncToGenerator(regeneratorRuntime.mark(function _callee() {
+                            return regeneratorRuntime.wrap(function _callee$(_context) {
+                                while (1) {
+                                    switch (_context.prev = _context.next) {
+                                        case 0:
+                                            return _context.abrupt('return', _index2.default);
+
+                                        case 1:
+                                        case 'end':
+                                            return _context.stop();
+                                    }
+                                }
+                            }, _callee, _this);
+                        })));
+                        return _context2.abrupt('return', app);
+
+                    case 3:
+                    case 'end':
+                        return _context2.stop();
+                }
+            }
+        }, _callee2, this);
+    }));
+
+    return function bootsTrapper(_x) {
+        return _ref.apply(this, arguments);
+    };
+}();
+
+var _index = __webpack_require__(15);
+
+var _index2 = _interopRequireDefault(_index);
+
+var _Container = __webpack_require__(2);
+
+var _Container2 = _interopRequireDefault(_Container);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+var container = _Container2.default.instance();
+
+exports.default = bootsTrapper;
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _koaRouter = __webpack_require__(24);
+
+var _koaRouter2 = _interopRequireDefault(_koaRouter);
+
+var _Container = __webpack_require__(2);
+
+var _Container2 = _interopRequireDefault(_Container);
+
+var _phimMoi = __webpack_require__(16);
+
+var _server = __webpack_require__(31);
+
+var _server2 = _interopRequireDefault(_server);
+
+var _routers = __webpack_require__(11);
+
+var _routers2 = _interopRequireDefault(_routers);
+
+var _reactRouterConfig = __webpack_require__(1);
+
+var _reactRouter = __webpack_require__(32);
+
+var _getMuiTheme = __webpack_require__(29);
+
+var _getMuiTheme2 = _interopRequireDefault(_getMuiTheme);
+
+var _colors = __webpack_require__(28);
+
+var _MuiThemeProvider = __webpack_require__(27);
+
+var _MuiThemeProvider2 = _interopRequireDefault(_MuiThemeProvider);
+
+var _reducers = __webpack_require__(10);
+
+var _reducers2 = _interopRequireDefault(_reducers);
+
+var _redux = __webpack_require__(5);
+
+var _reactRedux = __webpack_require__(4);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+var router = new _koaRouter2.default();
+var container = _Container2.default.instance();
+
+router.get('/api', function () {
+    var _ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee(ctx) {
+        var knex, page, total, query;
+        return regeneratorRuntime.wrap(function _callee$(_context) {
+            while (1) {
+                switch (_context.prev = _context.next) {
+                    case 0:
+                        _context.next = 2;
+                        return container.make('db');
+
+                    case 2:
+                        knex = _context.sent;
+                        page = ctx.query.page || 0;
+                        total = ctx.query.total || 10;
+                        query = knex.select('*').from('movies');
+
+                        if (ctx.query.search) {
+                            query = query.where('nameEn', 'like', '%' + ctx.query.search + '%').orWhere('nameVi', 'like', '%' + ctx.query.search + '%');
+                        }
+                        query = query.limit(total).offset(page * total);
+                        _context.next = 10;
+                        return query;
+
+                    case 10:
+                        ctx.body = _context.sent;
+
+                    case 11:
+                    case 'end':
+                        return _context.stop();
+                }
+            }
+        }, _callee, undefined);
+    }));
+
+    return function (_x) {
+        return _ref.apply(this, arguments);
+    };
+}());
+
+router.post('/api', function () {
+    var _ref2 = _asyncToGenerator(regeneratorRuntime.mark(function _callee2(ctx) {
+        var url;
+        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+            while (1) {
+                switch (_context2.prev = _context2.next) {
+                    case 0:
+                        url = ctx.request.body.url;
+                        _context2.next = 3;
+                        return (0, _phimMoi.getLinkDownloadByUrl)(url);
+
+                    case 3:
+                        ctx.body = _context2.sent;
+
+                    case 4:
+                    case 'end':
+                        return _context2.stop();
+                }
+            }
+        }, _callee2, undefined);
+    }));
+
+    return function (_x2) {
+        return _ref2.apply(this, arguments);
+    };
+}());
+
+router.get('*', function () {
+    var _ref3 = _asyncToGenerator(regeneratorRuntime.mark(function _callee3(ctx) {
+        var context, muiTheme, preloadedState, store, body;
+        return regeneratorRuntime.wrap(function _callee3$(_context3) {
+            while (1) {
+                switch (_context3.prev = _context3.next) {
+                    case 0:
+                        context = {};
+                        muiTheme = (0, _getMuiTheme2.default)({}, { userAgent: ctx.request.headers['user-agent'] });
+                        preloadedState = { datas: { text: 'init state by server' } };
+                        store = (0, _redux.createStore)(_reducers2.default, preloadedState);
+                        body = _server2.default.renderToString(_react2.default.createElement(
+                            _reactRedux.Provider,
+                            { store: store },
+                            _react2.default.createElement(
+                                _MuiThemeProvider2.default,
+                                { muiTheme: muiTheme },
+                                _react2.default.createElement(
+                                    _reactRouter.StaticRouter,
+                                    {
+                                        location: ctx.request.url,
+                                        context: context
+                                    },
+                                    (0, _reactRouterConfig.renderRoutes)(_routers2.default)
+                                )
+                            )
+                        ));
+                        _context3.next = 7;
+                        return ctx.render('layout', { container: body, state: JSON.stringify(preloadedState).replace(/</g, '\\u003c') });
+
+                    case 7:
+                    case 'end':
+                        return _context3.stop();
+                }
+            }
+        }, _callee3, undefined);
+    }));
+
+    return function (_x3) {
+        return _ref3.apply(this, arguments);
+    };
+}());
+
+module.exports = router.routes();
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+/**
 * @license Gibberish-AES
 * A lightweight Javascript Libray for OpenSSL compatible AES CBC encryption.
 *
@@ -17,4 +845,1170 @@ module.exports=function(e){function n(r){if(t[r])return t[r].exports;var o=t[r]=
 * Usage: GibberishAES.enc("secret", "password")
 * Outputs: AES Encrypted text encoded in Base64
 */
-!function(a,c){"object"===i(n)?e.exports=c():(r=c,void 0!==(o="function"==typeof r?r.call(n,t,n,e):r)&&(e.exports=o))}(0,function(){var e=14,n=8,t=!1,r=function(e){try{return unescape(encodeURIComponent(e))}catch(e){throw"Error on UTF-8 encode"}},o=function(e){try{return decodeURIComponent(escape(e))}catch(e){throw"Bad Key"}},i=function(e){var n,t,r=[];for(e.length<16&&(n=16-e.length,r=[n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n]),t=0;t<e.length;t++)r[t]=e[t];return r},a=function(e,n){var t,r,o="";if(n){if((t=e[15])>16)throw"Decryption error: Maybe bad key";if(16===t)return"";for(r=0;r<16-t;r++)o+=String.fromCharCode(e[r])}else for(r=0;r<16;r++)o+=String.fromCharCode(e[r]);return o},c=function(e){var n,t="";for(n=0;n<e.length;n++)t+=(e[n]<16?"0":"")+e[n].toString(16);return t},p=function(e){var n=[];return e.replace(/(..)/g,function(e){n.push(parseInt(e,16))}),n},s=function(e,n){var t,o=[];for(n||(e=r(e)),t=0;t<e.length;t++)o[t]=e.charCodeAt(t);return o},u=function(t){switch(t){case 128:e=10,n=4;break;case 192:e=12,n=6;break;case 256:e=14,n=8;break;default:throw"Invalid Key Size Specified:"+t}},f=function(e){var n,t=[];for(n=0;n<e;n++)t=t.concat(Math.floor(256*Math.random()));return t},_=function(t,r){var o,i=e>=12?3:2,a=[],c=[],p=[],s=[],u=t.concat(r);for(p[0]=z(u),s=p[0],o=1;o<i;o++)p[o]=z(p[o-1].concat(u)),s=s.concat(p[o]);return a=s.slice(0,4*n),c=s.slice(4*n,4*n+16),{key:a,iv:c}},l=function(e,n,t){n=x(n);var r,o=Math.ceil(e.length/16),a=[],c=[];for(r=0;r<o;r++)a[r]=i(e.slice(16*r,16*r+16));for(e.length%16==0&&(a.push([16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16]),o++),r=0;r<a.length;r++)a[r]=0===r?k(a[r],t):k(a[r],c[r-1]),c[r]=m(a[r],n);return c},d=function(e,n,t,r){n=x(n);var i,c=e.length/16,p=[],s=[],u="";for(i=0;i<c;i++)p.push(e.slice(16*i,16*(i+1)));for(i=p.length-1;i>=0;i--)s[i]=h(p[i],n),s[i]=0===i?k(s[i],t):k(s[i],p[i-1]);for(i=0;i<c-1;i++)u+=a(s[i],!1);return u+=a(s[i],!0),r?u:o(u)},m=function(n,r){t=!1;var o,i=y(n,r,0);for(o=1;o<e+1;o++)i=g(i),i=b(i),o<e&&(i=v(i)),i=y(i,r,o);return i},h=function(n,r){t=!0;var o,i=y(n,r,e);for(o=e-1;o>-1;o--)i=b(i),i=g(i),i=y(i,r,o),o>0&&(i=v(i));return i},g=function(e){var n,r=t?R:D,o=[];for(n=0;n<16;n++)o[n]=r[e[n]];return o},b=function(e){var n,r=[],o=t?[0,13,10,7,4,1,14,11,8,5,2,15,12,9,6,3]:[0,5,10,15,4,9,14,3,8,13,2,7,12,1,6,11];for(n=0;n<16;n++)r[n]=e[o[n]];return r},v=function(e){var n,r=[];if(t)for(n=0;n<4;n++)r[4*n]=L[e[4*n]]^C[e[1+4*n]]^M[e[2+4*n]]^I[e[3+4*n]],r[1+4*n]=I[e[4*n]]^L[e[1+4*n]]^C[e[2+4*n]]^M[e[3+4*n]],r[2+4*n]=M[e[4*n]]^I[e[1+4*n]]^L[e[2+4*n]]^C[e[3+4*n]],r[3+4*n]=C[e[4*n]]^M[e[1+4*n]]^I[e[2+4*n]]^L[e[3+4*n]];else for(n=0;n<4;n++)r[4*n]=P[e[4*n]]^A[e[1+4*n]]^e[2+4*n]^e[3+4*n],r[1+4*n]=e[4*n]^P[e[1+4*n]]^A[e[2+4*n]]^e[3+4*n],r[2+4*n]=e[4*n]^e[1+4*n]^P[e[2+4*n]]^A[e[3+4*n]],r[3+4*n]=A[e[4*n]]^e[1+4*n]^e[2+4*n]^P[e[3+4*n]];return r},y=function(e,n,t){var r,o=[];for(r=0;r<16;r++)o[r]=e[r]^n[t][r];return o},k=function(e,n){var t,r=[];for(t=0;t<16;t++)r[t]=e[t]^n[t];return r},x=function(t){var r,o,i,a,c=[],p=[],s=[];for(r=0;r<n;r++)o=[t[4*r],t[4*r+1],t[4*r+2],t[4*r+3]],c[r]=o;for(r=n;r<4*(e+1);r++){for(c[r]=[],i=0;i<4;i++)p[i]=c[r-1][i];for(r%n==0?(p=E(w(p)),p[0]^=T[r/n-1]):n>6&&r%n==4&&(p=E(p)),i=0;i<4;i++)c[r][i]=c[r-n][i]^p[i]}for(r=0;r<e+1;r++)for(s[r]=[],a=0;a<4;a++)s[r].push(c[4*r+a][0],c[4*r+a][1],c[4*r+a][2],c[4*r+a][3]);return s},E=function(e){for(var n=0;n<4;n++)e[n]=D[e[n]];return e},w=function(e){var n,t=e[0];for(n=0;n<3;n++)e[n]=e[n+1];return e[3]=t,e},O=function(e,n){var t,r=[];for(t=0;t<e.length;t+=n)r[t/n]=parseInt(e.substr(t,n),16);return r},S=function(e,n){var t,r;for(r=0,t=0;t<8;t++)r=1==(1&n)?r^e:r,e=e>127?283^e<<1:e<<1,n>>>=1;return r},j=function(e){var n,t=[];for(n=0;n<256;n++)t[n]=S(e,n);return t},D=O("637c777bf26b6fc53001672bfed7ab76ca82c97dfa5947f0add4a2af9ca472c0b7fd9326363ff7cc34a5e5f171d8311504c723c31896059a071280e2eb27b27509832c1a1b6e5aa0523bd6b329e32f8453d100ed20fcb15b6acbbe394a4c58cfd0efaafb434d338545f9027f503c9fa851a3408f929d38f5bcb6da2110fff3d2cd0c13ec5f974417c4a77e3d645d197360814fdc222a908846eeb814de5e0bdbe0323a0a4906245cc2d3ac629195e479e7c8376d8dd54ea96c56f4ea657aae08ba78252e1ca6b4c6e8dd741f4bbd8b8a703eb5664803f60e613557b986c11d9ee1f8981169d98e949b1e87e9ce5528df8ca1890dbfe6426841992d0fb054bb16",2),R=function(e){var n,t=[];for(n=0;n<e.length;n++)t[e[n]]=n;return t}(D),T=O("01020408102040801b366cd8ab4d9a2f5ebc63c697356ad4b37dfaefc591",2),P=j(2),A=j(3),I=j(9),C=j(11),M=j(13),L=j(14),N=function(e,n,t){var r,o=f(8),i=_(s(n,t),o),a=i.key,c=i.iv,p=[[83,97,108,116,101,100,95,95].concat(o)];return e=s(e,t),r=l(e,a,c),r=p.concat(r),G.encode(r)},U=function(e,n,t){var r=G.decode(e),o=r.slice(8,16),i=_(s(n,t),o),a=i.key,c=i.iv;return r=r.slice(16,r.length),e=d(r,a,c,t)},z=function(e){function n(e,n){return e<<n|e>>>32-n}function t(e,n){var t,r,o,i,a;return o=2147483648&e,i=2147483648&n,t=1073741824&e,r=1073741824&n,a=(1073741823&e)+(1073741823&n),t&r?2147483648^a^o^i:t|r?1073741824&a?3221225472^a^o^i:1073741824^a^o^i:a^o^i}function r(e,n,t){return e&n|~e&t}function o(e,n,t){return e&t|n&~t}function i(e,n,t){return e^n^t}function a(e,n,t){return n^(e|~t)}function c(e,o,i,a,c,p,s){return e=t(e,t(t(r(o,i,a),c),s)),t(n(e,p),o)}function p(e,r,i,a,c,p,s){return e=t(e,t(t(o(r,i,a),c),s)),t(n(e,p),r)}function s(e,r,o,a,c,p,s){return e=t(e,t(t(i(r,o,a),c),s)),t(n(e,p),r)}function u(e,r,o,i,c,p,s){return e=t(e,t(t(a(r,o,i),c),s)),t(n(e,p),r)}function f(e){var n,t,r=[];for(t=0;t<=3;t++)n=e>>>8*t&255,r=r.concat(n);return r}var _,l,d,m,h,g,b,v,y,k=[],x=O("67452301efcdab8998badcfe10325476d76aa478e8c7b756242070dbc1bdceeef57c0faf4787c62aa8304613fd469501698098d88b44f7afffff5bb1895cd7be6b901122fd987193a679438e49b40821f61e2562c040b340265e5a51e9b6c7aad62f105d02441453d8a1e681e7d3fbc821e1cde6c33707d6f4d50d87455a14eda9e3e905fcefa3f8676f02d98d2a4c8afffa39428771f6816d9d6122fde5380ca4beea444bdecfa9f6bb4b60bebfbc70289b7ec6eaa127fad4ef308504881d05d9d4d039e6db99e51fa27cf8c4ac5665f4292244432aff97ab9423a7fc93a039655b59c38f0ccc92ffeff47d85845dd16fa87e4ffe2ce6e0a30143144e0811a1f7537e82bd3af2352ad7d2bbeb86d391",8);for(k=function(e){for(var n,t=e.length,r=t+8,o=(r-r%64)/64,i=16*(o+1),a=[],c=0,p=0;p<t;)n=(p-p%4)/4,c=p%4*8,a[n]=a[n]|e[p]<<c,p++;return n=(p-p%4)/4,c=p%4*8,a[n]=a[n]|128<<c,a[i-2]=t<<3,a[i-1]=t>>>29,a}(e),g=x[0],b=x[1],v=x[2],y=x[3],_=0;_<k.length;_+=16)l=g,d=b,m=v,h=y,g=c(g,b,v,y,k[_+0],7,x[4]),y=c(y,g,b,v,k[_+1],12,x[5]),v=c(v,y,g,b,k[_+2],17,x[6]),b=c(b,v,y,g,k[_+3],22,x[7]),g=c(g,b,v,y,k[_+4],7,x[8]),y=c(y,g,b,v,k[_+5],12,x[9]),v=c(v,y,g,b,k[_+6],17,x[10]),b=c(b,v,y,g,k[_+7],22,x[11]),g=c(g,b,v,y,k[_+8],7,x[12]),y=c(y,g,b,v,k[_+9],12,x[13]),v=c(v,y,g,b,k[_+10],17,x[14]),b=c(b,v,y,g,k[_+11],22,x[15]),g=c(g,b,v,y,k[_+12],7,x[16]),y=c(y,g,b,v,k[_+13],12,x[17]),v=c(v,y,g,b,k[_+14],17,x[18]),b=c(b,v,y,g,k[_+15],22,x[19]),g=p(g,b,v,y,k[_+1],5,x[20]),y=p(y,g,b,v,k[_+6],9,x[21]),v=p(v,y,g,b,k[_+11],14,x[22]),b=p(b,v,y,g,k[_+0],20,x[23]),g=p(g,b,v,y,k[_+5],5,x[24]),y=p(y,g,b,v,k[_+10],9,x[25]),v=p(v,y,g,b,k[_+15],14,x[26]),b=p(b,v,y,g,k[_+4],20,x[27]),g=p(g,b,v,y,k[_+9],5,x[28]),y=p(y,g,b,v,k[_+14],9,x[29]),v=p(v,y,g,b,k[_+3],14,x[30]),b=p(b,v,y,g,k[_+8],20,x[31]),g=p(g,b,v,y,k[_+13],5,x[32]),y=p(y,g,b,v,k[_+2],9,x[33]),v=p(v,y,g,b,k[_+7],14,x[34]),b=p(b,v,y,g,k[_+12],20,x[35]),g=s(g,b,v,y,k[_+5],4,x[36]),y=s(y,g,b,v,k[_+8],11,x[37]),v=s(v,y,g,b,k[_+11],16,x[38]),b=s(b,v,y,g,k[_+14],23,x[39]),g=s(g,b,v,y,k[_+1],4,x[40]),y=s(y,g,b,v,k[_+4],11,x[41]),v=s(v,y,g,b,k[_+7],16,x[42]),b=s(b,v,y,g,k[_+10],23,x[43]),g=s(g,b,v,y,k[_+13],4,x[44]),y=s(y,g,b,v,k[_+0],11,x[45]),v=s(v,y,g,b,k[_+3],16,x[46]),b=s(b,v,y,g,k[_+6],23,x[47]),g=s(g,b,v,y,k[_+9],4,x[48]),y=s(y,g,b,v,k[_+12],11,x[49]),v=s(v,y,g,b,k[_+15],16,x[50]),b=s(b,v,y,g,k[_+2],23,x[51]),g=u(g,b,v,y,k[_+0],6,x[52]),y=u(y,g,b,v,k[_+7],10,x[53]),v=u(v,y,g,b,k[_+14],15,x[54]),b=u(b,v,y,g,k[_+5],21,x[55]),g=u(g,b,v,y,k[_+12],6,x[56]),y=u(y,g,b,v,k[_+3],10,x[57]),v=u(v,y,g,b,k[_+10],15,x[58]),b=u(b,v,y,g,k[_+1],21,x[59]),g=u(g,b,v,y,k[_+8],6,x[60]),y=u(y,g,b,v,k[_+15],10,x[61]),v=u(v,y,g,b,k[_+6],15,x[62]),b=u(b,v,y,g,k[_+13],21,x[63]),g=u(g,b,v,y,k[_+4],6,x[64]),y=u(y,g,b,v,k[_+11],10,x[65]),v=u(v,y,g,b,k[_+2],15,x[66]),b=u(b,v,y,g,k[_+9],21,x[67]),g=t(g,l),b=t(b,d),v=t(v,m),y=t(y,h);return f(g).concat(f(b),f(v),f(y))},G=function(){var e="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/",n=e.split(""),t=function(e,t){var r,o,i=[],a="";Math.floor(16*e.length/3);for(r=0;r<16*e.length;r++)i.push(e[Math.floor(r/16)][r%16]);for(r=0;r<i.length;r+=3)a+=n[i[r]>>2],a+=n[(3&i[r])<<4|i[r+1]>>4],void 0!==i[r+1]?a+=n[(15&i[r+1])<<2|i[r+2]>>6]:a+="=",void 0!==i[r+2]?a+=n[63&i[r+2]]:a+="=";for(o=a.slice(0,64)+"\n",r=1;r<Math.ceil(a.length/64);r++)o+=a.slice(64*r,64*r+64)+(Math.ceil(a.length/64)===r+1?"":"\n");return o},r=function(n){n=n.replace(/\n/g,"");var t,r=[],o=[],i=[];for(t=0;t<n.length;t+=4)o[0]=e.indexOf(n.charAt(t)),o[1]=e.indexOf(n.charAt(t+1)),o[2]=e.indexOf(n.charAt(t+2)),o[3]=e.indexOf(n.charAt(t+3)),i[0]=o[0]<<2|o[1]>>4,i[1]=(15&o[1])<<4|o[2]>>2,i[2]=(3&o[2])<<6|o[3],r.push(i[0],i[1],i[2]);return r=r.slice(0,r.length-r.length%16)};return"function"==typeof Array.indexOf&&(e=n),{encode:t,decode:r}}();return{size:u,h2a:p,expandKey:x,encryptBlock:m,decryptBlock:h,Decrypt:t,s2a:s,rawEncrypt:l,rawDecrypt:d,dec:U,openSSLKey:_,a2h:c,enc:N,Hash:{MD5:z},Base64:G}})},function(e,n,t){"use strict";Object.defineProperty(n,"__esModule",{value:!0}),t(9).config(),n.default=t(43)({client:"pg",connection:{GJS_DEBUG_TOPICS:"JS ERROR;JS LOG",LESSOPEN:"| /usr/bin/lesspipe %s",npm_config_cache_lock_stale:"60000",npm_package_devDependencies_babel_core:"^6.24.1",npm_package_devDependencies_chalk:"^1.1.3",npm_package_dependencies_bluebird:"latest",npm_config_legacy_bundling:"",npm_config_sign_git_tag:"",USER:"sieunhangao",J2SDKDIR:"/usr/lib/jvm/java-8-oracle",LC_TIME:"vi_VN",npm_package_devDependencies_jest:"^20.0.4",npm_config_user_agent:"npm/4.2.0 node/v7.10.0 linux x64",npm_config_always_auth:"",XDG_SEAT:"seat0",npm_config_bin_links:"true",npm_config_key:"",SSH_AGENT_PID:"1316",XDG_SESSION_TYPE:"x11",npm_package_devDependencies_file_loader:"^0.11.1",npm_package_devDependencies_gulp:"github:gulpjs/gulp#4.0",npm_config_description:"true",npm_config_fetch_retries:"2",npm_config_heading:"npm",npm_config_if_present:"",npm_config_init_version:"1.0.0",npm_config_user:"",npm_node_execpath:"/usr/bin/nodejs",LD_LIBRARY_PATH:"/opt/WebStorm-171.4694.29/bin:",SHLVL:"1",J2REDIR:"/usr/lib/jvm/java-8-oracle/jre",npm_package_devDependencies_babel_preset_es2015:"^6.24.1",npm_package_devDependencies_url_loader:"^0.5.8",HOME:"/home/sieunhangao",QT4_IM_MODULE:"xim",npm_config_force:"",DESKTOP_SESSION:"gnome",npm_package_devDependencies_babel_preset_es2017:"^6.24.1",npm_config_only:"",GIO_LAUNCHED_DESKTOP_FILE:"/home/sieunhangao/.local/share/applications/jetbrains-webstorm.desktop",npm_package_scripts_build_w:"webpack -w",npm_package_engines_node:"7.10.0",npm_config_cache_min:"10",npm_config_init_license:"ISC",QT_LINUX_ACCESSIBILITY_ALWAYS_ON:"1",GTK_MODULES:"gail:atk-bridge",npm_package_dependencies_koa_router:"^7.2.0",npm_config_editor:"vi",npm_config_rollback:"true",npm_config_tag_version_prefix:"v",LC_MONETARY:"vi_VN",npm_package_devDependencies_rimraf:"^2.6.1",npm_package_dependencies_react_router_config:"^1.0.0-beta.3",npm_config_cache_max:"Infinity",npm_config_userconfig:"/home/sieunhangao/.npmrc",DBUS_SESSION_BUS_ADDRESS:"unix:abstract=/tmp/dbus-ivVa1rGhmg,guid=eeafc690d9635a9a203e1960596e141f",npm_package_dependencies_koa_nunjucks_2:"^3.0.2",npm_config_engine_strict:"",npm_config_init_author_name:"",npm_config_init_author_url:"",npm_config_tmp:"/tmp",GIO_LAUNCHED_DESKTOP_FILE_PID:"4000",npm_package_description:"",npm_package_scripts_start_client:"node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",npm_package_devDependencies_babel_loader:"^7.0.0",npm_package_dependencies_cheerio:"^1.0.0-rc.1",npm_package_dependencies_material_ui:"^0.18.1",npm_package_dependencies_react_router_dom:"^4.1.2",npm_config_depth:"Infinity",npm_config_save_dev:"",npm_config_usage:"",npm_package_devDependencies_progress_bar_webpack_plugin:"^1.9.3",npm_config_cafile:"",npm_config_metrics_registry:"https://registry.npmjs.org/",npm_config_progress:"true",npm_config_https_proxy:"",MANDATORY_PATH:"/usr/share/gconf/gnome.mandatory.path",npm_package_devDependencies_babel_jest:"^20.0.3",npm_config_onload_script:"",LOGNAME:"sieunhangao",GTK_IM_MODULE:"ibus",npm_package_dependencies_request:"latest",npm_config_rebuild_bundle:"true",npm_config_save_bundle:"",npm_config_shell:"/bin/bash",_:"/usr/bin/npm",npm_package_dependencies_react_tap_event_plugin:"^2.0.1",npm_config_dry_run:"",npm_config_prefix:"/usr",DEFAULTS_PATH:"/usr/share/gconf/gnome.default.path",npm_config_scope:"",npm_config_browser:"",npm_config_cache_lock_wait:"10000",npm_config_registry:"https://registry.npmjs.org/",npm_config_save_optional:"",npm_config_searchopts:"",npm_config_versions:"",XDG_SESSION_ID:"1",TERM:"xterm-256color",USERNAME:"sieunhangao",npm_config_cache:"/home/sieunhangao/.npm",npm_config_proxy:"",npm_config_send_metrics:"",GNOME_DESKTOP_SESSION_ID:"this-is-deprecated",npm_package_scripts_clear:"rimraf public",npm_package_scripts_start:"node index.js ",npm_package_devDependencies_html_webpack_plugin:"^2.28.0",npm_package_devDependencies_webpack_node_externals:"^1.6.0",npm_config_global_style:"",npm_config_ignore_scripts:"",npm_config_version:"",WINDOWPATH:"7",npm_config_local_address:"",npm_config_viewer:"man",PATH:"/usr/lib/node_modules/npm/bin/node-gyp-bin:/media/sieunhangao/Data/Project/react/testing-react/node_modules/.bin:/home/sieunhangao/bin:/home/sieunhangao/.local/bin:/home/sieunhangao/bin:/home/sieunhangao/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/home/sieunhangao/Android/Sdk/tools:/home/sieunhangao/Android/Sdk/platform-tools:/home/sieunhangao/Android/Sdk/tools:/home/sieunhangao/Android/Sdk/platform-tools",DERBY_HOME:"/usr/lib/jvm/java-8-oracle/db",SESSION_MANAGER:"local/sieunhangao-Inspiron-7537:@/tmp/.ICE-unix/1247,unix/sieunhangao-Inspiron-7537:/tmp/.ICE-unix/1247",npm_package_name:"demo",npm_package_dependencies_koa:"^2.2.0",NODE:"/usr/bin/nodejs",LC_ADDRESS:"vi_VN",XDG_MENU_PREFIX:"gnome-",XDG_RUNTIME_DIR:"/run/user/1000",npm_package_devDependencies_babel_polyfill:"^6.23.0",npm_package_dependencies_react_redux:"^5.0.5",npm_config_color:"true",DISPLAY:":0",npm_package_dependencies_koa_static:"^3.0.0",npm_config_fetch_retry_mintimeout:"10000",npm_config_maxsockets:"50",LC_TELEPHONE:"vi_VN",LANG:"en_US.UTF-8",XDG_CURRENT_DESKTOP:"GNOME",npm_package_devDependencies_react_test_renderer:"^15.6.1",npm_package_devDependencies_webpack:"^2.6.0",npm_package_dependencies_react_dom:"^15.5.4",npm_package_dependencies_redux:"^3.6.0",npm_config_umask:"0002",LS_COLORS:"rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:",XMODIFIERS:"@im=ibus",XDG_SESSION_DESKTOP:"gnome",XAUTHORITY:"/run/user/1000/gdm/Xauthority",npm_package_main:"index.js",npm_package_devDependencies_dotenv:"^4.0.0",npm_package_devDependencies_html_loader:"^0.4.5",npm_package_gitHead:"2d50ff5a1b9c48368b66a20ca3878e9c9d3c16a8",npm_config_fetch_retry_maxtimeout:"60000",npm_config_loglevel:"warn",npm_config_logs_max:"10",npm_config_message:"%s",npm_lifecycle_script:"webpack -p",SSH_AUTH_SOCK:"/run/user/1000/keyring/ssh",npm_package_scripts_test:"jest",npm_package_devDependencies_webpack_dev_server:"^2.4.5",npm_config_ca:"",npm_config_cert:"",npm_config_global:"",npm_config_link:"",SHELL:"/bin/bash",LC_NAME:"vi_VN",npm_package_version:"1.0.0",npm_package_dependencies_knex:"^0.13.0",npm_config_access:"",npm_config_also:"",npm_config_save:"",npm_config_unicode:"true",npm_lifecycle_event:"build",QT_ACCESSIBILITY:"1",GDMSESSION:"gnome",npm_package_scripts_build:"webpack -p",npm_config_argv:'{"remain":[],"cooked":["run","build"],"original":["run","build"]}',npm_config_long:"",npm_config_production:"",npm_config_searchlimit:"20",npm_config_unsafe_perm:"true",LESSCLOSE:"/usr/bin/lesspipe %s %s",npm_package_author:"",npm_package_dependencies_koa_bodyparser:"^4.2.0",npm_config_node_version:"7.10.0",npm_config_tag:"latest",LC_MEASUREMENT:"vi_VN",npm_package_devDependencies_babel_preset_stage_0:"^6.24.1",npm_config_git_tag_version:"true",npm_config_shrinkwrap:"true",GJS_DEBUG_OUTPUT:"stderr",LC_IDENTIFICATION:"vi_VN",npm_package_license:"ISC",npm_config_fetch_retry_factor:"10",npm_config_proprietary_attribs:"true",npm_config_save_exact:"",npm_config_strict_ssl:"true",XDG_VTNR:"7",QT_IM_MODULE:"ibus",npm_package_devDependencies_style_loader:"^0.18.0",npm_config_dev:"",npm_config_globalconfig:"/usr/etc/npmrc",npm_config_init_module:"/home/sieunhangao/.npm-init.js",npm_config_parseable:"",PWD:"/media/sieunhangao/Data/Project/react/testing-react",JAVA_HOME:"/usr/lib/jvm/java-8-oracle",npm_package_devDependencies_enzyme:"^2.9.1",npm_config_globalignorefile:"/usr/etc/npmignore",npm_execpath:"/usr/lib/node_modules/npm/bin/npm-cli.js",CLUTTER_IM_MODULE:"xim",ANDROID_HOME:"/home/sieunhangao/Android/Sdk",XDG_CONFIG_DIRS:"/etc/xdg/xdg-gnome:/etc/xdg",XDG_DATA_DIRS:"/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop",npm_package_devDependencies_css_loader:"^0.28.2",npm_package_devDependencies_image_webpack_loader:"^3.3.1",npm_config_cache_lock_retries:"10",npm_config_searchstaleness:"900",LC_NUMERIC:"vi_VN",npm_package_devDependencies_babel_preset_env:"^1.5.1",npm_package_devDependencies_extract_text_webpack_plugin:"^2.1.0",npm_config_save_prefix:"^",npm_config_scripts_prepend_node_path:"warn-only",LC_PAPER:"vi_VN",npm_config_group:"1000",npm_config_init_author_email:"",npm_config_searchexclude:"",npm_config_git:"git",npm_config_optional:"true",npm_package_devDependencies_babel_preset_react:"^6.24.1",npm_package_dependencies_pg:"^6.2.3",npm_package_dependencies_react:"^15.5.4",npm_config_json:"",DATABASE_URL:"postgres://xmvmpwalsagthi:5ecba1004453919d22f093c5bfe251e29844741799525ae02b8d1810fa572993@ec2-54-197-232-155.compute-1.amazonaws.com:5432/dcktrp0qkbns39"}.DATABASE_URL+"?ssl=true"})},function(e,n,t){"use strict";function r(e,n){return new p(function(t,r){s(e,n||u,function(e,n,o){return e||200!=n.statusCode?r(e):t(o)})})}function o(e){return-1===e.indexOf("http://www.phimMoi.net/")&&-1===e.indexOf("http://www.phimmoi.net/")&&(e="http://www.phimmoi.net/"+e),-1===e.indexOf("html")&&(e+="xem-phim.html"),r(e,null).then(function(e){return r(c.load(e)('script[onload="checkEpisodeInfoLoaded(this)"]').attr("src").replace("javascript","json"),Object.assign({},u,{json:!0}))}).then(function(e){var n=e.episodeId,t=e.medias,r="PhimMoi.Net@"+n;if(t)return t.map(function(e){return{url:i(e.url,r),type:e.type,width:e.width,height:e.height,resolution:parseFloat(e.resolution),label:e.resolution}})})}function i(e,n){try{return a.dec(e,n)}catch(e){}}var a=t(18),c=t(41),p=t(40),s=(t(42),t(54)),u={headers:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0"}};n.getLinkDownloadByUrl=o},function(e,n,t){"use strict";function r(e){return function(){return e}}var o=function(){};o.thatReturns=r,o.thatReturnsFalse=r(!1),o.thatReturnsTrue=r(!0),o.thatReturnsNull=r(null),o.thatReturnsThis=function(){return this},o.thatReturnsArgument=function(e){return e},e.exports=o},function(e,n,t){"use strict";function r(e,n,t,r,i,a,c,p){if(o(n),!e){var s;if(void 0===n)s=new Error("Minified exception occurred; use the non-minified dev environment for the full error message and additional helpful warnings.");else{var u=[t,r,i,a,c,p],f=0;s=new Error(n.replace(/%s/g,function(){return u[f++]})),s.name="Invariant Violation"}throw s.framesToPop=1,s}}var o=function(e){};e.exports=r},function(e,n,t){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}n.__esModule=!0,n.locationsAreEqual=n.createLocation=void 0;var o=Object.assign||function(e){for(var n=1;n<arguments.length;n++){var t=arguments[n];for(var r in t)Object.prototype.hasOwnProperty.call(t,r)&&(e[r]=t[r])}return e},i=t(38),a=r(i),c=t(39),p=r(c),s=t(3);n.createLocation=function(e,n,t,r){var i=void 0;"string"==typeof e?(i=(0,s.parsePath)(e),i.state=n):(i=o({},e),void 0===i.pathname&&(i.pathname=""),i.search?"?"!==i.search.charAt(0)&&(i.search="?"+i.search):i.search="",i.hash?"#"!==i.hash.charAt(0)&&(i.hash="#"+i.hash):i.hash="",void 0!==n&&void 0===i.state&&(i.state=n));try{i.pathname=decodeURI(i.pathname)}catch(e){throw e instanceof URIError?new URIError('Pathname "'+i.pathname+'" could not be decoded. This is likely caused by an invalid percent-encoding.'):e}return t&&(i.key=t),r?i.pathname?"/"!==i.pathname.charAt(0)&&(i.pathname=(0,a.default)(i.pathname,r.pathname)):i.pathname=r.pathname:i.pathname||(i.pathname="/"),i},n.locationsAreEqual=function(e,n){return e.pathname===n.pathname&&e.search===n.search&&e.hash===n.hash&&e.key===n.key&&(0,p.default)(e.state,n.state)}},function(e,n,t){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}n.__esModule=!0;var o="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},i=Object.assign||function(e){for(var n=1;n<arguments.length;n++){var t=arguments[n];for(var r in t)Object.prototype.hasOwnProperty.call(t,r)&&(e[r]=t[r])}return e},a=t(2),c=r(a),p=t(3),s=t(23),u=t(25),f=r(u),_=function(e,n,t){return Math.min(Math.max(e,n),t)},l=function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{},n=e.getUserConfirmation,t=e.initialEntries,r=void 0===t?["/"]:t,a=e.initialIndex,u=void 0===a?0:a,l=e.keyLength,d=void 0===l?6:l,m=(0,f.default)(),h=function(e){i(R,e),R.length=R.entries.length,m.notifyListeners(R.location,R.action)},g=function(){return Math.random().toString(36).substr(2,d)},b=_(u,0,r.length-1),v=r.map(function(e){return"string"==typeof e?(0,s.createLocation)(e,void 0,g()):(0,s.createLocation)(e,void 0,e.key||g())}),y=p.createPath,k=function(e,t){(0,c.default)(!("object"===(void 0===e?"undefined":o(e))&&void 0!==e.state&&void 0!==t),"You should avoid providing a 2nd state argument to push when the 1st argument is a location-like object that already has state; it is ignored");var r=(0,s.createLocation)(e,t,g(),R.location);m.confirmTransitionTo(r,"PUSH",n,function(e){if(e){var n=R.index,t=n+1,o=R.entries.slice(0);o.length>t?o.splice(t,o.length-t,r):o.push(r),h({action:"PUSH",location:r,index:t,entries:o})}})},x=function(e,t){(0,c.default)(!("object"===(void 0===e?"undefined":o(e))&&void 0!==e.state&&void 0!==t),"You should avoid providing a 2nd state argument to replace when the 1st argument is a location-like object that already has state; it is ignored");var r=(0,s.createLocation)(e,t,g(),R.location);m.confirmTransitionTo(r,"REPLACE",n,function(e){e&&(R.entries[R.index]=r,h({action:"REPLACE",location:r}))})},E=function(e){var t=_(R.index+e,0,R.entries.length-1),r=R.entries[t];m.confirmTransitionTo(r,"POP",n,function(e){e?h({action:"POP",location:r,index:t}):h()})},w=function(){return E(-1)},O=function(){return E(1)},S=function(e){var n=R.index+e;return n>=0&&n<R.entries.length},j=function(){var e=arguments.length>0&&void 0!==arguments[0]&&arguments[0];return m.setPrompt(e)},D=function(e){return m.appendListener(e)},R={length:v.length,action:"POP",location:v[b],index:b,entries:v,createHref:y,push:k,replace:x,go:E,goBack:w,goForward:O,canGo:S,block:j,listen:D};return R};n.default=l},function(e,n,t){"use strict";n.__esModule=!0;var r=t(2),o=function(e){return e&&e.__esModule?e:{default:e}}(r),i=function(){var e=null,n=function(n){return(0,o.default)(null==e,"A history supports only one prompt at a time"),e=n,function(){e===n&&(e=null)}},t=function(n,t,r,i){if(null!=e){var a="function"==typeof e?e(n,t):e;"string"==typeof a?"function"==typeof r?r(a,i):((0,o.default)(!1,"A history needs a getUserConfirmation function in order to use a prompt message"),i(!0)):i(!1!==a)}else i(!0)},r=[];return{setPrompt:n,confirmTransitionTo:t,appendListener:function(e){var n=!0,t=function(){n&&e.apply(void 0,arguments)};return r.push(t),function(){n=!1,r=r.filter(function(e){return e!==t})}},notifyListeners:function(){for(var e=arguments.length,n=Array(e),t=0;t<e;t++)n[t]=arguments[t];r.forEach(function(e){return e.apply(void 0,n)})}}};n.default=i},function(e,n,t){"use strict";var r={childContextTypes:!0,contextTypes:!0,defaultProps:!0,displayName:!0,getDefaultProps:!0,mixins:!0,propTypes:!0,type:!0},o={name:!0,length:!0,prototype:!0,caller:!0,arguments:!0,arity:!0},i="function"==typeof Object.getOwnPropertySymbols;e.exports=function(e,n,t){if("string"!=typeof n){var a=Object.getOwnPropertyNames(n);i&&(a=a.concat(Object.getOwnPropertySymbols(n)));for(var c=0;c<a.length;++c)if(!(r[a[c]]||o[a[c]]||t&&t[a[c]]))try{e[a[c]]=n[a[c]]}catch(e){}}return e}},function(e,n){e.exports=Array.isArray||function(e){return"[object Array]"==Object.prototype.toString.call(e)}},function(e,n,t){function r(e,n){for(var t,r=[],o=0,i=0,a="",c=n&&n.delimiter||"/";null!=(t=b.exec(e));){var u=t[0],f=t[1],_=t.index;if(a+=e.slice(i,_),i=_+u.length,f)a+=f[1];else{var l=e[i],d=t[2],m=t[3],h=t[4],g=t[5],v=t[6],y=t[7];a&&(r.push(a),a="");var k=null!=d&&null!=l&&l!==d,x="+"===v||"*"===v,E="?"===v||"*"===v,w=t[2]||c,O=h||g;r.push({name:m||o++,prefix:d||"",delimiter:w,optional:E,repeat:x,partial:k,asterisk:!!y,pattern:O?s(O):y?".*":"[^"+p(w)+"]+?"})}}return i<e.length&&(a+=e.substr(i)),a&&r.push(a),r}function o(e,n){return c(r(e,n))}function i(e){return encodeURI(e).replace(/[\/?#]/g,function(e){return"%"+e.charCodeAt(0).toString(16).toUpperCase()})}function a(e){return encodeURI(e).replace(/[?#]/g,function(e){return"%"+e.charCodeAt(0).toString(16).toUpperCase()})}function c(e){for(var n=new Array(e.length),t=0;t<e.length;t++)"object"==typeof e[t]&&(n[t]=new RegExp("^(?:"+e[t].pattern+")$"));return function(t,r){for(var o="",c=t||{},p=r||{},s=p.pretty?i:encodeURIComponent,u=0;u<e.length;u++){var f=e[u];if("string"!=typeof f){var _,l=c[f.name];if(null==l){if(f.optional){f.partial&&(o+=f.prefix);continue}throw new TypeError('Expected "'+f.name+'" to be defined')}if(g(l)){if(!f.repeat)throw new TypeError('Expected "'+f.name+'" to not repeat, but received `'+JSON.stringify(l)+"`");if(0===l.length){if(f.optional)continue;throw new TypeError('Expected "'+f.name+'" to not be empty')}for(var d=0;d<l.length;d++){if(_=s(l[d]),!n[u].test(_))throw new TypeError('Expected all "'+f.name+'" to match "'+f.pattern+'", but received `'+JSON.stringify(_)+"`");o+=(0===d?f.prefix:f.delimiter)+_}}else{if(_=f.asterisk?a(l):s(l),!n[u].test(_))throw new TypeError('Expected "'+f.name+'" to match "'+f.pattern+'", but received "'+_+'"');o+=f.prefix+_}}else o+=f}return o}}function p(e){return e.replace(/([.+*?=^!:${}()[\]|\/\\])/g,"\\$1")}function s(e){return e.replace(/([=!:$\/()])/g,"\\$1")}function u(e,n){return e.keys=n,e}function f(e){return e.sensitive?"":"i"}function _(e,n){var t=e.source.match(/\((?!\?)/g);if(t)for(var r=0;r<t.length;r++)n.push({name:r,prefix:null,delimiter:null,optional:!1,repeat:!1,partial:!1,asterisk:!1,pattern:null});return u(e,n)}function l(e,n,t){for(var r=[],o=0;o<e.length;o++)r.push(h(e[o],n,t).source);return u(new RegExp("(?:"+r.join("|")+")",f(t)),n)}function d(e,n,t){return m(r(e,t),n,t)}function m(e,n,t){g(n)||(t=n||t,n=[]),t=t||{};for(var r=t.strict,o=!1!==t.end,i="",a=0;a<e.length;a++){var c=e[a];if("string"==typeof c)i+=p(c);else{var s=p(c.prefix),_="(?:"+c.pattern+")";n.push(c),c.repeat&&(_+="(?:"+s+_+")*"),_=c.optional?c.partial?s+"("+_+")?":"(?:"+s+"("+_+"))?":s+"("+_+")",i+=_}}var l=p(t.delimiter||"/"),d=i.slice(-l.length)===l;return r||(i=(d?i.slice(0,-l.length):i)+"(?:"+l+"(?=$))?"),i+=o?"$":r&&d?"":"(?="+l+"|$)",u(new RegExp("^"+i,f(t)),n)}function h(e,n,t){return g(n)||(t=n||t,n=[]),t=t||{},e instanceof RegExp?_(e,n):g(e)?l(e,n,t):d(e,n,t)}var g=t(27);e.exports=h,e.exports.parse=r,e.exports.compile=o,e.exports.tokensToFunction=c,e.exports.tokensToRegExp=m;var b=new RegExp(["(\\\\.)","([\\/.])?(?:(?:\\:(\\w+)(?:\\(((?:\\\\.|[^\\\\()])+)\\))?|\\(((?:\\\\.|[^\\\\()])+)\\))([+*?])?|(\\*))"].join("|"),"g")},function(e,n,t){"use strict";var r=t(21),o=t(22),i=t(30);e.exports=function(){function e(e,n,t,r,a,c){c!==i&&o(!1,"Calling PropTypes validators directly is not supported by the `prop-types` package. Use PropTypes.checkPropTypes() to call them. Read more at http://fb.me/use-check-prop-types")}function n(){return e}e.isRequired=e;var t={array:e,bool:e,func:e,number:e,object:e,string:e,symbol:e,any:e,arrayOf:n,element:e,instanceOf:n,node:e,objectOf:n,oneOf:n,oneOfType:n,shape:n};return t.checkPropTypes=r,t.PropTypes=t,t}},function(e,n,t){"use strict";e.exports="SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED"},function(e,n,t){"use strict";function r(e,n){if(!(e instanceof n))throw new TypeError("Cannot call a class as a function")}function o(e,n){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!n||"object"!=typeof n&&"function"!=typeof n?e:n}function i(e,n){if("function"!=typeof n&&null!==n)throw new TypeError("Super expression must either be null or a function, not "+typeof n);e.prototype=Object.create(n&&n.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),n&&(Object.setPrototypeOf?Object.setPrototypeOf(e,n):e.__proto__=n)}var a=t(0),c=t.n(a),p=t(1),s=t.n(p),u=t(24),f=t.n(u),_=t(4),l=function(e){function n(){var t,i,a;r(this,n);for(var c=arguments.length,p=Array(c),s=0;s<c;s++)p[s]=arguments[s];return t=i=o(this,e.call.apply(e,[this].concat(p))),i.history=f()(i.props),a=t,o(i,a)}return i(n,e),n.prototype.render=function(){return c.a.createElement(_.a,{history:this.history,children:this.props.children})},n}(c.a.Component);l.propTypes={initialEntries:s.a.array,initialIndex:s.a.number,getUserConfirmation:s.a.func,keyLength:s.a.number,children:s.a.node},n.a=l},function(e,n,t){"use strict";function r(e,n){if(!(e instanceof n))throw new TypeError("Cannot call a class as a function")}function o(e,n){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!n||"object"!=typeof n&&"function"!=typeof n?e:n}function i(e,n){if("function"!=typeof n&&null!==n)throw new TypeError("Super expression must either be null or a function, not "+typeof n);e.prototype=Object.create(n&&n.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),n&&(Object.setPrototypeOf?Object.setPrototypeOf(e,n):e.__proto__=n)}var a=t(0),c=t.n(a),p=t(1),s=t.n(p),u=function(e){function n(){return r(this,n),o(this,e.apply(this,arguments))}return i(n,e),n.prototype.enable=function(e){this.unblock&&this.unblock(),this.unblock=this.context.router.history.block(e)},n.prototype.disable=function(){this.unblock&&(this.unblock(),this.unblock=null)},n.prototype.componentWillMount=function(){this.props.when&&this.enable(this.props.message)},n.prototype.componentWillReceiveProps=function(e){e.when?this.props.when&&this.props.message===e.message||this.enable(e.message):this.disable()},n.prototype.componentWillUnmount=function(){this.disable()},n.prototype.render=function(){return null},n}(c.a.Component);u.propTypes={when:s.a.bool,message:s.a.oneOfType([s.a.func,s.a.string]).isRequired},u.defaultProps={when:!0},u.contextTypes={router:s.a.shape({history:s.a.shape({block:s.a.func.isRequired}).isRequired}).isRequired},n.a=u},function(e,n,t){"use strict";function r(e,n){if(!(e instanceof n))throw new TypeError("Cannot call a class as a function")}function o(e,n){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!n||"object"!=typeof n&&"function"!=typeof n?e:n}function i(e,n){if("function"!=typeof n&&null!==n)throw new TypeError("Super expression must either be null or a function, not "+typeof n);e.prototype=Object.create(n&&n.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),n&&(Object.setPrototypeOf?Object.setPrototypeOf(e,n):e.__proto__=n)}var a=t(0),c=t.n(a),p=t(1),s=t.n(p),u=function(e){function n(){return r(this,n),o(this,e.apply(this,arguments))}return i(n,e),n.prototype.isStatic=function(){return this.context.router&&this.context.router.staticContext},n.prototype.componentWillMount=function(){this.isStatic()&&this.perform()},n.prototype.componentDidMount=function(){this.isStatic()||this.perform()},n.prototype.perform=function(){var e=this.context.router.history,n=this.props,t=n.push,r=n.to;t?e.push(r):e.replace(r)},n.prototype.render=function(){return null},n}(c.a.Component);u.propTypes={push:s.a.bool,from:s.a.string,to:s.a.oneOfType([s.a.string,s.a.object])},u.defaultProps={push:!1},u.contextTypes={router:s.a.shape({history:s.a.shape({push:s.a.func.isRequired,replace:s.a.func.isRequired}).isRequired,staticContext:s.a.object}).isRequired},n.a=u},function(e,n,t){"use strict";function r(e,n){var t={};for(var r in e)n.indexOf(r)>=0||Object.prototype.hasOwnProperty.call(e,r)&&(t[r]=e[r]);return t}function o(e,n){if(!(e instanceof n))throw new TypeError("Cannot call a class as a function")}function i(e,n){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!n||"object"!=typeof n&&"function"!=typeof n?e:n}function a(e,n){if("function"!=typeof n&&null!==n)throw new TypeError("Super expression must either be null or a function, not "+typeof n);e.prototype=Object.create(n&&n.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),n&&(Object.setPrototypeOf?Object.setPrototypeOf(e,n):e.__proto__=n)}var c=t(7),p=t.n(c),s=t(0),u=t.n(s),f=t(1),_=t.n(f),l=t(3),d=(t.n(l),t(4)),m=Object.assign||function(e){for(var n=1;n<arguments.length;n++){var t=arguments[n];for(var r in t)Object.prototype.hasOwnProperty.call(t,r)&&(e[r]=t[r])}return e},h=function(e){var n=e.pathname,t=void 0===n?"/":n,r=e.search,o=void 0===r?"":r,i=e.hash,a=void 0===i?"":i;return{pathname:t,search:"?"===o?"":o,hash:"#"===a?"":a}},g=function(e,n){return e?m({},n,{pathname:t.i(l.addLeadingSlash)(e)+n.pathname}):n},b=function(e,n){if(!e)return n;var r=t.i(l.addLeadingSlash)(e);return 0!==n.pathname.indexOf(r)?n:m({},n,{pathname:n.pathname.substr(r.length)})},v=function(e){return"string"==typeof e?t.i(l.parsePath)(e):h(e)},y=function(e){return"string"==typeof e?e:t.i(l.createPath)(e)},k=function(e){return function(){p()(!1,"You cannot %s with <StaticRouter>",e)}},x=function(){},E=function(e){function n(){var r,a,c;o(this,n);for(var p=arguments.length,s=Array(p),u=0;u<p;u++)s[u]=arguments[u];return r=a=i(this,e.call.apply(e,[this].concat(s))),a.createHref=function(e){return t.i(l.addLeadingSlash)(a.props.basename+y(e))},a.handlePush=function(e){var n=a.props,t=n.basename,r=n.context;r.action="PUSH",r.location=g(t,v(e)),r.url=y(r.location)},a.handleReplace=function(e){var n=a.props,t=n.basename,r=n.context;r.action="REPLACE",r.location=g(t,v(e)),r.url=y(r.location)},a.handleListen=function(){return x},a.handleBlock=function(){return x},c=r,i(a,c)}return a(n,e),n.prototype.getChildContext=function(){return{router:{staticContext:this.props.context}}},n.prototype.render=function(){var e=this.props,n=e.basename,t=(e.context,e.location),o=r(e,["basename","context","location"]),i={createHref:this.createHref,action:"POP",location:b(n,v(t)),push:this.handlePush,replace:this.handleReplace,go:k("go"),goBack:k("goBack"),goForward:k("goForward"),listen:this.handleListen,block:this.handleBlock};return u.a.createElement(d.a,m({},o,{history:i}))},n}(u.a.Component);E.propTypes={basename:_.a.string,context:_.a.object.isRequired,location:_.a.oneOfType([_.a.string,_.a.object])},E.defaultProps={basename:"",location:"/"},E.childContextTypes={router:_.a.object.isRequired},n.a=E},function(e,n,t){"use strict";function r(e,n){if(!(e instanceof n))throw new TypeError("Cannot call a class as a function")}function o(e,n){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!n||"object"!=typeof n&&"function"!=typeof n?e:n}function i(e,n){if("function"!=typeof n&&null!==n)throw new TypeError("Super expression must either be null or a function, not "+typeof n);e.prototype=Object.create(n&&n.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),n&&(Object.setPrototypeOf?Object.setPrototypeOf(e,n):e.__proto__=n)}var a=t(0),c=t.n(a),p=t(1),s=t.n(p),u=t(2),f=t.n(u),_=t(5),l=function(e){function n(){return r(this,n),o(this,e.apply(this,arguments))}return i(n,e),n.prototype.componentWillReceiveProps=function(e){f()(!(e.location&&!this.props.location),'<Switch> elements should not change from uncontrolled to controlled (or vice versa). You initially used no "location" prop and then provided one on a subsequent render.'),f()(!(!e.location&&this.props.location),'<Switch> elements should not change from controlled to uncontrolled (or vice versa). You provided a "location" prop initially but omitted it on a subsequent render.')},n.prototype.render=function(){var e=this.context.router.route,n=this.props.children,r=this.props.location||e.location,o=void 0,i=void 0;return c.a.Children.forEach(n,function(n){if(c.a.isValidElement(n)){var a=n.props,p=a.path,s=a.exact,u=a.strict,f=a.from,l=p||f;null==o&&(i=n,o=l?t.i(_.a)(r.pathname,{path:l,exact:s,strict:u}):e.match)}}),o?c.a.cloneElement(i,{location:r,computedMatch:o}):null},n}(c.a.Component);l.contextTypes={router:s.a.shape({route:s.a.object.isRequired}).isRequired},l.propTypes={children:s.a.node,location:s.a.object},n.a=l},function(e,n,t){"use strict";Object.defineProperty(n,"__esModule",{value:!0});var r=t(31);t.d(n,"MemoryRouter",function(){return r.a});var o=t(32);t.d(n,"Prompt",function(){return o.a});var i=t(33);t.d(n,"Redirect",function(){return i.a});var a=t(8);t.d(n,"Route",function(){return a.a});var c=t(4);t.d(n,"Router",function(){return c.a});var p=t(34);t.d(n,"StaticRouter",function(){return p.a});var s=t(35);t.d(n,"Switch",function(){return s.a});var u=t(5);t.d(n,"matchPath",function(){return u.a});var f=t(37);t.d(n,"withRouter",function(){return f.a})},function(e,n,t){"use strict";function r(e,n){var t={};for(var r in e)n.indexOf(r)>=0||Object.prototype.hasOwnProperty.call(e,r)&&(t[r]=e[r]);return t}var o=t(0),i=t.n(o),a=t(1),c=t.n(a),p=t(26),s=t.n(p),u=t(8),f=Object.assign||function(e){for(var n=1;n<arguments.length;n++){var t=arguments[n];for(var r in t)Object.prototype.hasOwnProperty.call(t,r)&&(e[r]=t[r])}return e},_=function(e){var n=function(n){var t=n.wrappedComponentRef,o=r(n,["wrappedComponentRef"]);return i.a.createElement(u.a,{render:function(n){return i.a.createElement(e,f({},o,n,{ref:t}))}})};return n.displayName="withRouter("+(e.displayName||e.name)+")",n.WrappedComponent=e,n.propTypes={wrappedComponentRef:c.a.func},s()(n,e)};n.a=_},function(e,n,t){"use strict";var r=function(e){return"/"===e.charAt(0)},o=function(e,n){for(var t=n,r=t+1,o=e.length;r<o;t+=1,r+=1)e[t]=e[r];e.pop()},i=function(e){var n=arguments.length>1&&void 0!==arguments[1]?arguments[1]:"",t=e&&e.split("/")||[],i=n&&n.split("/")||[],a=e&&r(e),c=n&&r(n),p=a||c;if(e&&r(e)?i=t:t.length&&(i.pop(),i=i.concat(t)),!i.length)return"/";var s=void 0;if(i.length){var u=i[i.length-1];s="."===u||".."===u||""===u}else s=!1;for(var f=0,_=i.length;_>=0;_--){var l=i[_];"."===l?o(i,_):".."===l?(o(i,_),f++):f&&(o(i,_),f--)}if(!p)for(;f--;f)i.unshift("..");!p||""===i[0]||i[0]&&r(i[0])||i.unshift("");var d=i.join("/");return s&&"/"!==d.substr(-1)&&(d+="/"),d};e.exports=i},function(e,n,t){"use strict";n.__esModule=!0;var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},o=function e(n,t){if(n===t)return!0;if(null==n||null==t)return!1;if(Array.isArray(n))return Array.isArray(t)&&n.length===t.length&&n.every(function(n,r){return e(n,t[r])});var o=void 0===n?"undefined":r(n);if(o!==(void 0===t?"undefined":r(t)))return!1;if("object"===o){var i=n.valueOf(),a=t.valueOf();if(i!==n||a!==t)return e(i,a);var c=Object.keys(n),p=Object.keys(t);return c.length===p.length&&c.every(function(r){return e(n[r],t[r])})}return!1};n.default=o},function(e,n){e.exports=require("bluebird")},function(e,n){e.exports=require("cheerio")},function(e,n){e.exports=require("fs")},function(e,n){e.exports=require("knex")},function(e,n){e.exports=require("koa")},function(e,n){e.exports=require("koa-bodyparser")},function(e,n){e.exports=require("koa-nunjucks-2")},function(e,n){e.exports=require("koa-router")},function(e,n){e.exports=require("koa-static")},function(e,n){e.exports=require("material-ui/AppBar")},function(e,n){e.exports=require("material-ui/IconButton")},function(e,n){e.exports=require("material-ui/svg-icons/navigation/close")},function(e,n){e.exports=require("path")},function(e,n){e.exports=require("react-dom/server")},function(e,n){e.exports=require("request")},function(e,n,t){t(12),e.exports=t(11)}]);
+
+(function (root, factory) {
+    if (( false ? 'undefined' : _typeof(exports)) === 'object') {
+        // Node.
+        module.exports = factory();
+    } else if (true) {
+        // AMD. Register as an anonymous module.
+        !(__WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) :
+				__WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+    } else {
+        // Browser globals (root is window)
+        root.GibberishAES = factory();
+    }
+})(undefined, function () {
+    'use strict';
+
+    var Nr = 14,
+
+    /* Default to 256 Bit Encryption */
+    Nk = 8,
+        Decrypt = false,
+        enc_utf8 = function enc_utf8(s) {
+        try {
+            return unescape(encodeURIComponent(s));
+        } catch (e) {
+            throw 'Error on UTF-8 encode';
+        }
+    },
+        dec_utf8 = function dec_utf8(s) {
+        try {
+            return decodeURIComponent(escape(s));
+        } catch (e) {
+            throw 'Bad Key';
+        }
+    },
+        padBlock = function padBlock(byteArr) {
+        var array = [],
+            cpad,
+            i;
+        if (byteArr.length < 16) {
+            cpad = 16 - byteArr.length;
+            array = [cpad, cpad, cpad, cpad, cpad, cpad, cpad, cpad, cpad, cpad, cpad, cpad, cpad, cpad, cpad, cpad];
+        }
+        for (i = 0; i < byteArr.length; i++) {
+            array[i] = byteArr[i];
+        }
+        return array;
+    },
+        block2s = function block2s(block, lastBlock) {
+        var string = '',
+            padding,
+            i;
+        if (lastBlock) {
+            padding = block[15];
+            if (padding > 16) {
+                throw 'Decryption error: Maybe bad key';
+            }
+            if (padding === 16) {
+                return '';
+            }
+            for (i = 0; i < 16 - padding; i++) {
+                string += String.fromCharCode(block[i]);
+            }
+        } else {
+            for (i = 0; i < 16; i++) {
+                string += String.fromCharCode(block[i]);
+            }
+        }
+        return string;
+    },
+        a2h = function a2h(numArr) {
+        var string = '',
+            i;
+        for (i = 0; i < numArr.length; i++) {
+            string += (numArr[i] < 16 ? '0' : '') + numArr[i].toString(16);
+        }
+        return string;
+    },
+        h2a = function h2a(s) {
+        var ret = [];
+        s.replace(/(..)/g, function (s) {
+            ret.push(parseInt(s, 16));
+        });
+        return ret;
+    },
+        s2a = function s2a(string, binary) {
+        var array = [],
+            i;
+
+        if (!binary) {
+            string = enc_utf8(string);
+        }
+
+        for (i = 0; i < string.length; i++) {
+            array[i] = string.charCodeAt(i);
+        }
+
+        return array;
+    },
+        size = function size(newsize) {
+        switch (newsize) {
+            case 128:
+                Nr = 10;
+                Nk = 4;
+                break;
+            case 192:
+                Nr = 12;
+                Nk = 6;
+                break;
+            case 256:
+                Nr = 14;
+                Nk = 8;
+                break;
+            default:
+                throw 'Invalid Key Size Specified:' + newsize;
+        }
+    },
+        randArr = function randArr(num) {
+        var result = [],
+            i;
+        for (i = 0; i < num; i++) {
+            result = result.concat(Math.floor(Math.random() * 256));
+        }
+        return result;
+    },
+        openSSLKey = function openSSLKey(passwordArr, saltArr) {
+        // Number of rounds depends on the size of the AES in use
+        // 3 rounds for 256
+        //        2 rounds for the key, 1 for the IV
+        // 2 rounds for 128
+        //        1 round for the key, 1 round for the IV
+        // 3 rounds for 192 since it's not evenly divided by 128 bits
+        var rounds = Nr >= 12 ? 3 : 2,
+            key = [],
+            iv = [],
+            md5_hash = [],
+            result = [],
+            data00 = passwordArr.concat(saltArr),
+            i;
+        md5_hash[0] = MD5(data00);
+        result = md5_hash[0];
+        for (i = 1; i < rounds; i++) {
+            md5_hash[i] = MD5(md5_hash[i - 1].concat(data00));
+            result = result.concat(md5_hash[i]);
+        }
+        key = result.slice(0, 4 * Nk);
+        iv = result.slice(4 * Nk, 4 * Nk + 16);
+        return {
+            key: key,
+            iv: iv
+        };
+    },
+        rawEncrypt = function rawEncrypt(plaintext, key, iv) {
+        // plaintext, key and iv as byte arrays
+        key = expandKey(key);
+        var numBlocks = Math.ceil(plaintext.length / 16),
+            blocks = [],
+            i,
+            cipherBlocks = [];
+        for (i = 0; i < numBlocks; i++) {
+            blocks[i] = padBlock(plaintext.slice(i * 16, i * 16 + 16));
+        }
+        if (plaintext.length % 16 === 0) {
+            blocks.push([16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16]);
+            // CBC OpenSSL padding scheme
+            numBlocks++;
+        }
+        for (i = 0; i < blocks.length; i++) {
+            blocks[i] = i === 0 ? xorBlocks(blocks[i], iv) : xorBlocks(blocks[i], cipherBlocks[i - 1]);
+            cipherBlocks[i] = encryptBlock(blocks[i], key);
+        }
+        return cipherBlocks;
+    },
+        rawDecrypt = function rawDecrypt(cryptArr, key, iv, binary) {
+        //  cryptArr, key and iv as byte arrays
+        key = expandKey(key);
+        var numBlocks = cryptArr.length / 16,
+            cipherBlocks = [],
+            i,
+            plainBlocks = [],
+            string = '';
+        for (i = 0; i < numBlocks; i++) {
+            cipherBlocks.push(cryptArr.slice(i * 16, (i + 1) * 16));
+        }
+        for (i = cipherBlocks.length - 1; i >= 0; i--) {
+            plainBlocks[i] = decryptBlock(cipherBlocks[i], key);
+            plainBlocks[i] = i === 0 ? xorBlocks(plainBlocks[i], iv) : xorBlocks(plainBlocks[i], cipherBlocks[i - 1]);
+        }
+        for (i = 0; i < numBlocks - 1; i++) {
+            string += block2s(plainBlocks[i], false);
+        }
+        string += block2s(plainBlocks[i], true);
+        return binary ? string : dec_utf8(string);
+    },
+        encryptBlock = function encryptBlock(block, words) {
+        Decrypt = false;
+        var state = addRoundKey(block, words, 0),
+            round;
+        for (round = 1; round < Nr + 1; round++) {
+            state = subBytes(state);
+            state = shiftRows(state);
+            if (round < Nr) {
+                state = mixColumns(state);
+            }
+            //last round? don't mixColumns
+            state = addRoundKey(state, words, round);
+        }
+
+        return state;
+    },
+        decryptBlock = function decryptBlock(block, words) {
+        Decrypt = true;
+        var state = addRoundKey(block, words, Nr),
+            round;
+        for (round = Nr - 1; round > -1; round--) {
+            state = shiftRows(state);
+            state = subBytes(state);
+            state = addRoundKey(state, words, round);
+            if (round > 0) {
+                state = mixColumns(state);
+            }
+            //last round? don't mixColumns
+        }
+
+        return state;
+    },
+        subBytes = function subBytes(state) {
+        var S = Decrypt ? SBoxInv : SBox,
+            temp = [],
+            i;
+        for (i = 0; i < 16; i++) {
+            temp[i] = S[state[i]];
+        }
+        return temp;
+    },
+        shiftRows = function shiftRows(state) {
+        var temp = [],
+            shiftBy = Decrypt ? [0, 13, 10, 7, 4, 1, 14, 11, 8, 5, 2, 15, 12, 9, 6, 3] : [0, 5, 10, 15, 4, 9, 14, 3, 8, 13, 2, 7, 12, 1, 6, 11],
+            i;
+        for (i = 0; i < 16; i++) {
+            temp[i] = state[shiftBy[i]];
+        }
+        return temp;
+    },
+        mixColumns = function mixColumns(state) {
+        var t = [],
+            c;
+        if (!Decrypt) {
+            for (c = 0; c < 4; c++) {
+                t[c * 4] = G2X[state[c * 4]] ^ G3X[state[1 + c * 4]] ^ state[2 + c * 4] ^ state[3 + c * 4];
+                t[1 + c * 4] = state[c * 4] ^ G2X[state[1 + c * 4]] ^ G3X[state[2 + c * 4]] ^ state[3 + c * 4];
+                t[2 + c * 4] = state[c * 4] ^ state[1 + c * 4] ^ G2X[state[2 + c * 4]] ^ G3X[state[3 + c * 4]];
+                t[3 + c * 4] = G3X[state[c * 4]] ^ state[1 + c * 4] ^ state[2 + c * 4] ^ G2X[state[3 + c * 4]];
+            }
+        } else {
+            for (c = 0; c < 4; c++) {
+                t[c * 4] = GEX[state[c * 4]] ^ GBX[state[1 + c * 4]] ^ GDX[state[2 + c * 4]] ^ G9X[state[3 + c * 4]];
+                t[1 + c * 4] = G9X[state[c * 4]] ^ GEX[state[1 + c * 4]] ^ GBX[state[2 + c * 4]] ^ GDX[state[3 + c * 4]];
+                t[2 + c * 4] = GDX[state[c * 4]] ^ G9X[state[1 + c * 4]] ^ GEX[state[2 + c * 4]] ^ GBX[state[3 + c * 4]];
+                t[3 + c * 4] = GBX[state[c * 4]] ^ GDX[state[1 + c * 4]] ^ G9X[state[2 + c * 4]] ^ GEX[state[3 + c * 4]];
+            }
+        }
+
+        return t;
+    },
+        addRoundKey = function addRoundKey(state, words, round) {
+        var temp = [],
+            i;
+        for (i = 0; i < 16; i++) {
+            temp[i] = state[i] ^ words[round][i];
+        }
+        return temp;
+    },
+        xorBlocks = function xorBlocks(block1, block2) {
+        var temp = [],
+            i;
+        for (i = 0; i < 16; i++) {
+            temp[i] = block1[i] ^ block2[i];
+        }
+        return temp;
+    },
+        expandKey = function expandKey(key) {
+        // Expects a 1d number array
+        var w = [],
+            temp = [],
+            i,
+            r,
+            t,
+            flat = [],
+            j;
+
+        for (i = 0; i < Nk; i++) {
+            r = [key[4 * i], key[4 * i + 1], key[4 * i + 2], key[4 * i + 3]];
+            w[i] = r;
+        }
+
+        for (i = Nk; i < 4 * (Nr + 1); i++) {
+            w[i] = [];
+            for (t = 0; t < 4; t++) {
+                temp[t] = w[i - 1][t];
+            }
+            if (i % Nk === 0) {
+                temp = subWord(rotWord(temp));
+                temp[0] ^= Rcon[i / Nk - 1];
+            } else if (Nk > 6 && i % Nk === 4) {
+                temp = subWord(temp);
+            }
+            for (t = 0; t < 4; t++) {
+                w[i][t] = w[i - Nk][t] ^ temp[t];
+            }
+        }
+        for (i = 0; i < Nr + 1; i++) {
+            flat[i] = [];
+            for (j = 0; j < 4; j++) {
+                flat[i].push(w[i * 4 + j][0], w[i * 4 + j][1], w[i * 4 + j][2], w[i * 4 + j][3]);
+            }
+        }
+        return flat;
+    },
+        subWord = function subWord(w) {
+        // apply SBox to 4-byte word w
+        for (var i = 0; i < 4; i++) {
+            w[i] = SBox[w[i]];
+        }
+        return w;
+    },
+        rotWord = function rotWord(w) {
+        // rotate 4-byte word w left by one byte
+        var tmp = w[0],
+            i;
+        for (i = 0; i < 3; i++) {
+            w[i] = w[i + 1];
+        }
+        w[3] = tmp;
+        return w;
+    },
+
+
+    // jlcooke: 2012-07-12: added strhex + invertArr to compress G2X/G3X/G9X/GBX/GEX/SBox/SBoxInv/Rcon saving over 7KB, and added encString, decString
+    strhex = function strhex(str, size) {
+        var i,
+            ret = [];
+        for (i = 0; i < str.length; i += size) {
+            ret[i / size] = parseInt(str.substr(i, size), 16);
+        }
+        return ret;
+    },
+        invertArr = function invertArr(arr) {
+        var i,
+            ret = [];
+        for (i = 0; i < arr.length; i++) {
+            ret[arr[i]] = i;
+        }
+        return ret;
+    },
+        Gxx = function Gxx(a, b) {
+        var i, ret;
+
+        ret = 0;
+        for (i = 0; i < 8; i++) {
+            ret = (b & 1) === 1 ? ret ^ a : ret;
+            /* xmult */
+            a = a > 0x7f ? 0x11b ^ a << 1 : a << 1;
+            b >>>= 1;
+        }
+
+        return ret;
+    },
+        Gx = function Gx(x) {
+        var i,
+            r = [];
+        for (i = 0; i < 256; i++) {
+            r[i] = Gxx(x, i);
+        }
+        return r;
+    },
+
+
+    // S-box
+    /*
+        SBox = [
+        99, 124, 119, 123, 242, 107, 111, 197, 48, 1, 103, 43, 254, 215, 171,
+        118, 202, 130, 201, 125, 250, 89, 71, 240, 173, 212, 162, 175, 156, 164,
+        114, 192, 183, 253, 147, 38, 54, 63, 247, 204, 52, 165, 229, 241, 113,
+        216, 49, 21, 4, 199, 35, 195, 24, 150, 5, 154, 7, 18, 128, 226,
+        235, 39, 178, 117, 9, 131, 44, 26, 27, 110, 90, 160, 82, 59, 214,
+        179, 41, 227, 47, 132, 83, 209, 0, 237, 32, 252, 177, 91, 106, 203,
+        190, 57, 74, 76, 88, 207, 208, 239, 170, 251, 67, 77, 51, 133, 69,
+        249, 2, 127, 80, 60, 159, 168, 81, 163, 64, 143, 146, 157, 56, 245,
+        188, 182, 218, 33, 16, 255, 243, 210, 205, 12, 19, 236, 95, 151, 68,
+        23, 196, 167, 126, 61, 100, 93, 25, 115, 96, 129, 79, 220, 34, 42,
+        144, 136, 70, 238, 184, 20, 222, 94, 11, 219, 224, 50, 58, 10, 73,
+        6, 36, 92, 194, 211, 172, 98, 145, 149, 228, 121, 231, 200, 55, 109,
+        141, 213, 78, 169, 108, 86, 244, 234, 101, 122, 174, 8, 186, 120, 37,
+        46, 28, 166, 180, 198, 232, 221, 116, 31, 75, 189, 139, 138, 112, 62,
+        181, 102, 72, 3, 246, 14, 97, 53, 87, 185, 134, 193, 29, 158, 225,
+        248, 152, 17, 105, 217, 142, 148, 155, 30, 135, 233, 206, 85, 40, 223,
+        140, 161, 137, 13, 191, 230, 66, 104, 65, 153, 45, 15, 176, 84, 187,
+        22], //*/SBox = strhex('637c777bf26b6fc53001672bfed7ab76ca82c97dfa5947f0add4a2af9ca472c0b7fd9326363ff7cc34a5e5f171d8311504c723c31896059a071280e2eb27b27509832c1a1b6e5aa0523bd6b329e32f8453d100ed20fcb15b6acbbe394a4c58cfd0efaafb434d338545f9027f503c9fa851a3408f929d38f5bcb6da2110fff3d2cd0c13ec5f974417c4a77e3d645d197360814fdc222a908846eeb814de5e0bdbe0323a0a4906245cc2d3ac629195e479e7c8376d8dd54ea96c56f4ea657aae08ba78252e1ca6b4c6e8dd741f4bbd8b8a703eb5664803f60e613557b986c11d9ee1f8981169d98e949b1e87e9ce5528df8ca1890dbfe6426841992d0fb054bb16', 2),
+
+
+    // Precomputed lookup table for the inverse SBox
+    /*    SBoxInv = [
+        82, 9, 106, 213, 48, 54, 165, 56, 191, 64, 163, 158, 129, 243, 215,
+        251, 124, 227, 57, 130, 155, 47, 255, 135, 52, 142, 67, 68, 196, 222,
+        233, 203, 84, 123, 148, 50, 166, 194, 35, 61, 238, 76, 149, 11, 66,
+        250, 195, 78, 8, 46, 161, 102, 40, 217, 36, 178, 118, 91, 162, 73,
+        109, 139, 209, 37, 114, 248, 246, 100, 134, 104, 152, 22, 212, 164, 92,
+        204, 93, 101, 182, 146, 108, 112, 72, 80, 253, 237, 185, 218, 94, 21,
+        70, 87, 167, 141, 157, 132, 144, 216, 171, 0, 140, 188, 211, 10, 247,
+        228, 88, 5, 184, 179, 69, 6, 208, 44, 30, 143, 202, 63, 15, 2,
+        193, 175, 189, 3, 1, 19, 138, 107, 58, 145, 17, 65, 79, 103, 220,
+        234, 151, 242, 207, 206, 240, 180, 230, 115, 150, 172, 116, 34, 231, 173,
+        53, 133, 226, 249, 55, 232, 28, 117, 223, 110, 71, 241, 26, 113, 29,
+        41, 197, 137, 111, 183, 98, 14, 170, 24, 190, 27, 252, 86, 62, 75,
+        198, 210, 121, 32, 154, 219, 192, 254, 120, 205, 90, 244, 31, 221, 168,
+        51, 136, 7, 199, 49, 177, 18, 16, 89, 39, 128, 236, 95, 96, 81,
+        127, 169, 25, 181, 74, 13, 45, 229, 122, 159, 147, 201, 156, 239, 160,
+        224, 59, 77, 174, 42, 245, 176, 200, 235, 187, 60, 131, 83, 153, 97,
+        23, 43, 4, 126, 186, 119, 214, 38, 225, 105, 20, 99, 85, 33, 12,
+        125], //*/SBoxInv = invertArr(SBox),
+
+
+    // Rijndael Rcon
+    /*
+        Rcon = [1, 2, 4, 8, 16, 32, 64, 128, 27, 54, 108, 216, 171, 77, 154, 47, 94,
+        188, 99, 198, 151, 53, 106, 212, 179, 125, 250, 239, 197, 145],
+    //*/Rcon = strhex('01020408102040801b366cd8ab4d9a2f5ebc63c697356ad4b37dfaefc591', 2),
+
+
+    /*
+        G2X = [
+        0x00, 0x02, 0x04, 0x06, 0x08, 0x0a, 0x0c, 0x0e, 0x10, 0x12, 0x14, 0x16,
+        0x18, 0x1a, 0x1c, 0x1e, 0x20, 0x22, 0x24, 0x26, 0x28, 0x2a, 0x2c, 0x2e,
+        0x30, 0x32, 0x34, 0x36, 0x38, 0x3a, 0x3c, 0x3e, 0x40, 0x42, 0x44, 0x46,
+        0x48, 0x4a, 0x4c, 0x4e, 0x50, 0x52, 0x54, 0x56, 0x58, 0x5a, 0x5c, 0x5e,
+        0x60, 0x62, 0x64, 0x66, 0x68, 0x6a, 0x6c, 0x6e, 0x70, 0x72, 0x74, 0x76,
+        0x78, 0x7a, 0x7c, 0x7e, 0x80, 0x82, 0x84, 0x86, 0x88, 0x8a, 0x8c, 0x8e,
+        0x90, 0x92, 0x94, 0x96, 0x98, 0x9a, 0x9c, 0x9e, 0xa0, 0xa2, 0xa4, 0xa6,
+        0xa8, 0xaa, 0xac, 0xae, 0xb0, 0xb2, 0xb4, 0xb6, 0xb8, 0xba, 0xbc, 0xbe,
+        0xc0, 0xc2, 0xc4, 0xc6, 0xc8, 0xca, 0xcc, 0xce, 0xd0, 0xd2, 0xd4, 0xd6,
+        0xd8, 0xda, 0xdc, 0xde, 0xe0, 0xe2, 0xe4, 0xe6, 0xe8, 0xea, 0xec, 0xee,
+        0xf0, 0xf2, 0xf4, 0xf6, 0xf8, 0xfa, 0xfc, 0xfe, 0x1b, 0x19, 0x1f, 0x1d,
+        0x13, 0x11, 0x17, 0x15, 0x0b, 0x09, 0x0f, 0x0d, 0x03, 0x01, 0x07, 0x05,
+        0x3b, 0x39, 0x3f, 0x3d, 0x33, 0x31, 0x37, 0x35, 0x2b, 0x29, 0x2f, 0x2d,
+        0x23, 0x21, 0x27, 0x25, 0x5b, 0x59, 0x5f, 0x5d, 0x53, 0x51, 0x57, 0x55,
+        0x4b, 0x49, 0x4f, 0x4d, 0x43, 0x41, 0x47, 0x45, 0x7b, 0x79, 0x7f, 0x7d,
+        0x73, 0x71, 0x77, 0x75, 0x6b, 0x69, 0x6f, 0x6d, 0x63, 0x61, 0x67, 0x65,
+        0x9b, 0x99, 0x9f, 0x9d, 0x93, 0x91, 0x97, 0x95, 0x8b, 0x89, 0x8f, 0x8d,
+        0x83, 0x81, 0x87, 0x85, 0xbb, 0xb9, 0xbf, 0xbd, 0xb3, 0xb1, 0xb7, 0xb5,
+        0xab, 0xa9, 0xaf, 0xad, 0xa3, 0xa1, 0xa7, 0xa5, 0xdb, 0xd9, 0xdf, 0xdd,
+        0xd3, 0xd1, 0xd7, 0xd5, 0xcb, 0xc9, 0xcf, 0xcd, 0xc3, 0xc1, 0xc7, 0xc5,
+        0xfb, 0xf9, 0xff, 0xfd, 0xf3, 0xf1, 0xf7, 0xf5, 0xeb, 0xe9, 0xef, 0xed,
+        0xe3, 0xe1, 0xe7, 0xe5
+        ], //*/G2X = Gx(2),
+
+
+    /*    G3X = [
+        0x00, 0x03, 0x06, 0x05, 0x0c, 0x0f, 0x0a, 0x09, 0x18, 0x1b, 0x1e, 0x1d,
+        0x14, 0x17, 0x12, 0x11, 0x30, 0x33, 0x36, 0x35, 0x3c, 0x3f, 0x3a, 0x39,
+        0x28, 0x2b, 0x2e, 0x2d, 0x24, 0x27, 0x22, 0x21, 0x60, 0x63, 0x66, 0x65,
+        0x6c, 0x6f, 0x6a, 0x69, 0x78, 0x7b, 0x7e, 0x7d, 0x74, 0x77, 0x72, 0x71,
+        0x50, 0x53, 0x56, 0x55, 0x5c, 0x5f, 0x5a, 0x59, 0x48, 0x4b, 0x4e, 0x4d,
+        0x44, 0x47, 0x42, 0x41, 0xc0, 0xc3, 0xc6, 0xc5, 0xcc, 0xcf, 0xca, 0xc9,
+        0xd8, 0xdb, 0xde, 0xdd, 0xd4, 0xd7, 0xd2, 0xd1, 0xf0, 0xf3, 0xf6, 0xf5,
+        0xfc, 0xff, 0xfa, 0xf9, 0xe8, 0xeb, 0xee, 0xed, 0xe4, 0xe7, 0xe2, 0xe1,
+        0xa0, 0xa3, 0xa6, 0xa5, 0xac, 0xaf, 0xaa, 0xa9, 0xb8, 0xbb, 0xbe, 0xbd,
+        0xb4, 0xb7, 0xb2, 0xb1, 0x90, 0x93, 0x96, 0x95, 0x9c, 0x9f, 0x9a, 0x99,
+        0x88, 0x8b, 0x8e, 0x8d, 0x84, 0x87, 0x82, 0x81, 0x9b, 0x98, 0x9d, 0x9e,
+        0x97, 0x94, 0x91, 0x92, 0x83, 0x80, 0x85, 0x86, 0x8f, 0x8c, 0x89, 0x8a,
+        0xab, 0xa8, 0xad, 0xae, 0xa7, 0xa4, 0xa1, 0xa2, 0xb3, 0xb0, 0xb5, 0xb6,
+        0xbf, 0xbc, 0xb9, 0xba, 0xfb, 0xf8, 0xfd, 0xfe, 0xf7, 0xf4, 0xf1, 0xf2,
+        0xe3, 0xe0, 0xe5, 0xe6, 0xef, 0xec, 0xe9, 0xea, 0xcb, 0xc8, 0xcd, 0xce,
+        0xc7, 0xc4, 0xc1, 0xc2, 0xd3, 0xd0, 0xd5, 0xd6, 0xdf, 0xdc, 0xd9, 0xda,
+        0x5b, 0x58, 0x5d, 0x5e, 0x57, 0x54, 0x51, 0x52, 0x43, 0x40, 0x45, 0x46,
+        0x4f, 0x4c, 0x49, 0x4a, 0x6b, 0x68, 0x6d, 0x6e, 0x67, 0x64, 0x61, 0x62,
+        0x73, 0x70, 0x75, 0x76, 0x7f, 0x7c, 0x79, 0x7a, 0x3b, 0x38, 0x3d, 0x3e,
+        0x37, 0x34, 0x31, 0x32, 0x23, 0x20, 0x25, 0x26, 0x2f, 0x2c, 0x29, 0x2a,
+        0x0b, 0x08, 0x0d, 0x0e, 0x07, 0x04, 0x01, 0x02, 0x13, 0x10, 0x15, 0x16,
+        0x1f, 0x1c, 0x19, 0x1a
+        ], //*/G3X = Gx(3),
+
+
+    /*
+        G9X = [
+        0x00, 0x09, 0x12, 0x1b, 0x24, 0x2d, 0x36, 0x3f, 0x48, 0x41, 0x5a, 0x53,
+        0x6c, 0x65, 0x7e, 0x77, 0x90, 0x99, 0x82, 0x8b, 0xb4, 0xbd, 0xa6, 0xaf,
+        0xd8, 0xd1, 0xca, 0xc3, 0xfc, 0xf5, 0xee, 0xe7, 0x3b, 0x32, 0x29, 0x20,
+        0x1f, 0x16, 0x0d, 0x04, 0x73, 0x7a, 0x61, 0x68, 0x57, 0x5e, 0x45, 0x4c,
+        0xab, 0xa2, 0xb9, 0xb0, 0x8f, 0x86, 0x9d, 0x94, 0xe3, 0xea, 0xf1, 0xf8,
+        0xc7, 0xce, 0xd5, 0xdc, 0x76, 0x7f, 0x64, 0x6d, 0x52, 0x5b, 0x40, 0x49,
+        0x3e, 0x37, 0x2c, 0x25, 0x1a, 0x13, 0x08, 0x01, 0xe6, 0xef, 0xf4, 0xfd,
+        0xc2, 0xcb, 0xd0, 0xd9, 0xae, 0xa7, 0xbc, 0xb5, 0x8a, 0x83, 0x98, 0x91,
+        0x4d, 0x44, 0x5f, 0x56, 0x69, 0x60, 0x7b, 0x72, 0x05, 0x0c, 0x17, 0x1e,
+        0x21, 0x28, 0x33, 0x3a, 0xdd, 0xd4, 0xcf, 0xc6, 0xf9, 0xf0, 0xeb, 0xe2,
+        0x95, 0x9c, 0x87, 0x8e, 0xb1, 0xb8, 0xa3, 0xaa, 0xec, 0xe5, 0xfe, 0xf7,
+        0xc8, 0xc1, 0xda, 0xd3, 0xa4, 0xad, 0xb6, 0xbf, 0x80, 0x89, 0x92, 0x9b,
+        0x7c, 0x75, 0x6e, 0x67, 0x58, 0x51, 0x4a, 0x43, 0x34, 0x3d, 0x26, 0x2f,
+        0x10, 0x19, 0x02, 0x0b, 0xd7, 0xde, 0xc5, 0xcc, 0xf3, 0xfa, 0xe1, 0xe8,
+        0x9f, 0x96, 0x8d, 0x84, 0xbb, 0xb2, 0xa9, 0xa0, 0x47, 0x4e, 0x55, 0x5c,
+        0x63, 0x6a, 0x71, 0x78, 0x0f, 0x06, 0x1d, 0x14, 0x2b, 0x22, 0x39, 0x30,
+        0x9a, 0x93, 0x88, 0x81, 0xbe, 0xb7, 0xac, 0xa5, 0xd2, 0xdb, 0xc0, 0xc9,
+        0xf6, 0xff, 0xe4, 0xed, 0x0a, 0x03, 0x18, 0x11, 0x2e, 0x27, 0x3c, 0x35,
+        0x42, 0x4b, 0x50, 0x59, 0x66, 0x6f, 0x74, 0x7d, 0xa1, 0xa8, 0xb3, 0xba,
+        0x85, 0x8c, 0x97, 0x9e, 0xe9, 0xe0, 0xfb, 0xf2, 0xcd, 0xc4, 0xdf, 0xd6,
+        0x31, 0x38, 0x23, 0x2a, 0x15, 0x1c, 0x07, 0x0e, 0x79, 0x70, 0x6b, 0x62,
+        0x5d, 0x54, 0x4f, 0x46
+        ], //*/G9X = Gx(9),
+
+
+    /*    GBX = [
+        0x00, 0x0b, 0x16, 0x1d, 0x2c, 0x27, 0x3a, 0x31, 0x58, 0x53, 0x4e, 0x45,
+        0x74, 0x7f, 0x62, 0x69, 0xb0, 0xbb, 0xa6, 0xad, 0x9c, 0x97, 0x8a, 0x81,
+        0xe8, 0xe3, 0xfe, 0xf5, 0xc4, 0xcf, 0xd2, 0xd9, 0x7b, 0x70, 0x6d, 0x66,
+        0x57, 0x5c, 0x41, 0x4a, 0x23, 0x28, 0x35, 0x3e, 0x0f, 0x04, 0x19, 0x12,
+        0xcb, 0xc0, 0xdd, 0xd6, 0xe7, 0xec, 0xf1, 0xfa, 0x93, 0x98, 0x85, 0x8e,
+        0xbf, 0xb4, 0xa9, 0xa2, 0xf6, 0xfd, 0xe0, 0xeb, 0xda, 0xd1, 0xcc, 0xc7,
+        0xae, 0xa5, 0xb8, 0xb3, 0x82, 0x89, 0x94, 0x9f, 0x46, 0x4d, 0x50, 0x5b,
+        0x6a, 0x61, 0x7c, 0x77, 0x1e, 0x15, 0x08, 0x03, 0x32, 0x39, 0x24, 0x2f,
+        0x8d, 0x86, 0x9b, 0x90, 0xa1, 0xaa, 0xb7, 0xbc, 0xd5, 0xde, 0xc3, 0xc8,
+        0xf9, 0xf2, 0xef, 0xe4, 0x3d, 0x36, 0x2b, 0x20, 0x11, 0x1a, 0x07, 0x0c,
+        0x65, 0x6e, 0x73, 0x78, 0x49, 0x42, 0x5f, 0x54, 0xf7, 0xfc, 0xe1, 0xea,
+        0xdb, 0xd0, 0xcd, 0xc6, 0xaf, 0xa4, 0xb9, 0xb2, 0x83, 0x88, 0x95, 0x9e,
+        0x47, 0x4c, 0x51, 0x5a, 0x6b, 0x60, 0x7d, 0x76, 0x1f, 0x14, 0x09, 0x02,
+        0x33, 0x38, 0x25, 0x2e, 0x8c, 0x87, 0x9a, 0x91, 0xa0, 0xab, 0xb6, 0xbd,
+        0xd4, 0xdf, 0xc2, 0xc9, 0xf8, 0xf3, 0xee, 0xe5, 0x3c, 0x37, 0x2a, 0x21,
+        0x10, 0x1b, 0x06, 0x0d, 0x64, 0x6f, 0x72, 0x79, 0x48, 0x43, 0x5e, 0x55,
+        0x01, 0x0a, 0x17, 0x1c, 0x2d, 0x26, 0x3b, 0x30, 0x59, 0x52, 0x4f, 0x44,
+        0x75, 0x7e, 0x63, 0x68, 0xb1, 0xba, 0xa7, 0xac, 0x9d, 0x96, 0x8b, 0x80,
+        0xe9, 0xe2, 0xff, 0xf4, 0xc5, 0xce, 0xd3, 0xd8, 0x7a, 0x71, 0x6c, 0x67,
+        0x56, 0x5d, 0x40, 0x4b, 0x22, 0x29, 0x34, 0x3f, 0x0e, 0x05, 0x18, 0x13,
+        0xca, 0xc1, 0xdc, 0xd7, 0xe6, 0xed, 0xf0, 0xfb, 0x92, 0x99, 0x84, 0x8f,
+        0xbe, 0xb5, 0xa8, 0xa3
+        ], //*/GBX = Gx(0xb),
+
+
+    /*
+        GDX = [
+        0x00, 0x0d, 0x1a, 0x17, 0x34, 0x39, 0x2e, 0x23, 0x68, 0x65, 0x72, 0x7f,
+        0x5c, 0x51, 0x46, 0x4b, 0xd0, 0xdd, 0xca, 0xc7, 0xe4, 0xe9, 0xfe, 0xf3,
+        0xb8, 0xb5, 0xa2, 0xaf, 0x8c, 0x81, 0x96, 0x9b, 0xbb, 0xb6, 0xa1, 0xac,
+        0x8f, 0x82, 0x95, 0x98, 0xd3, 0xde, 0xc9, 0xc4, 0xe7, 0xea, 0xfd, 0xf0,
+        0x6b, 0x66, 0x71, 0x7c, 0x5f, 0x52, 0x45, 0x48, 0x03, 0x0e, 0x19, 0x14,
+        0x37, 0x3a, 0x2d, 0x20, 0x6d, 0x60, 0x77, 0x7a, 0x59, 0x54, 0x43, 0x4e,
+        0x05, 0x08, 0x1f, 0x12, 0x31, 0x3c, 0x2b, 0x26, 0xbd, 0xb0, 0xa7, 0xaa,
+        0x89, 0x84, 0x93, 0x9e, 0xd5, 0xd8, 0xcf, 0xc2, 0xe1, 0xec, 0xfb, 0xf6,
+        0xd6, 0xdb, 0xcc, 0xc1, 0xe2, 0xef, 0xf8, 0xf5, 0xbe, 0xb3, 0xa4, 0xa9,
+        0x8a, 0x87, 0x90, 0x9d, 0x06, 0x0b, 0x1c, 0x11, 0x32, 0x3f, 0x28, 0x25,
+        0x6e, 0x63, 0x74, 0x79, 0x5a, 0x57, 0x40, 0x4d, 0xda, 0xd7, 0xc0, 0xcd,
+        0xee, 0xe3, 0xf4, 0xf9, 0xb2, 0xbf, 0xa8, 0xa5, 0x86, 0x8b, 0x9c, 0x91,
+        0x0a, 0x07, 0x10, 0x1d, 0x3e, 0x33, 0x24, 0x29, 0x62, 0x6f, 0x78, 0x75,
+        0x56, 0x5b, 0x4c, 0x41, 0x61, 0x6c, 0x7b, 0x76, 0x55, 0x58, 0x4f, 0x42,
+        0x09, 0x04, 0x13, 0x1e, 0x3d, 0x30, 0x27, 0x2a, 0xb1, 0xbc, 0xab, 0xa6,
+        0x85, 0x88, 0x9f, 0x92, 0xd9, 0xd4, 0xc3, 0xce, 0xed, 0xe0, 0xf7, 0xfa,
+        0xb7, 0xba, 0xad, 0xa0, 0x83, 0x8e, 0x99, 0x94, 0xdf, 0xd2, 0xc5, 0xc8,
+        0xeb, 0xe6, 0xf1, 0xfc, 0x67, 0x6a, 0x7d, 0x70, 0x53, 0x5e, 0x49, 0x44,
+        0x0f, 0x02, 0x15, 0x18, 0x3b, 0x36, 0x21, 0x2c, 0x0c, 0x01, 0x16, 0x1b,
+        0x38, 0x35, 0x22, 0x2f, 0x64, 0x69, 0x7e, 0x73, 0x50, 0x5d, 0x4a, 0x47,
+        0xdc, 0xd1, 0xc6, 0xcb, 0xe8, 0xe5, 0xf2, 0xff, 0xb4, 0xb9, 0xae, 0xa3,
+        0x80, 0x8d, 0x9a, 0x97
+        ], //*/GDX = Gx(0xd),
+
+
+    /*
+        GEX = [
+        0x00, 0x0e, 0x1c, 0x12, 0x38, 0x36, 0x24, 0x2a, 0x70, 0x7e, 0x6c, 0x62,
+        0x48, 0x46, 0x54, 0x5a, 0xe0, 0xee, 0xfc, 0xf2, 0xd8, 0xd6, 0xc4, 0xca,
+        0x90, 0x9e, 0x8c, 0x82, 0xa8, 0xa6, 0xb4, 0xba, 0xdb, 0xd5, 0xc7, 0xc9,
+        0xe3, 0xed, 0xff, 0xf1, 0xab, 0xa5, 0xb7, 0xb9, 0x93, 0x9d, 0x8f, 0x81,
+        0x3b, 0x35, 0x27, 0x29, 0x03, 0x0d, 0x1f, 0x11, 0x4b, 0x45, 0x57, 0x59,
+        0x73, 0x7d, 0x6f, 0x61, 0xad, 0xa3, 0xb1, 0xbf, 0x95, 0x9b, 0x89, 0x87,
+        0xdd, 0xd3, 0xc1, 0xcf, 0xe5, 0xeb, 0xf9, 0xf7, 0x4d, 0x43, 0x51, 0x5f,
+        0x75, 0x7b, 0x69, 0x67, 0x3d, 0x33, 0x21, 0x2f, 0x05, 0x0b, 0x19, 0x17,
+        0x76, 0x78, 0x6a, 0x64, 0x4e, 0x40, 0x52, 0x5c, 0x06, 0x08, 0x1a, 0x14,
+        0x3e, 0x30, 0x22, 0x2c, 0x96, 0x98, 0x8a, 0x84, 0xae, 0xa0, 0xb2, 0xbc,
+        0xe6, 0xe8, 0xfa, 0xf4, 0xde, 0xd0, 0xc2, 0xcc, 0x41, 0x4f, 0x5d, 0x53,
+        0x79, 0x77, 0x65, 0x6b, 0x31, 0x3f, 0x2d, 0x23, 0x09, 0x07, 0x15, 0x1b,
+        0xa1, 0xaf, 0xbd, 0xb3, 0x99, 0x97, 0x85, 0x8b, 0xd1, 0xdf, 0xcd, 0xc3,
+        0xe9, 0xe7, 0xf5, 0xfb, 0x9a, 0x94, 0x86, 0x88, 0xa2, 0xac, 0xbe, 0xb0,
+        0xea, 0xe4, 0xf6, 0xf8, 0xd2, 0xdc, 0xce, 0xc0, 0x7a, 0x74, 0x66, 0x68,
+        0x42, 0x4c, 0x5e, 0x50, 0x0a, 0x04, 0x16, 0x18, 0x32, 0x3c, 0x2e, 0x20,
+        0xec, 0xe2, 0xf0, 0xfe, 0xd4, 0xda, 0xc8, 0xc6, 0x9c, 0x92, 0x80, 0x8e,
+        0xa4, 0xaa, 0xb8, 0xb6, 0x0c, 0x02, 0x10, 0x1e, 0x34, 0x3a, 0x28, 0x26,
+        0x7c, 0x72, 0x60, 0x6e, 0x44, 0x4a, 0x58, 0x56, 0x37, 0x39, 0x2b, 0x25,
+        0x0f, 0x01, 0x13, 0x1d, 0x47, 0x49, 0x5b, 0x55, 0x7f, 0x71, 0x63, 0x6d,
+        0xd7, 0xd9, 0xcb, 0xc5, 0xef, 0xe1, 0xf3, 0xfd, 0xa7, 0xa9, 0xbb, 0xb5,
+        0x9f, 0x91, 0x83, 0x8d
+        ], //*/GEX = Gx(0xe),
+        enc = function enc(string, pass, binary) {
+        // string, password in plaintext
+        var salt = randArr(8),
+            pbe = openSSLKey(s2a(pass, binary), salt),
+            key = pbe.key,
+            iv = pbe.iv,
+            cipherBlocks,
+            saltBlock = [[83, 97, 108, 116, 101, 100, 95, 95].concat(salt)];
+        string = s2a(string, binary);
+        cipherBlocks = rawEncrypt(string, key, iv);
+        // Spells out 'Salted__'
+        cipherBlocks = saltBlock.concat(cipherBlocks);
+        return Base64.encode(cipherBlocks);
+    },
+        dec = function dec(string, pass, binary) {
+        // string, password in plaintext
+        var cryptArr = Base64.decode(string),
+            salt = cryptArr.slice(8, 16),
+            pbe = openSSLKey(s2a(pass, binary), salt),
+            key = pbe.key,
+            iv = pbe.iv;
+        cryptArr = cryptArr.slice(16, cryptArr.length);
+        // Take off the Salted__ffeeddcc
+        string = rawDecrypt(cryptArr, key, iv, binary);
+        return string;
+    },
+        MD5 = function MD5(numArr) {
+
+        function rotateLeft(lValue, iShiftBits) {
+            return lValue << iShiftBits | lValue >>> 32 - iShiftBits;
+        }
+
+        function addUnsigned(lX, lY) {
+            var lX4, lY4, lX8, lY8, lResult;
+            lX8 = lX & 0x80000000;
+            lY8 = lY & 0x80000000;
+            lX4 = lX & 0x40000000;
+            lY4 = lY & 0x40000000;
+            lResult = (lX & 0x3FFFFFFF) + (lY & 0x3FFFFFFF);
+            if (lX4 & lY4) {
+                return lResult ^ 0x80000000 ^ lX8 ^ lY8;
+            }
+            if (lX4 | lY4) {
+                if (lResult & 0x40000000) {
+                    return lResult ^ 0xC0000000 ^ lX8 ^ lY8;
+                } else {
+                    return lResult ^ 0x40000000 ^ lX8 ^ lY8;
+                }
+            } else {
+                return lResult ^ lX8 ^ lY8;
+            }
+        }
+
+        function f(x, y, z) {
+            return x & y | ~x & z;
+        }
+        function g(x, y, z) {
+            return x & z | y & ~z;
+        }
+        function h(x, y, z) {
+            return x ^ y ^ z;
+        }
+        function funcI(x, y, z) {
+            return y ^ (x | ~z);
+        }
+
+        function ff(a, b, c, d, x, s, ac) {
+            a = addUnsigned(a, addUnsigned(addUnsigned(f(b, c, d), x), ac));
+            return addUnsigned(rotateLeft(a, s), b);
+        }
+
+        function gg(a, b, c, d, x, s, ac) {
+            a = addUnsigned(a, addUnsigned(addUnsigned(g(b, c, d), x), ac));
+            return addUnsigned(rotateLeft(a, s), b);
+        }
+
+        function hh(a, b, c, d, x, s, ac) {
+            a = addUnsigned(a, addUnsigned(addUnsigned(h(b, c, d), x), ac));
+            return addUnsigned(rotateLeft(a, s), b);
+        }
+
+        function ii(a, b, c, d, x, s, ac) {
+            a = addUnsigned(a, addUnsigned(addUnsigned(funcI(b, c, d), x), ac));
+            return addUnsigned(rotateLeft(a, s), b);
+        }
+
+        function convertToWordArray(numArr) {
+            var lWordCount,
+                lMessageLength = numArr.length,
+                lNumberOfWords_temp1 = lMessageLength + 8,
+                lNumberOfWords_temp2 = (lNumberOfWords_temp1 - lNumberOfWords_temp1 % 64) / 64,
+                lNumberOfWords = (lNumberOfWords_temp2 + 1) * 16,
+                lWordArray = [],
+                lBytePosition = 0,
+                lByteCount = 0;
+            while (lByteCount < lMessageLength) {
+                lWordCount = (lByteCount - lByteCount % 4) / 4;
+                lBytePosition = lByteCount % 4 * 8;
+                lWordArray[lWordCount] = lWordArray[lWordCount] | numArr[lByteCount] << lBytePosition;
+                lByteCount++;
+            }
+            lWordCount = (lByteCount - lByteCount % 4) / 4;
+            lBytePosition = lByteCount % 4 * 8;
+            lWordArray[lWordCount] = lWordArray[lWordCount] | 0x80 << lBytePosition;
+            lWordArray[lNumberOfWords - 2] = lMessageLength << 3;
+            lWordArray[lNumberOfWords - 1] = lMessageLength >>> 29;
+            return lWordArray;
+        }
+
+        function wordToHex(lValue) {
+            var lByte,
+                lCount,
+                wordToHexArr = [];
+            for (lCount = 0; lCount <= 3; lCount++) {
+                lByte = lValue >>> lCount * 8 & 255;
+                wordToHexArr = wordToHexArr.concat(lByte);
+            }
+            return wordToHexArr;
+        }
+
+        /*function utf8Encode(string) {
+            string = string.replace(/\r\n/g, "\n");
+            var utftext = "",
+            n,
+            c;
+            for (n = 0; n < string.length; n++) {
+                c = string.charCodeAt(n);
+                if (c < 128) {
+                    utftext += String.fromCharCode(c);
+                }
+                else if ((c > 127) && (c < 2048)) {
+                    utftext += String.fromCharCode((c >> 6) | 192);
+                    utftext += String.fromCharCode((c & 63) | 128);
+                }
+                else {
+                    utftext += String.fromCharCode((c >> 12) | 224);
+                    utftext += String.fromCharCode(((c >> 6) & 63) | 128);
+                    utftext += String.fromCharCode((c & 63) | 128);
+                }
+            }
+            return utftext;
+        }*/
+
+        var x = [],
+            k,
+            AA,
+            BB,
+            CC,
+            DD,
+            a,
+            b,
+            c,
+            d,
+            rnd = strhex('67452301efcdab8998badcfe10325476d76aa478e8c7b756242070dbc1bdceeef57c0faf4787c62aa8304613fd469501698098d88b44f7afffff5bb1895cd7be6b901122fd987193a679438e49b40821f61e2562c040b340265e5a51e9b6c7aad62f105d02441453d8a1e681e7d3fbc821e1cde6c33707d6f4d50d87455a14eda9e3e905fcefa3f8676f02d98d2a4c8afffa39428771f6816d9d6122fde5380ca4beea444bdecfa9f6bb4b60bebfbc70289b7ec6eaa127fad4ef308504881d05d9d4d039e6db99e51fa27cf8c4ac5665f4292244432aff97ab9423a7fc93a039655b59c38f0ccc92ffeff47d85845dd16fa87e4ffe2ce6e0a30143144e0811a1f7537e82bd3af2352ad7d2bbeb86d391', 8);
+
+        x = convertToWordArray(numArr);
+
+        a = rnd[0];
+        b = rnd[1];
+        c = rnd[2];
+        d = rnd[3];
+
+        for (k = 0; k < x.length; k += 16) {
+            AA = a;
+            BB = b;
+            CC = c;
+            DD = d;
+            a = ff(a, b, c, d, x[k + 0], 7, rnd[4]);
+            d = ff(d, a, b, c, x[k + 1], 12, rnd[5]);
+            c = ff(c, d, a, b, x[k + 2], 17, rnd[6]);
+            b = ff(b, c, d, a, x[k + 3], 22, rnd[7]);
+            a = ff(a, b, c, d, x[k + 4], 7, rnd[8]);
+            d = ff(d, a, b, c, x[k + 5], 12, rnd[9]);
+            c = ff(c, d, a, b, x[k + 6], 17, rnd[10]);
+            b = ff(b, c, d, a, x[k + 7], 22, rnd[11]);
+            a = ff(a, b, c, d, x[k + 8], 7, rnd[12]);
+            d = ff(d, a, b, c, x[k + 9], 12, rnd[13]);
+            c = ff(c, d, a, b, x[k + 10], 17, rnd[14]);
+            b = ff(b, c, d, a, x[k + 11], 22, rnd[15]);
+            a = ff(a, b, c, d, x[k + 12], 7, rnd[16]);
+            d = ff(d, a, b, c, x[k + 13], 12, rnd[17]);
+            c = ff(c, d, a, b, x[k + 14], 17, rnd[18]);
+            b = ff(b, c, d, a, x[k + 15], 22, rnd[19]);
+            a = gg(a, b, c, d, x[k + 1], 5, rnd[20]);
+            d = gg(d, a, b, c, x[k + 6], 9, rnd[21]);
+            c = gg(c, d, a, b, x[k + 11], 14, rnd[22]);
+            b = gg(b, c, d, a, x[k + 0], 20, rnd[23]);
+            a = gg(a, b, c, d, x[k + 5], 5, rnd[24]);
+            d = gg(d, a, b, c, x[k + 10], 9, rnd[25]);
+            c = gg(c, d, a, b, x[k + 15], 14, rnd[26]);
+            b = gg(b, c, d, a, x[k + 4], 20, rnd[27]);
+            a = gg(a, b, c, d, x[k + 9], 5, rnd[28]);
+            d = gg(d, a, b, c, x[k + 14], 9, rnd[29]);
+            c = gg(c, d, a, b, x[k + 3], 14, rnd[30]);
+            b = gg(b, c, d, a, x[k + 8], 20, rnd[31]);
+            a = gg(a, b, c, d, x[k + 13], 5, rnd[32]);
+            d = gg(d, a, b, c, x[k + 2], 9, rnd[33]);
+            c = gg(c, d, a, b, x[k + 7], 14, rnd[34]);
+            b = gg(b, c, d, a, x[k + 12], 20, rnd[35]);
+            a = hh(a, b, c, d, x[k + 5], 4, rnd[36]);
+            d = hh(d, a, b, c, x[k + 8], 11, rnd[37]);
+            c = hh(c, d, a, b, x[k + 11], 16, rnd[38]);
+            b = hh(b, c, d, a, x[k + 14], 23, rnd[39]);
+            a = hh(a, b, c, d, x[k + 1], 4, rnd[40]);
+            d = hh(d, a, b, c, x[k + 4], 11, rnd[41]);
+            c = hh(c, d, a, b, x[k + 7], 16, rnd[42]);
+            b = hh(b, c, d, a, x[k + 10], 23, rnd[43]);
+            a = hh(a, b, c, d, x[k + 13], 4, rnd[44]);
+            d = hh(d, a, b, c, x[k + 0], 11, rnd[45]);
+            c = hh(c, d, a, b, x[k + 3], 16, rnd[46]);
+            b = hh(b, c, d, a, x[k + 6], 23, rnd[47]);
+            a = hh(a, b, c, d, x[k + 9], 4, rnd[48]);
+            d = hh(d, a, b, c, x[k + 12], 11, rnd[49]);
+            c = hh(c, d, a, b, x[k + 15], 16, rnd[50]);
+            b = hh(b, c, d, a, x[k + 2], 23, rnd[51]);
+            a = ii(a, b, c, d, x[k + 0], 6, rnd[52]);
+            d = ii(d, a, b, c, x[k + 7], 10, rnd[53]);
+            c = ii(c, d, a, b, x[k + 14], 15, rnd[54]);
+            b = ii(b, c, d, a, x[k + 5], 21, rnd[55]);
+            a = ii(a, b, c, d, x[k + 12], 6, rnd[56]);
+            d = ii(d, a, b, c, x[k + 3], 10, rnd[57]);
+            c = ii(c, d, a, b, x[k + 10], 15, rnd[58]);
+            b = ii(b, c, d, a, x[k + 1], 21, rnd[59]);
+            a = ii(a, b, c, d, x[k + 8], 6, rnd[60]);
+            d = ii(d, a, b, c, x[k + 15], 10, rnd[61]);
+            c = ii(c, d, a, b, x[k + 6], 15, rnd[62]);
+            b = ii(b, c, d, a, x[k + 13], 21, rnd[63]);
+            a = ii(a, b, c, d, x[k + 4], 6, rnd[64]);
+            d = ii(d, a, b, c, x[k + 11], 10, rnd[65]);
+            c = ii(c, d, a, b, x[k + 2], 15, rnd[66]);
+            b = ii(b, c, d, a, x[k + 9], 21, rnd[67]);
+            a = addUnsigned(a, AA);
+            b = addUnsigned(b, BB);
+            c = addUnsigned(c, CC);
+            d = addUnsigned(d, DD);
+        }
+
+        return wordToHex(a).concat(wordToHex(b), wordToHex(c), wordToHex(d));
+    },
+        encString = function encString(plaintext, key, iv) {
+        var i;
+        plaintext = s2a(plaintext, false);
+
+        key = s2a(key, false);
+        for (i = key.length; i < 32; i++) {
+            key[i] = 0;
+        }
+
+        if (iv === undefined) {
+            // TODO: This is not defined anywhere... commented out...
+            // iv = genIV();
+        } else {
+            iv = s2a(iv, false);
+            for (i = iv.length; i < 16; i++) {
+                iv[i] = 0;
+            }
+        }
+
+        var ct = rawEncrypt(plaintext, key, iv);
+        var ret = [iv];
+        for (i = 0; i < ct.length; i++) {
+            ret[ret.length] = ct[i];
+        }
+        return Base64.encode(ret);
+    },
+        decString = function decString(ciphertext, key) {
+        var tmp = Base64.decode(ciphertext);
+        var iv = tmp.slice(0, 16);
+        var ct = tmp.slice(16, tmp.length);
+        var i;
+
+        key = s2a(key, false);
+        for (i = key.length; i < 32; i++) {
+            key[i] = 0;
+        }
+
+        var pt = rawDecrypt(ct, key, iv, false);
+        return pt;
+    },
+        Base64 = function () {
+        // Takes a Nx16x1 byte array and converts it to Base64
+        var _chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/',
+            chars = _chars.split(''),
+            encode = function encode(b, withBreaks) {
+            var flatArr = [],
+                b64 = '',
+                i,
+                broken_b64,
+                totalChunks = Math.floor(b.length * 16 / 3);
+            for (i = 0; i < b.length * 16; i++) {
+                flatArr.push(b[Math.floor(i / 16)][i % 16]);
+            }
+            for (i = 0; i < flatArr.length; i = i + 3) {
+                b64 += chars[flatArr[i] >> 2];
+                b64 += chars[(flatArr[i] & 3) << 4 | flatArr[i + 1] >> 4];
+                if (flatArr[i + 1] !== undefined) {
+                    b64 += chars[(flatArr[i + 1] & 15) << 2 | flatArr[i + 2] >> 6];
+                } else {
+                    b64 += '=';
+                }
+                if (flatArr[i + 2] !== undefined) {
+                    b64 += chars[flatArr[i + 2] & 63];
+                } else {
+                    b64 += '=';
+                }
+            }
+            // OpenSSL is super particular about line breaks
+            broken_b64 = b64.slice(0, 64) + '\n';
+            for (i = 1; i < Math.ceil(b64.length / 64); i++) {
+                broken_b64 += b64.slice(i * 64, i * 64 + 64) + (Math.ceil(b64.length / 64) === i + 1 ? '' : '\n');
+            }
+            return broken_b64;
+        },
+            decode = function decode(string) {
+            string = string.replace(/\n/g, '');
+            var flatArr = [],
+                c = [],
+                b = [],
+                i;
+            for (i = 0; i < string.length; i = i + 4) {
+                c[0] = _chars.indexOf(string.charAt(i));
+                c[1] = _chars.indexOf(string.charAt(i + 1));
+                c[2] = _chars.indexOf(string.charAt(i + 2));
+                c[3] = _chars.indexOf(string.charAt(i + 3));
+
+                b[0] = c[0] << 2 | c[1] >> 4;
+                b[1] = (c[1] & 15) << 4 | c[2] >> 2;
+                b[2] = (c[2] & 3) << 6 | c[3];
+                flatArr.push(b[0], b[1], b[2]);
+            }
+            flatArr = flatArr.slice(0, flatArr.length - flatArr.length % 16);
+            return flatArr;
+        };
+
+        //internet explorer
+        if (typeof Array.indexOf === "function") {
+            _chars = chars;
+        }
+
+        /*
+        //other way to solve internet explorer problem
+        if(!Array.indexOf){
+            Array.prototype.indexOf = function(obj){
+                for(var i=0; i<this.length; i++){
+                    if(this[i]===obj){
+                        return i;
+                    }
+                }
+                return -1;
+            }
+        }
+        */
+
+        return {
+            "encode": encode,
+            "decode": decode
+        };
+    }();
+
+    return {
+        "size": size,
+        "h2a": h2a,
+        "expandKey": expandKey,
+        "encryptBlock": encryptBlock,
+        "decryptBlock": decryptBlock,
+        "Decrypt": Decrypt,
+        "s2a": s2a,
+        "rawEncrypt": rawEncrypt,
+        "rawDecrypt": rawDecrypt,
+        "dec": dec,
+        "openSSLKey": openSSLKey,
+        "a2h": a2h,
+        "enc": enc,
+        "Hash": { "MD5": MD5 },
+        "Base64": Base64
+    };
+});
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+__webpack_require__(3).config();
+exports.default = __webpack_require__(20)({
+    client: 'pg',
+    connection: {"GJS_DEBUG_TOPICS":"JS ERROR;JS LOG","LESSOPEN":"| /usr/bin/lesspipe %s","npm_config_cache_lock_stale":"60000","npm_package_devDependencies_babel_core":"^6.24.1","npm_package_devDependencies_chalk":"^1.1.3","npm_package_dependencies_bluebird":"latest","npm_config_legacy_bundling":"","npm_config_sign_git_tag":"","USER":"sieunhangao","J2SDKDIR":"/usr/lib/jvm/java-8-oracle","LC_TIME":"vi_VN","npm_package_devDependencies_jest":"^20.0.4","npm_config_user_agent":"npm/4.2.0 node/v7.10.0 linux x64","npm_config_always_auth":"","XDG_SEAT":"seat0","npm_config_bin_links":"true","npm_config_key":"","SSH_AGENT_PID":"1316","XDG_SESSION_TYPE":"x11","npm_package_devDependencies_file_loader":"^0.11.1","npm_package_devDependencies_gulp":"github:gulpjs/gulp#4.0","npm_config_description":"true","npm_config_fetch_retries":"2","npm_config_heading":"npm","npm_config_if_present":"","npm_config_init_version":"1.0.0","npm_config_user":"","npm_node_execpath":"/usr/bin/nodejs","LD_LIBRARY_PATH":"/opt/WebStorm-171.4694.29/bin:","SHLVL":"1","J2REDIR":"/usr/lib/jvm/java-8-oracle/jre","npm_package_devDependencies_babel_preset_es2015":"^6.24.1","npm_package_devDependencies_url_loader":"^0.5.8","HOME":"/home/sieunhangao","QT4_IM_MODULE":"xim","npm_config_force":"","DESKTOP_SESSION":"gnome","npm_package_devDependencies_babel_preset_es2017":"^6.24.1","npm_config_only":"","GIO_LAUNCHED_DESKTOP_FILE":"/home/sieunhangao/.local/share/applications/jetbrains-webstorm.desktop","npm_package_scripts_build_w":"webpack -w","npm_package_engines_node":"7.10.0","npm_config_cache_min":"10","npm_config_init_license":"ISC","QT_LINUX_ACCESSIBILITY_ALWAYS_ON":"1","GTK_MODULES":"gail:atk-bridge","npm_package_dependencies_koa_router":"^7.2.0","npm_config_editor":"vi","npm_config_rollback":"true","npm_config_tag_version_prefix":"v","LC_MONETARY":"vi_VN","npm_package_devDependencies_rimraf":"^2.6.1","npm_package_dependencies_react_router_config":"^1.0.0-beta.3","npm_config_cache_max":"Infinity","npm_config_userconfig":"/home/sieunhangao/.npmrc","DBUS_SESSION_BUS_ADDRESS":"unix:abstract=/tmp/dbus-ivVa1rGhmg,guid=eeafc690d9635a9a203e1960596e141f","npm_package_dependencies_koa_nunjucks_2":"^3.0.2","npm_config_engine_strict":"","npm_config_init_author_name":"","npm_config_init_author_url":"","npm_config_tmp":"/tmp","GIO_LAUNCHED_DESKTOP_FILE_PID":"4000","npm_package_description":"","npm_package_devDependencies_babel_loader":"^7.0.0","npm_package_dependencies_cheerio":"^1.0.0-rc.1","npm_package_dependencies_material_ui":"^0.18.1","npm_package_dependencies_react_router_dom":"^4.1.2","npm_config_depth":"Infinity","npm_config_save_dev":"","npm_config_usage":"","npm_package_devDependencies_progress_bar_webpack_plugin":"^1.9.3","npm_config_cafile":"","npm_config_metrics_registry":"https://registry.npmjs.org/","npm_config_progress":"true","npm_config_https_proxy":"","MANDATORY_PATH":"/usr/share/gconf/gnome.mandatory.path","npm_package_scripts_dev":"webpack && npm start","npm_package_devDependencies_babel_jest":"^20.0.3","npm_config_onload_script":"","LOGNAME":"sieunhangao","GTK_IM_MODULE":"ibus","npm_package_dependencies_request":"latest","npm_config_rebuild_bundle":"true","npm_config_save_bundle":"","npm_config_shell":"/bin/bash","_":"/usr/bin/npm","npm_package_dependencies_react_tap_event_plugin":"^2.0.1","npm_config_dry_run":"","npm_config_prefix":"/usr","DEFAULTS_PATH":"/usr/share/gconf/gnome.default.path","npm_config_scope":"","npm_config_browser":"","npm_config_cache_lock_wait":"10000","npm_config_registry":"https://registry.npmjs.org/","npm_config_save_optional":"","npm_config_searchopts":"","npm_config_versions":"","XDG_SESSION_ID":"1","TERM":"xterm-256color","USERNAME":"sieunhangao","npm_config_cache":"/home/sieunhangao/.npm","npm_config_proxy":"","npm_config_send_metrics":"","GNOME_DESKTOP_SESSION_ID":"this-is-deprecated","npm_package_scripts_clear":"rimraf public","npm_package_scripts_start":"node index.js ","npm_package_devDependencies_html_webpack_plugin":"^2.28.0","npm_package_devDependencies_webpack_node_externals":"^1.6.0","npm_config_global_style":"","npm_config_ignore_scripts":"","npm_config_version":"","WINDOWPATH":"7","npm_config_local_address":"","npm_config_viewer":"man","PATH":"/usr/lib/node_modules/npm/bin/node-gyp-bin:/media/sieunhangao/Data/Project/react/testing-react/node_modules/.bin:/home/sieunhangao/bin:/home/sieunhangao/.local/bin:/home/sieunhangao/bin:/home/sieunhangao/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/home/sieunhangao/Android/Sdk/tools:/home/sieunhangao/Android/Sdk/platform-tools:/home/sieunhangao/Android/Sdk/tools:/home/sieunhangao/Android/Sdk/platform-tools","DERBY_HOME":"/usr/lib/jvm/java-8-oracle/db","SESSION_MANAGER":"local/sieunhangao-Inspiron-7537:@/tmp/.ICE-unix/1247,unix/sieunhangao-Inspiron-7537:/tmp/.ICE-unix/1247","npm_package_name":"demo","npm_package_dependencies_koa":"^2.2.0","NODE":"/usr/bin/nodejs","LC_ADDRESS":"vi_VN","XDG_MENU_PREFIX":"gnome-","XDG_RUNTIME_DIR":"/run/user/1000","npm_package_devDependencies_babel_polyfill":"^6.23.0","npm_package_dependencies_react_redux":"^5.0.5","npm_config_color":"true","DISPLAY":":0","npm_package_dependencies_koa_static":"^3.0.0","npm_config_fetch_retry_mintimeout":"10000","npm_config_maxsockets":"50","LC_TELEPHONE":"vi_VN","LANG":"en_US.UTF-8","XDG_CURRENT_DESKTOP":"GNOME","npm_package_devDependencies_react_test_renderer":"^15.6.1","npm_package_devDependencies_webpack":"^2.6.0","npm_package_dependencies_react_dom":"^15.5.4","npm_package_dependencies_redux":"^3.6.0","npm_config_umask":"0002","LS_COLORS":"rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:","XMODIFIERS":"@im=ibus","XDG_SESSION_DESKTOP":"gnome","XAUTHORITY":"/run/user/1000/gdm/Xauthority","npm_package_main":"index.js","npm_package_devDependencies_dotenv":"^4.0.0","npm_package_devDependencies_html_loader":"^0.4.5","npm_package_gitHead":"cc9ff99ad8f6e00e98fd33f8d784ed89ff0ca649","npm_config_fetch_retry_maxtimeout":"60000","npm_config_loglevel":"warn","npm_config_logs_max":"10","npm_config_message":"%s","npm_lifecycle_script":"webpack && npm start","SSH_AUTH_SOCK":"/run/user/1000/keyring/ssh","npm_package_scripts_test":"jest","npm_package_devDependencies_webpack_dev_server":"^2.4.5","npm_package_dependencies_react_router":"^4.1.2","npm_config_ca":"","npm_config_cert":"","npm_config_global":"","npm_config_link":"","SHELL":"/bin/bash","LC_NAME":"vi_VN","npm_package_version":"1.0.0","npm_package_dependencies_knex":"^0.13.0","npm_config_access":"","npm_config_also":"","npm_config_save":"","npm_config_unicode":"true","npm_lifecycle_event":"dev","QT_ACCESSIBILITY":"1","GDMSESSION":"gnome","npm_package_scripts_build":"webpack -p","npm_config_argv":"{\"remain\":[],\"cooked\":[\"run\",\"dev\"],\"original\":[\"run\",\"dev\"]}","npm_config_long":"","npm_config_production":"","npm_config_searchlimit":"20","npm_config_unsafe_perm":"true","LESSCLOSE":"/usr/bin/lesspipe %s %s","npm_package_author":"","npm_package_dependencies_koa_bodyparser":"^4.2.0","npm_config_node_version":"7.10.0","npm_config_tag":"latest","LC_MEASUREMENT":"vi_VN","npm_package_devDependencies_babel_preset_stage_0":"^6.24.1","npm_config_git_tag_version":"true","npm_config_shrinkwrap":"true","GJS_DEBUG_OUTPUT":"stderr","LC_IDENTIFICATION":"vi_VN","npm_package_license":"ISC","npm_config_fetch_retry_factor":"10","npm_config_proprietary_attribs":"true","npm_config_save_exact":"","npm_config_strict_ssl":"true","XDG_VTNR":"7","QT_IM_MODULE":"ibus","npm_package_devDependencies_style_loader":"^0.18.0","npm_config_dev":"","npm_config_globalconfig":"/usr/etc/npmrc","npm_config_init_module":"/home/sieunhangao/.npm-init.js","npm_config_parseable":"","PWD":"/media/sieunhangao/Data/Project/react/testing-react","JAVA_HOME":"/usr/lib/jvm/java-8-oracle","npm_package_devDependencies_enzyme":"^2.9.1","npm_config_globalignorefile":"/usr/etc/npmignore","npm_execpath":"/usr/lib/node_modules/npm/bin/npm-cli.js","CLUTTER_IM_MODULE":"xim","ANDROID_HOME":"/home/sieunhangao/Android/Sdk","XDG_CONFIG_DIRS":"/etc/xdg/xdg-gnome:/etc/xdg","XDG_DATA_DIRS":"/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop","npm_package_devDependencies_css_loader":"^0.28.2","npm_package_devDependencies_image_webpack_loader":"^3.3.1","npm_config_cache_lock_retries":"10","npm_config_searchstaleness":"900","LC_NUMERIC":"vi_VN","npm_package_devDependencies_babel_preset_env":"^1.5.1","npm_package_devDependencies_extract_text_webpack_plugin":"^2.1.0","npm_config_save_prefix":"^","npm_config_scripts_prepend_node_path":"warn-only","LC_PAPER":"vi_VN","npm_config_group":"1000","npm_config_init_author_email":"","npm_config_searchexclude":"","npm_config_git":"git","npm_config_optional":"true","npm_package_devDependencies_babel_preset_react":"^6.24.1","npm_package_dependencies_pg":"^6.2.3","npm_package_dependencies_react":"^15.5.4","npm_config_json":"","DATABASE_URL":"postgres://xmvmpwalsagthi:5ecba1004453919d22f093c5bfe251e29844741799525ae02b8d1810fa572993@ec2-54-197-232-155.compute-1.amazonaws.com:5432/dcktrp0qkbns39"}.DATABASE_URL + '?ssl=true'
+});
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var aes = __webpack_require__(14);
+var cheerio = __webpack_require__(18);
+var Promise = __webpack_require__(17);
+var fs = __webpack_require__(19);
+var request = __webpack_require__(34);
+
+var requestOptions = {
+    headers: {
+        'User-Agent': "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0"
+    }
+};
+
+function getData(url, opt) {
+    return new Promise(function (resolve, reject) {
+        request(url, opt || requestOptions, function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+                return resolve(body);
+            } else {
+                return reject(error);
+            }
+        });
+    });
+}
+
+function getLinkDownloadByUrl(url) {
+    if (url.indexOf('http://www.phimMoi.net/') === -1 && url.indexOf('http://www.phimmoi.net/') === -1) url = 'http://www.phimmoi.net/' + url;
+    if (url.indexOf('html') === -1) url = url + 'xem-phim.html';
+    return getData(url, null).then(function (response) {
+        var codeDownload = cheerio.load(response)('script[onload="checkEpisodeInfoLoaded(this)"]').attr('src');
+        return getData(codeDownload.replace('javascript', 'json'), Object.assign({}, requestOptions, { json: true }));
+    }).then(function (response) {
+        var episodeId = response.episodeId,
+            medias = response.medias;
+
+        var password = 'PhimMoi.Net@' + episodeId;
+        if (medias) return medias.map(function (video) {
+            return {
+                url: decodeUrl(video.url, password),
+                type: video.type,
+                width: video.width,
+                height: video.height,
+                resolution: parseFloat(video.resolution),
+                label: video.resolution
+            };
+        });
+    });
+}
+
+function decodeUrl(url, password) {
+    try {
+        //noinspection JSUnresolvedFunction
+        return aes.dec(url, password);
+    } catch (err) {}
+}
+
+exports.getLinkDownloadByUrl = getLinkDownloadByUrl;
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports) {
+
+module.exports = require("bluebird");
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports) {
+
+module.exports = require("cheerio");
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports) {
+
+module.exports = require("fs");
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports) {
+
+module.exports = require("knex");
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports) {
+
+module.exports = require("koa");
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports) {
+
+module.exports = require("koa-bodyparser");
+
+/***/ }),
+/* 23 */
+/***/ (function(module, exports) {
+
+module.exports = require("koa-nunjucks-2");
+
+/***/ }),
+/* 24 */
+/***/ (function(module, exports) {
+
+module.exports = require("koa-router");
+
+/***/ }),
+/* 25 */
+/***/ (function(module, exports) {
+
+module.exports = require("koa-static");
+
+/***/ }),
+/* 26 */
+/***/ (function(module, exports) {
+
+module.exports = require("material-ui/AppBar");
+
+/***/ }),
+/* 27 */
+/***/ (function(module, exports) {
+
+module.exports = require("material-ui/styles/MuiThemeProvider");
+
+/***/ }),
+/* 28 */
+/***/ (function(module, exports) {
+
+module.exports = require("material-ui/styles/colors");
+
+/***/ }),
+/* 29 */
+/***/ (function(module, exports) {
+
+module.exports = require("material-ui/styles/getMuiTheme");
+
+/***/ }),
+/* 30 */
+/***/ (function(module, exports) {
+
+module.exports = require("path");
+
+/***/ }),
+/* 31 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-dom/server");
+
+/***/ }),
+/* 32 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-router");
+
+/***/ }),
+/* 33 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-router-dom");
+
+/***/ }),
+/* 34 */
+/***/ (function(module, exports) {
+
+module.exports = require("request");
+
+/***/ }),
+/* 35 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(7);
+module.exports = __webpack_require__(6);
+
+
+/***/ })
+/******/ ]);

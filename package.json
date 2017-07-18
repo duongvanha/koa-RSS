@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:client": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "dev": "webpack && npm start",
     "clear": "rimraf public",
     "build": "webpack -p",
     "start": "node index.js ",
@@ -60,6 +60,7 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.5",
+    "react-router": "^4.1.2",
     "react-router-config": "^1.0.0-beta.3",
     "react-router-dom": "^4.1.2",
     "react-tap-event-plugin": "^2.0.1",

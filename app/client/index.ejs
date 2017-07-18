@@ -4,6 +4,13 @@
     <title>Movie app</title>
 </head>
 <body>
-<div class="container">{{ container | safe }}</div>
+<div class="container">
+    <div>{{ container | safe }}</div>
+</div>
+<script>
+    // WARNING: See the following for security issues around embedding JSON in HTML:
+    // http://redux.js.org/docs/recipes/ServerRendering.html#security-considerations
+    window.__PRELOADED_STATE__ = {{ state | safe }}
+</script>
 </body>
 </html>

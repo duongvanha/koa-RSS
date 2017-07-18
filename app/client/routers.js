@@ -1,12 +1,6 @@
 import * as React from "react";
 import { renderRoutes } from "react-router-config";
-
-const Layout = (props) =>
-    <div>
-        layout
-        {renderRoutes(props.route.routes)}
-    </div>
-;
+import HomeComponent from "./components/home.component";
 
 const aComponent = (props) =>
     <div>
@@ -24,14 +18,13 @@ const bComponent = (props) =>
 
 const NotFoundComponent = (props) =>
     <div>
-        khong co component
+        404
     </div>
 ;
 
 const routes = [
     {
-        path     : '/home',
-        component: Layout,
+        component: HomeComponent,
         routes   : [
             {
                 path     : '/home/',
@@ -40,23 +33,11 @@ const routes = [
             },
             {
                 path     : '/home/a',
-                component: aComponent,
-                // routes   : [
-                //     {
-                //         path     : '/child/:id/grand-child',
-                //         component: GrandChild
-                //     }
-                // ]
+                component: aComponent
             },
             {
                 path     : '/home/b',
-                component: bComponent,
-                // routes   : [
-                //     {
-                //         path     : '/child/:id/grand-child',
-                //         component: GrandChild
-                //     }
-                // ]
+                component: bComponent
             }
 
         ]
