@@ -7,7 +7,7 @@ import serve from 'koa-static';
 import nunjuck from 'koa-nunjucks-2';
 
 const app = new Koa();
-const dir = path.join(__dirname, 'public');
+const dir = path.join(__dirname,'..','..', 'public');
 
 app.use(nunjuck({
     ext : 'html',

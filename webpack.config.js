@@ -102,4 +102,4 @@ const server      = {
     ]
 };
 
-module.exports = [client, server];
+module.exports = [client];
