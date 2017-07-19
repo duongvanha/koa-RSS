@@ -9,7 +9,13 @@ class HomeComponent extends PureComponent {
 
     componentWillReceiveProps() {
         setTimeout(() => {
-            this.props.add('next');
+            this.props.add('componentWillReceiveProps');
+        }, 500);
+    }
+
+    componentWillMount() {
+        setTimeout(() => {
+            this.props.add('componentWillMount');
         }, 500);
     }
 

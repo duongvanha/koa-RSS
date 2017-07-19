@@ -4509,7 +4509,7 @@ FormComponent = (0, _reduxForm.reduxForm)({
 
 FormComponent = (0, _reactRedux.connect)(function (state) {
     return {
-        initialValues: state.demoForm // pull initial values from account reducer
+        initialValues: state.demoForm
     };
 })(FormComponent);
 
@@ -4567,7 +4567,16 @@ var HomeComponent = function (_PureComponent) {
             var _this2 = this;
 
             setTimeout(function () {
-                _this2.props.add('next');
+                _this2.props.add('componentWillReceiveProps');
+            }, 500);
+        }
+    }, {
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            var _this3 = this;
+
+            setTimeout(function () {
+                _this3.props.add('componentWillMount');
             }, 500);
         }
     }, {
