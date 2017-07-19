@@ -14,7 +14,6 @@ injectTapEventPlugin();
 
 const preloadedState = window.__PRELOADED_STATE__;
 
-// Allow the passed state to be garbage-collected
 delete window.__PRELOADED_STATE__;
 
 
@@ -24,7 +23,6 @@ ReactDOM.render(
     <Provider store={createStoreWithMiddleware(reducers, preloadedState)}>
         <MuiThemeProvider>
             <BrowserRouter>
-                {/* kick it all off with the root route */}
                 {renderRoutes(routes)}
             </BrowserRouter>
         </MuiThemeProvider>

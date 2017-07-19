@@ -1537,7 +1537,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var preloadedState = window.__PRELOADED_STATE__;
 
-// Allow the passed state to be garbage-collected
 delete window.__PRELOADED_STATE__;
 
 var createStoreWithMiddleware = (0, _redux.applyMiddleware)()(_redux.createStore);
