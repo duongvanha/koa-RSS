@@ -35,24 +35,23 @@ router.post('/api', async (ctx) => {
 
 
 router.get('*', async (ctx) => {
-    const context = {};
-
+    const context  = {};
     const muiTheme = getMuiTheme({}, {userAgent: ctx.request.headers['user-agent']});
 
-    const preloadedState = {datas: {text: 'init state by server'}};
+    const preloadedState = {datas: {text: 'init state by server'}, demoForm: ctx.request.query};
 
     const store = createStore(reducers, preloadedState);
 
     let body = ReactDOMServer.renderToString(
         <Provider store={store}>
-            <MuiThemeProvider muiTheme={muiTheme}>
-                <StaticRouter
-                    location={ctx.request.url}
-                    context={context}
-                >
-                    {renderRoutes(routers)}
-                </StaticRouter>
-            </MuiThemeProvider>
+            {/*<MuiThemeProvider muiTheme={muiTheme}>*/}
+            <StaticRouter
+                location={ctx.request.url}
+                context={context}
+            >
+                {renderRoutes(routers)}
+            </StaticRouter>
+            {/*</MuiThemeProvider>*/}
         </Provider>
     );
     await ctx.render('layout', {container: body, state: JSON.stringify(preloadedState).replace(/</g, '\\u003c')});

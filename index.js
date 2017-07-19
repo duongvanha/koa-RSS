@@ -64,7 +64,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 35);
+/******/ 	return __webpack_require__(__webpack_require__.s = 37);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -77,10 +77,16 @@ module.exports = require("react");
 /* 1 */
 /***/ (function(module, exports) {
 
-module.exports = require("react-router-config");
+module.exports = require("react-redux");
 
 /***/ }),
 /* 2 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-router-config");
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -287,12 +293,6 @@ var Container = function () {
 exports.default = Container;
 
 /***/ }),
-/* 3 */
-/***/ (function(module, exports) {
-
-module.exports = require("react-redux");
-
-/***/ }),
 /* 4 */
 /***/ (function(module, exports) {
 
@@ -300,36 +300,42 @@ module.exports = require("redux");
 
 /***/ }),
 /* 5 */
+/***/ (function(module, exports) {
+
+module.exports = require("redux-form");
+
+/***/ }),
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _koa = __webpack_require__(21);
+var _koa = __webpack_require__(23);
 
 var _koa2 = _interopRequireDefault(_koa);
 
-var _path = __webpack_require__(30);
+var _path = __webpack_require__(32);
 
 var _path2 = _interopRequireDefault(_path);
 
-var _bootstrapper = __webpack_require__(11);
+var _bootstrapper = __webpack_require__(13);
 
 var _bootstrapper2 = _interopRequireDefault(_bootstrapper);
 
-var _router = __webpack_require__(12);
+var _router = __webpack_require__(14);
 
 var _router2 = _interopRequireDefault(_router);
 
-var _koaBodyparser = __webpack_require__(22);
+var _koaBodyparser = __webpack_require__(24);
 
 var _koaBodyparser2 = _interopRequireDefault(_koaBodyparser);
 
-var _koaStatic = __webpack_require__(25);
+var _koaStatic = __webpack_require__(27);
 
 var _koaStatic2 = _interopRequireDefault(_koaStatic);
 
-var _koaNunjucks = __webpack_require__(23);
+var _koaNunjucks = __webpack_require__(25);
 
 var _koaNunjucks2 = _interopRequireDefault(_koaNunjucks);
 
@@ -347,7 +353,7 @@ app.use((0, _koaStatic2.default)(dir));
 app.use((0, _koaBodyparser2.default)());
 app.use(_router2.default);
 
-var port = {"GJS_DEBUG_TOPICS":"JS ERROR;JS LOG","LESSOPEN":"| /usr/bin/lesspipe %s","npm_config_cache_lock_stale":"60000","npm_package_devDependencies_babel_core":"^6.24.1","npm_package_devDependencies_chalk":"^1.1.3","npm_package_dependencies_bluebird":"latest","npm_config_legacy_bundling":"","npm_config_sign_git_tag":"","USER":"sieunhangao","J2SDKDIR":"/usr/lib/jvm/java-8-oracle","LC_TIME":"vi_VN","npm_package_devDependencies_jest":"^20.0.4","npm_config_user_agent":"npm/4.2.0 node/v7.10.0 linux x64","npm_config_always_auth":"","XDG_SEAT":"seat0","npm_config_bin_links":"true","npm_config_key":"","SSH_AGENT_PID":"1323","XDG_SESSION_TYPE":"x11","npm_package_devDependencies_file_loader":"^0.11.1","npm_package_devDependencies_gulp":"github:gulpjs/gulp#4.0","npm_config_description":"true","npm_config_fetch_retries":"2","npm_config_heading":"npm","npm_config_if_present":"","npm_config_init_version":"1.0.0","npm_config_user":"","npm_node_execpath":"/usr/bin/nodejs","LD_LIBRARY_PATH":"/opt/WebStorm-171.4694.29/bin:","SHLVL":"1","J2REDIR":"/usr/lib/jvm/java-8-oracle/jre","npm_package_devDependencies_babel_preset_es2015":"^6.24.1","npm_package_devDependencies_url_loader":"^0.5.8","HOME":"/home/sieunhangao","QT4_IM_MODULE":"xim","npm_config_force":"","DESKTOP_SESSION":"gnome","npm_package_devDependencies_babel_preset_es2017":"^6.24.1","npm_config_only":"","GIO_LAUNCHED_DESKTOP_FILE":"/home/sieunhangao/.local/share/applications/jetbrains-webstorm.desktop","npm_package_scripts_build_w":"webpack -w","npm_package_engines_node":"7.10.0","npm_package_dependencies_babel_polyfill":"^6.23.0","npm_config_cache_min":"10","npm_config_init_license":"ISC","QT_LINUX_ACCESSIBILITY_ALWAYS_ON":"1","GTK_MODULES":"gail:atk-bridge","npm_package_dependencies_koa_router":"^7.2.0","npm_package_dependencies_redux_form":"^7.0.1","npm_config_editor":"vi","npm_config_rollback":"true","npm_config_tag_version_prefix":"v","LC_MONETARY":"vi_VN","npm_package_devDependencies_rimraf":"^2.6.1","npm_package_dependencies_react_router_config":"^1.0.0-beta.3","npm_config_cache_max":"Infinity","npm_config_userconfig":"/home/sieunhangao/.npmrc","DBUS_SESSION_BUS_ADDRESS":"unix:abstract=/tmp/dbus-8bgddf0ECg,guid=baf2a0e89bc56ff0ae59532b596ebc2b","npm_package_dependencies_koa_nunjucks_2":"^3.0.2","npm_config_engine_strict":"","npm_config_init_author_name":"","npm_config_init_author_url":"","npm_config_tmp":"/tmp","GIO_LAUNCHED_DESKTOP_FILE_PID":"2450","npm_package_description":"","npm_package_devDependencies_babel_loader":"^7.0.0","npm_package_dependencies_cheerio":"^1.0.0-rc.1","npm_package_dependencies_material_ui":"^0.18.1","npm_package_dependencies_react_router_dom":"^4.1.2","npm_config_depth":"Infinity","npm_config_save_dev":"","npm_config_usage":"","npm_package_devDependencies_progress_bar_webpack_plugin":"^1.9.3","npm_config_cafile":"","npm_config_metrics_registry":"https://registry.npmjs.org/","npm_config_progress":"true","npm_config_https_proxy":"","MANDATORY_PATH":"/usr/share/gconf/gnome.mandatory.path","npm_package_scripts_dev":"webpack && npm start","npm_package_devDependencies_babel_jest":"^20.0.3","npm_config_onload_script":"","LOGNAME":"sieunhangao","GTK_IM_MODULE":"ibus","npm_package_dependencies_request":"^2.81.0","npm_config_rebuild_bundle":"true","npm_config_save_bundle":"","npm_config_shell":"/bin/bash","_":"/usr/bin/npm","npm_package_dependencies_react_tap_event_plugin":"^2.0.1","npm_config_dry_run":"","npm_config_prefix":"/usr","DEFAULTS_PATH":"/usr/share/gconf/gnome.default.path","npm_config_scope":"","npm_config_browser":"","npm_config_cache_lock_wait":"10000","npm_config_registry":"https://registry.npmjs.org/","npm_config_save_optional":"","npm_config_searchopts":"","npm_config_versions":"","XDG_SESSION_ID":"1","TERM":"xterm-256color","USERNAME":"sieunhangao","npm_config_cache":"/home/sieunhangao/.npm","npm_config_proxy":"","npm_config_send_metrics":"","GNOME_DESKTOP_SESSION_ID":"this-is-deprecated","npm_package_scripts_clear":"rimraf public","npm_package_scripts_start":"node index.js ","npm_package_devDependencies_html_webpack_plugin":"^2.28.0","npm_package_devDependencies_webpack_node_externals":"^1.6.0","npm_config_global_style":"","npm_config_ignore_scripts":"","npm_config_version":"","WINDOWPATH":"7","npm_config_local_address":"","npm_config_viewer":"man","PATH":"/usr/lib/node_modules/npm/bin/node-gyp-bin:/media/sieunhangao/Data/Project/react/testing-react/node_modules/.bin:/home/sieunhangao/bin:/home/sieunhangao/.local/bin:/home/sieunhangao/bin:/home/sieunhangao/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/home/sieunhangao/Android/Sdk/tools:/home/sieunhangao/Android/Sdk/platform-tools:/home/sieunhangao/Android/Sdk/tools:/home/sieunhangao/Android/Sdk/platform-tools","DERBY_HOME":"/usr/lib/jvm/java-8-oracle/db","SESSION_MANAGER":"local/sieunhangao-Inspiron-7537:@/tmp/.ICE-unix/1254,unix/sieunhangao-Inspiron-7537:/tmp/.ICE-unix/1254","npm_package_name":"demo","npm_package_dependencies_koa":"^2.2.0","NODE":"/usr/bin/nodejs","LC_ADDRESS":"vi_VN","XDG_MENU_PREFIX":"gnome-","XDG_RUNTIME_DIR":"/run/user/1000","npm_package_dependencies_react_redux":"^5.0.5","npm_config_color":"true","DISPLAY":":0","npm_package_dependencies_koa_static":"^3.0.0","npm_config_fetch_retry_mintimeout":"10000","npm_config_maxsockets":"50","LC_TELEPHONE":"vi_VN","LANG":"en_US.UTF-8","XDG_CURRENT_DESKTOP":"GNOME","npm_package_devDependencies_react_test_renderer":"^15.6.1","npm_package_devDependencies_webpack":"^2.6.0","npm_package_dependencies_react_dom":"^15.5.4","npm_package_dependencies_redux":"^3.6.0","npm_config_umask":"0002","LS_COLORS":"rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:","XMODIFIERS":"@im=ibus","XDG_SESSION_DESKTOP":"gnome","XAUTHORITY":"/run/user/1000/gdm/Xauthority","npm_package_main":"index.js","npm_package_devDependencies_dotenv":"^4.0.0","npm_package_devDependencies_html_loader":"^0.4.5","npm_package_gitHead":"bc3a4b8a5e39aa5fdd81db131297eb869df5c58d","npm_config_fetch_retry_maxtimeout":"60000","npm_config_loglevel":"warn","npm_config_logs_max":"10","npm_config_message":"%s","npm_lifecycle_script":"webpack && npm start","SSH_AUTH_SOCK":"/run/user/1000/keyring/ssh","npm_package_scripts_test":"jest","npm_package_devDependencies_webpack_dev_server":"^2.4.5","npm_package_dependencies_react_router":"^4.1.2","npm_config_ca":"","npm_config_cert":"","npm_config_global":"","npm_config_link":"","SHELL":"/bin/bash","LC_NAME":"vi_VN","npm_package_version":"1.0.0","npm_package_dependencies_knex":"^0.13.0","npm_config_access":"","npm_config_also":"","npm_config_save":"","npm_config_unicode":"true","npm_lifecycle_event":"dev","QT_ACCESSIBILITY":"1","GDMSESSION":"gnome","npm_package_scripts_build":"webpack -p","npm_config_argv":"{\"remain\":[],\"cooked\":[\"run\",\"dev\"],\"original\":[\"run\",\"dev\"]}","npm_config_long":"","npm_config_production":"","npm_config_searchlimit":"20","npm_config_unsafe_perm":"true","LESSCLOSE":"/usr/bin/lesspipe %s %s","npm_package_author":"","npm_package_dependencies_koa_bodyparser":"^4.2.0","npm_config_node_version":"7.10.0","npm_config_tag":"latest","LC_MEASUREMENT":"vi_VN","npm_package_devDependencies_babel_preset_stage_0":"^6.24.1","npm_config_git_tag_version":"true","npm_config_shrinkwrap":"true","GJS_DEBUG_OUTPUT":"stderr","LC_IDENTIFICATION":"vi_VN","npm_package_license":"ISC","npm_config_fetch_retry_factor":"10","npm_config_proprietary_attribs":"true","npm_config_save_exact":"","npm_config_strict_ssl":"true","XDG_VTNR":"7","QT_IM_MODULE":"ibus","npm_package_devDependencies_style_loader":"^0.18.0","npm_config_dev":"","npm_config_globalconfig":"/usr/etc/npmrc","npm_config_init_module":"/home/sieunhangao/.npm-init.js","npm_config_parseable":"","PWD":"/media/sieunhangao/Data/Project/react/testing-react","JAVA_HOME":"/usr/lib/jvm/java-8-oracle","npm_package_devDependencies_enzyme":"^2.9.1","npm_config_globalignorefile":"/usr/etc/npmignore","npm_execpath":"/usr/lib/node_modules/npm/bin/npm-cli.js","CLUTTER_IM_MODULE":"xim","ANDROID_HOME":"/home/sieunhangao/Android/Sdk","XDG_CONFIG_DIRS":"/etc/xdg/xdg-gnome:/etc/xdg","XDG_DATA_DIRS":"/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop","npm_package_devDependencies_css_loader":"^0.28.2","npm_package_devDependencies_image_webpack_loader":"^3.3.1","npm_config_cache_lock_retries":"10","npm_config_searchstaleness":"900","LC_NUMERIC":"vi_VN","npm_package_devDependencies_babel_preset_env":"^1.5.1","npm_package_devDependencies_extract_text_webpack_plugin":"^2.1.0","npm_config_save_prefix":"^","npm_config_scripts_prepend_node_path":"warn-only","LC_PAPER":"vi_VN","npm_config_group":"1000","npm_config_init_author_email":"","npm_config_searchexclude":"","npm_config_git":"git","npm_config_optional":"true","npm_package_devDependencies_babel_preset_react":"^6.24.1","npm_package_dependencies_pg":"^6.2.3","npm_package_dependencies_react":"^15.5.4","npm_config_json":"","DATABASE_URL":"postgres://xmvmpwalsagthi:5ecba1004453919d22f093c5bfe251e29844741799525ae02b8d1810fa572993@ec2-54-197-232-155.compute-1.amazonaws.com:5432/dcktrp0qkbns39"}.PORT || 8080;
+var port = {"GJS_DEBUG_TOPICS":"JS ERROR;JS LOG","LESSOPEN":"| /usr/bin/lesspipe %s","npm_config_cache_lock_stale":"60000","npm_package_devDependencies_babel_core":"^6.24.1","npm_package_devDependencies_chalk":"^1.1.3","npm_package_dependencies_bluebird":"latest","npm_config_legacy_bundling":"","npm_config_sign_git_tag":"","USER":"sieunhangao","J2SDKDIR":"/usr/lib/jvm/java-8-oracle","LC_TIME":"vi_VN","npm_package_devDependencies_jest":"^20.0.4","npm_config_user_agent":"npm/4.2.0 node/v7.10.0 linux x64","npm_config_always_auth":"","XDG_SEAT":"seat0","npm_config_bin_links":"true","npm_config_key":"","SSH_AGENT_PID":"1323","XDG_SESSION_TYPE":"x11","npm_package_devDependencies_file_loader":"^0.11.1","npm_package_devDependencies_gulp":"github:gulpjs/gulp#4.0","npm_config_description":"true","npm_config_fetch_retries":"2","npm_config_heading":"npm","npm_config_if_present":"","npm_config_init_version":"1.0.0","npm_config_user":"","npm_node_execpath":"/usr/bin/nodejs","LD_LIBRARY_PATH":"/opt/WebStorm-171.4694.29/bin:","SHLVL":"1","J2REDIR":"/usr/lib/jvm/java-8-oracle/jre","npm_package_devDependencies_babel_preset_es2015":"^6.24.1","npm_package_devDependencies_url_loader":"^0.5.8","HOME":"/home/sieunhangao","QT4_IM_MODULE":"xim","npm_config_force":"","DESKTOP_SESSION":"gnome","npm_package_devDependencies_babel_preset_es2017":"^6.24.1","npm_config_only":"","GIO_LAUNCHED_DESKTOP_FILE":"/home/sieunhangao/.local/share/applications/jetbrains-webstorm.desktop","npm_package_scripts_build_w":"webpack -w","npm_package_engines_node":"7.10.0","npm_package_dependencies_babel_polyfill":"^6.23.0","npm_config_cache_min":"10","npm_config_init_license":"ISC","QT_LINUX_ACCESSIBILITY_ALWAYS_ON":"1","GTK_MODULES":"gail:atk-bridge","npm_package_dependencies_koa_router":"^7.2.0","npm_package_dependencies_redux_form":"^7.0.1","npm_config_editor":"vi","npm_config_rollback":"true","npm_config_tag_version_prefix":"v","LC_MONETARY":"vi_VN","npm_package_devDependencies_rimraf":"^2.6.1","npm_package_dependencies_react_router_config":"^1.0.0-beta.3","npm_config_cache_max":"Infinity","npm_config_userconfig":"/home/sieunhangao/.npmrc","DBUS_SESSION_BUS_ADDRESS":"unix:abstract=/tmp/dbus-8bgddf0ECg,guid=baf2a0e89bc56ff0ae59532b596ebc2b","npm_package_dependencies_koa_nunjucks_2":"^3.0.2","npm_config_engine_strict":"","npm_config_init_author_name":"","npm_config_init_author_url":"","npm_config_tmp":"/tmp","GIO_LAUNCHED_DESKTOP_FILE_PID":"2450","npm_package_description":"","npm_package_devDependencies_babel_loader":"^7.0.0","npm_package_dependencies_cheerio":"^1.0.0-rc.1","npm_package_dependencies_material_ui":"^0.18.1","npm_package_dependencies_react_router_dom":"^4.1.2","npm_config_depth":"Infinity","npm_config_save_dev":"","npm_config_usage":"","npm_package_devDependencies_progress_bar_webpack_plugin":"^1.9.3","npm_config_cafile":"","npm_config_metrics_registry":"https://registry.npmjs.org/","npm_config_progress":"true","npm_config_https_proxy":"","MANDATORY_PATH":"/usr/share/gconf/gnome.mandatory.path","npm_package_scripts_dev":"webpack && npm start","npm_package_devDependencies_babel_jest":"^20.0.3","npm_config_onload_script":"","LOGNAME":"sieunhangao","GTK_IM_MODULE":"ibus","npm_package_dependencies_request":"^2.81.0","npm_config_rebuild_bundle":"true","npm_config_save_bundle":"","npm_config_shell":"/bin/bash","_":"/usr/bin/npm","npm_package_dependencies_react_tap_event_plugin":"^2.0.1","npm_config_dry_run":"","npm_config_prefix":"/usr","DEFAULTS_PATH":"/usr/share/gconf/gnome.default.path","npm_config_scope":"","npm_config_browser":"","npm_config_cache_lock_wait":"10000","npm_config_registry":"https://registry.npmjs.org/","npm_config_save_optional":"","npm_config_searchopts":"","npm_config_versions":"","XDG_SESSION_ID":"1","TERM":"xterm-256color","USERNAME":"sieunhangao","npm_package_dependencies_redux_logger":"^3.0.6","npm_config_cache":"/home/sieunhangao/.npm","npm_config_proxy":"","npm_config_send_metrics":"","GNOME_DESKTOP_SESSION_ID":"this-is-deprecated","npm_package_scripts_clear":"rimraf public","npm_package_scripts_start":"node index.js ","npm_package_devDependencies_html_webpack_plugin":"^2.28.0","npm_package_devDependencies_webpack_node_externals":"^1.6.0","npm_config_global_style":"","npm_config_ignore_scripts":"","npm_config_version":"","WINDOWPATH":"7","npm_config_local_address":"","npm_config_viewer":"man","PATH":"/usr/lib/node_modules/npm/bin/node-gyp-bin:/media/sieunhangao/Data/Project/react/testing-react/node_modules/.bin:/home/sieunhangao/bin:/home/sieunhangao/.local/bin:/home/sieunhangao/bin:/home/sieunhangao/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/home/sieunhangao/Android/Sdk/tools:/home/sieunhangao/Android/Sdk/platform-tools:/home/sieunhangao/Android/Sdk/tools:/home/sieunhangao/Android/Sdk/platform-tools","DERBY_HOME":"/usr/lib/jvm/java-8-oracle/db","SESSION_MANAGER":"local/sieunhangao-Inspiron-7537:@/tmp/.ICE-unix/1254,unix/sieunhangao-Inspiron-7537:/tmp/.ICE-unix/1254","npm_package_name":"demo","npm_package_dependencies_koa":"^2.2.0","NODE":"/usr/bin/nodejs","LC_ADDRESS":"vi_VN","XDG_MENU_PREFIX":"gnome-","XDG_RUNTIME_DIR":"/run/user/1000","npm_package_dependencies_react_redux":"^5.0.5","npm_config_color":"true","DISPLAY":":0","npm_package_dependencies_koa_static":"^3.0.0","npm_config_fetch_retry_mintimeout":"10000","npm_config_maxsockets":"50","LC_TELEPHONE":"vi_VN","LANG":"en_US.UTF-8","XDG_CURRENT_DESKTOP":"GNOME","npm_package_devDependencies_react_test_renderer":"^15.6.1","npm_package_devDependencies_webpack":"^2.6.0","npm_package_dependencies_react_dom":"^15.5.4","npm_package_dependencies_redux":"^3.6.0","npm_config_umask":"0002","LS_COLORS":"rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:","XMODIFIERS":"@im=ibus","XDG_SESSION_DESKTOP":"gnome","XAUTHORITY":"/run/user/1000/gdm/Xauthority","npm_package_main":"index.js","npm_package_devDependencies_dotenv":"^4.0.0","npm_package_devDependencies_html_loader":"^0.4.5","npm_package_gitHead":"6cbd6bcb9829e75149daa3f7ed53001dae913c24","npm_config_fetch_retry_maxtimeout":"60000","npm_config_loglevel":"warn","npm_config_logs_max":"10","npm_config_message":"%s","npm_lifecycle_script":"webpack && npm start","SSH_AUTH_SOCK":"/run/user/1000/keyring/ssh","npm_package_scripts_test":"jest","npm_package_devDependencies_webpack_dev_server":"^2.4.5","npm_package_dependencies_react_router":"^4.1.2","npm_config_ca":"","npm_config_cert":"","npm_config_global":"","npm_config_link":"","SHELL":"/bin/bash","LC_NAME":"vi_VN","npm_package_version":"1.0.0","npm_package_dependencies_knex":"^0.13.0","npm_config_access":"","npm_config_also":"","npm_config_save":"","npm_config_unicode":"true","npm_lifecycle_event":"dev","QT_ACCESSIBILITY":"1","GDMSESSION":"gnome","npm_package_scripts_build":"webpack -p","npm_config_argv":"{\"remain\":[],\"cooked\":[\"run\",\"dev\"],\"original\":[\"run\",\"dev\"]}","npm_config_long":"","npm_config_production":"","npm_config_searchlimit":"20","npm_config_unsafe_perm":"true","LESSCLOSE":"/usr/bin/lesspipe %s %s","npm_package_author":"","npm_package_dependencies_koa_bodyparser":"^4.2.0","npm_config_node_version":"7.10.0","npm_config_tag":"latest","LC_MEASUREMENT":"vi_VN","npm_package_devDependencies_babel_preset_stage_0":"^6.24.1","npm_config_git_tag_version":"true","npm_config_shrinkwrap":"true","GJS_DEBUG_OUTPUT":"stderr","LC_IDENTIFICATION":"vi_VN","npm_package_license":"ISC","npm_config_fetch_retry_factor":"10","npm_config_proprietary_attribs":"true","npm_config_save_exact":"","npm_config_strict_ssl":"true","XDG_VTNR":"7","QT_IM_MODULE":"ibus","npm_package_devDependencies_style_loader":"^0.18.0","npm_config_dev":"","npm_config_globalconfig":"/usr/etc/npmrc","npm_config_init_module":"/home/sieunhangao/.npm-init.js","npm_config_parseable":"","PWD":"/media/sieunhangao/Data/Project/react/testing-react","JAVA_HOME":"/usr/lib/jvm/java-8-oracle","npm_package_devDependencies_enzyme":"^2.9.1","npm_config_globalignorefile":"/usr/etc/npmignore","npm_execpath":"/usr/lib/node_modules/npm/bin/npm-cli.js","CLUTTER_IM_MODULE":"xim","ANDROID_HOME":"/home/sieunhangao/Android/Sdk","XDG_CONFIG_DIRS":"/etc/xdg/xdg-gnome:/etc/xdg","XDG_DATA_DIRS":"/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop","npm_package_devDependencies_css_loader":"^0.28.2","npm_package_devDependencies_image_webpack_loader":"^3.3.1","npm_config_cache_lock_retries":"10","npm_config_searchstaleness":"900","LC_NUMERIC":"vi_VN","npm_package_devDependencies_babel_preset_env":"^1.5.1","npm_package_devDependencies_extract_text_webpack_plugin":"^2.1.0","npm_config_save_prefix":"^","npm_config_scripts_prepend_node_path":"warn-only","LC_PAPER":"vi_VN","npm_config_group":"1000","npm_config_init_author_email":"","npm_config_searchexclude":"","npm_config_git":"git","npm_config_optional":"true","npm_package_devDependencies_babel_preset_react":"^6.24.1","npm_package_dependencies_pg":"^6.2.3","npm_package_dependencies_react":"^15.5.4","npm_config_json":"","DATABASE_URL":"postgres://xmvmpwalsagthi:5ecba1004453919d22f093c5bfe251e29844741799525ae02b8d1810fa572993@ec2-54-197-232-155.compute-1.amazonaws.com:5432/dcktrp0qkbns39"}.PORT || 8080;
 
 (0, _bootstrapper2.default)(app).then(function (app) {
     app.listen(port, function () {
@@ -356,13 +362,13 @@ var port = {"GJS_DEBUG_TOPICS":"JS ERROR;JS LOG","LESSOPEN":"| /usr/bin/lesspipe
 });
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports) {
 
 module.exports = require("babel-polyfill");
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -379,7 +385,63 @@ var add = exports.add = function add(text) {
 };
 
 /***/ }),
-/* 8 */
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reduxForm = __webpack_require__(5);
+
+var _reactRedux = __webpack_require__(1);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var renderField = function renderField(field) {
+    return _react2.default.createElement(
+        'div',
+        { className: 'input-row' },
+        _react2.default.createElement('input', _extends({}, field.input, { type: 'text' })),
+        field.meta.touched && field.meta.error && _react2.default.createElement(
+            'span',
+            { className: 'error' },
+            field.meta.error
+        )
+    );
+};
+
+var FormComponent = function FormComponent(props) {
+    return _react2.default.createElement(
+        'form',
+        { onSubmit: props.handleSubmit },
+        _react2.default.createElement(_reduxForm.Field, { name: 'text', component: renderField })
+    );
+};
+
+FormComponent = (0, _reduxForm.reduxForm)({
+    form: 'demo'
+})(FormComponent);
+
+FormComponent = (0, _reactRedux.connect)(function (state) {
+    return {
+        initialValues: state.demoForm // pull initial values from account reducer
+    };
+})(FormComponent);
+
+exports.default = FormComponent;
+
+/***/ }),
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -395,17 +457,17 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(3);
+var _reactRedux = __webpack_require__(1);
 
-var _AppBar = __webpack_require__(26);
+var _AppBar = __webpack_require__(28);
 
 var _AppBar2 = _interopRequireDefault(_AppBar);
 
-var _reactRouterConfig = __webpack_require__(1);
+var _reactRouterConfig = __webpack_require__(2);
 
-var _reactRouterDom = __webpack_require__(33);
+var _reactRouterDom = __webpack_require__(35);
 
-var _actions = __webpack_require__(7);
+var _actions = __webpack_require__(8);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -439,7 +501,6 @@ var HomeComponent = function (_PureComponent) {
             return _react2.default.createElement(
                 'div',
                 null,
-                _react2.default.createElement(_AppBar2.default, null),
                 _react2.default.createElement(
                     _reactRouterDom.Link,
                     { to: '/home/a' },
@@ -477,7 +538,7 @@ HomeComponent = (0, _reactRedux.connect)(function (_ref) {
 exports.default = HomeComponent;
 
 /***/ }),
-/* 9 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -491,6 +552,8 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _redux = __webpack_require__(4);
 
+var _reduxForm = __webpack_require__(5);
+
 var rootReducer = (0, _redux.combineReducers)({
     datas: function datas() {
         var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { text: 'hello' };
@@ -502,13 +565,20 @@ var rootReducer = (0, _redux.combineReducers)({
             default:
                 return state;
         }
-    }
+    },
+    demoForm: function demoForm() {
+        var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { text: '' };
+        var action = arguments[1];
+
+        return state;
+    },
+    form: _reduxForm.reducer
 });
 
 exports.default = rootReducer;
 
 /***/ }),
-/* 10 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -522,11 +592,15 @@ var _react = __webpack_require__(0);
 
 var React = _interopRequireWildcard(_react);
 
-var _reactRouterConfig = __webpack_require__(1);
+var _reactRouterConfig = __webpack_require__(2);
 
-var _home = __webpack_require__(8);
+var _home = __webpack_require__(10);
 
 var _home2 = _interopRequireDefault(_home);
+
+var _form = __webpack_require__(9);
+
+var _form2 = _interopRequireDefault(_form);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -558,15 +632,19 @@ var NotFoundComponent = function NotFoundComponent(props) {
     );
 };
 
+var DemoForm = function DemoForm(props) {
+    return React.createElement(_form2.default, { onSubmit: console.log });
+};
+
 var routes = [{
     component: _home2.default,
     routes: [{
         path: '/home/',
         exact: true,
-        component: aComponent
+        component: DemoForm
     }, {
         path: '/home/a',
-        component: aComponent
+        component: DemoForm
     }, {
         path: '/home/b',
         component: bComponent
@@ -578,7 +656,7 @@ var routes = [{
 exports.default = routes;
 
 /***/ }),
-/* 11 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -626,11 +704,11 @@ var bootsTrapper = function () {
     };
 }();
 
-var _index = __webpack_require__(14);
+var _index = __webpack_require__(16);
 
 var _index2 = _interopRequireDefault(_index);
 
-var _Container = __webpack_require__(2);
+var _Container = __webpack_require__(3);
 
 var _Container2 = _interopRequireDefault(_Container);
 
@@ -643,7 +721,7 @@ var container = _Container2.default.instance();
 exports.default = bootsTrapper;
 
 /***/ }),
-/* 12 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -653,45 +731,45 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _koaRouter = __webpack_require__(24);
+var _koaRouter = __webpack_require__(26);
 
 var _koaRouter2 = _interopRequireDefault(_koaRouter);
 
-var _Container = __webpack_require__(2);
+var _Container = __webpack_require__(3);
 
 var _Container2 = _interopRequireDefault(_Container);
 
-var _phimMoi = __webpack_require__(15);
+var _phimMoi = __webpack_require__(17);
 
-var _server = __webpack_require__(31);
+var _server = __webpack_require__(33);
 
 var _server2 = _interopRequireDefault(_server);
 
-var _routers = __webpack_require__(10);
+var _routers = __webpack_require__(12);
 
 var _routers2 = _interopRequireDefault(_routers);
 
-var _reactRouterConfig = __webpack_require__(1);
+var _reactRouterConfig = __webpack_require__(2);
 
-var _reactRouter = __webpack_require__(32);
+var _reactRouter = __webpack_require__(34);
 
-var _getMuiTheme = __webpack_require__(29);
+var _getMuiTheme = __webpack_require__(31);
 
 var _getMuiTheme2 = _interopRequireDefault(_getMuiTheme);
 
-var _colors = __webpack_require__(28);
+var _colors = __webpack_require__(30);
 
-var _MuiThemeProvider = __webpack_require__(27);
+var _MuiThemeProvider = __webpack_require__(29);
 
 var _MuiThemeProvider2 = _interopRequireDefault(_MuiThemeProvider);
 
-var _reducers = __webpack_require__(9);
+var _reducers = __webpack_require__(11);
 
 var _reducers2 = _interopRequireDefault(_reducers);
 
 var _redux = __webpack_require__(4);
 
-var _reactRedux = __webpack_require__(3);
+var _reactRedux = __webpack_require__(1);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -775,22 +853,18 @@ router.get('*', function () {
                     case 0:
                         context = {};
                         muiTheme = (0, _getMuiTheme2.default)({}, { userAgent: ctx.request.headers['user-agent'] });
-                        preloadedState = { datas: { text: 'init state by server' } };
+                        preloadedState = { datas: { text: 'init state by server' }, demoForm: ctx.request.query };
                         store = (0, _redux.createStore)(_reducers2.default, preloadedState);
-                        body = _server2.default.renderToStaticMarkup(_react2.default.createElement(
+                        body = _server2.default.renderToString(_react2.default.createElement(
                             _reactRedux.Provider,
                             { store: store },
                             _react2.default.createElement(
-                                _MuiThemeProvider2.default,
-                                { muiTheme: muiTheme },
-                                _react2.default.createElement(
-                                    _reactRouter.StaticRouter,
-                                    {
-                                        location: ctx.request.url,
-                                        context: context
-                                    },
-                                    (0, _reactRouterConfig.renderRoutes)(_routers2.default)
-                                )
+                                _reactRouter.StaticRouter,
+                                {
+                                    location: ctx.request.url,
+                                    context: context
+                                },
+                                (0, _reactRouterConfig.renderRoutes)(_routers2.default)
                             )
                         ));
                         _context3.next = 7;
@@ -812,7 +886,7 @@ router.get('*', function () {
 module.exports = router.routes();
 
 /***/ }),
-/* 13 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1809,7 +1883,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 });
 
 /***/ }),
-/* 14 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1818,24 +1892,24 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-__webpack_require__(18).config();
-exports.default = __webpack_require__(20)({
+__webpack_require__(20).config();
+exports.default = __webpack_require__(22)({
     client: 'pg',
-    connection: {"GJS_DEBUG_TOPICS":"JS ERROR;JS LOG","LESSOPEN":"| /usr/bin/lesspipe %s","npm_config_cache_lock_stale":"60000","npm_package_devDependencies_babel_core":"^6.24.1","npm_package_devDependencies_chalk":"^1.1.3","npm_package_dependencies_bluebird":"latest","npm_config_legacy_bundling":"","npm_config_sign_git_tag":"","USER":"sieunhangao","J2SDKDIR":"/usr/lib/jvm/java-8-oracle","LC_TIME":"vi_VN","npm_package_devDependencies_jest":"^20.0.4","npm_config_user_agent":"npm/4.2.0 node/v7.10.0 linux x64","npm_config_always_auth":"","XDG_SEAT":"seat0","npm_config_bin_links":"true","npm_config_key":"","SSH_AGENT_PID":"1323","XDG_SESSION_TYPE":"x11","npm_package_devDependencies_file_loader":"^0.11.1","npm_package_devDependencies_gulp":"github:gulpjs/gulp#4.0","npm_config_description":"true","npm_config_fetch_retries":"2","npm_config_heading":"npm","npm_config_if_present":"","npm_config_init_version":"1.0.0","npm_config_user":"","npm_node_execpath":"/usr/bin/nodejs","LD_LIBRARY_PATH":"/opt/WebStorm-171.4694.29/bin:","SHLVL":"1","J2REDIR":"/usr/lib/jvm/java-8-oracle/jre","npm_package_devDependencies_babel_preset_es2015":"^6.24.1","npm_package_devDependencies_url_loader":"^0.5.8","HOME":"/home/sieunhangao","QT4_IM_MODULE":"xim","npm_config_force":"","DESKTOP_SESSION":"gnome","npm_package_devDependencies_babel_preset_es2017":"^6.24.1","npm_config_only":"","GIO_LAUNCHED_DESKTOP_FILE":"/home/sieunhangao/.local/share/applications/jetbrains-webstorm.desktop","npm_package_scripts_build_w":"webpack -w","npm_package_engines_node":"7.10.0","npm_package_dependencies_babel_polyfill":"^6.23.0","npm_config_cache_min":"10","npm_config_init_license":"ISC","QT_LINUX_ACCESSIBILITY_ALWAYS_ON":"1","GTK_MODULES":"gail:atk-bridge","npm_package_dependencies_koa_router":"^7.2.0","npm_package_dependencies_redux_form":"^7.0.1","npm_config_editor":"vi","npm_config_rollback":"true","npm_config_tag_version_prefix":"v","LC_MONETARY":"vi_VN","npm_package_devDependencies_rimraf":"^2.6.1","npm_package_dependencies_react_router_config":"^1.0.0-beta.3","npm_config_cache_max":"Infinity","npm_config_userconfig":"/home/sieunhangao/.npmrc","DBUS_SESSION_BUS_ADDRESS":"unix:abstract=/tmp/dbus-8bgddf0ECg,guid=baf2a0e89bc56ff0ae59532b596ebc2b","npm_package_dependencies_koa_nunjucks_2":"^3.0.2","npm_config_engine_strict":"","npm_config_init_author_name":"","npm_config_init_author_url":"","npm_config_tmp":"/tmp","GIO_LAUNCHED_DESKTOP_FILE_PID":"2450","npm_package_description":"","npm_package_devDependencies_babel_loader":"^7.0.0","npm_package_dependencies_cheerio":"^1.0.0-rc.1","npm_package_dependencies_material_ui":"^0.18.1","npm_package_dependencies_react_router_dom":"^4.1.2","npm_config_depth":"Infinity","npm_config_save_dev":"","npm_config_usage":"","npm_package_devDependencies_progress_bar_webpack_plugin":"^1.9.3","npm_config_cafile":"","npm_config_metrics_registry":"https://registry.npmjs.org/","npm_config_progress":"true","npm_config_https_proxy":"","MANDATORY_PATH":"/usr/share/gconf/gnome.mandatory.path","npm_package_scripts_dev":"webpack && npm start","npm_package_devDependencies_babel_jest":"^20.0.3","npm_config_onload_script":"","LOGNAME":"sieunhangao","GTK_IM_MODULE":"ibus","npm_package_dependencies_request":"^2.81.0","npm_config_rebuild_bundle":"true","npm_config_save_bundle":"","npm_config_shell":"/bin/bash","_":"/usr/bin/npm","npm_package_dependencies_react_tap_event_plugin":"^2.0.1","npm_config_dry_run":"","npm_config_prefix":"/usr","DEFAULTS_PATH":"/usr/share/gconf/gnome.default.path","npm_config_scope":"","npm_config_browser":"","npm_config_cache_lock_wait":"10000","npm_config_registry":"https://registry.npmjs.org/","npm_config_save_optional":"","npm_config_searchopts":"","npm_config_versions":"","XDG_SESSION_ID":"1","TERM":"xterm-256color","USERNAME":"sieunhangao","npm_config_cache":"/home/sieunhangao/.npm","npm_config_proxy":"","npm_config_send_metrics":"","GNOME_DESKTOP_SESSION_ID":"this-is-deprecated","npm_package_scripts_clear":"rimraf public","npm_package_scripts_start":"node index.js ","npm_package_devDependencies_html_webpack_plugin":"^2.28.0","npm_package_devDependencies_webpack_node_externals":"^1.6.0","npm_config_global_style":"","npm_config_ignore_scripts":"","npm_config_version":"","WINDOWPATH":"7","npm_config_local_address":"","npm_config_viewer":"man","PATH":"/usr/lib/node_modules/npm/bin/node-gyp-bin:/media/sieunhangao/Data/Project/react/testing-react/node_modules/.bin:/home/sieunhangao/bin:/home/sieunhangao/.local/bin:/home/sieunhangao/bin:/home/sieunhangao/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/home/sieunhangao/Android/Sdk/tools:/home/sieunhangao/Android/Sdk/platform-tools:/home/sieunhangao/Android/Sdk/tools:/home/sieunhangao/Android/Sdk/platform-tools","DERBY_HOME":"/usr/lib/jvm/java-8-oracle/db","SESSION_MANAGER":"local/sieunhangao-Inspiron-7537:@/tmp/.ICE-unix/1254,unix/sieunhangao-Inspiron-7537:/tmp/.ICE-unix/1254","npm_package_name":"demo","npm_package_dependencies_koa":"^2.2.0","NODE":"/usr/bin/nodejs","LC_ADDRESS":"vi_VN","XDG_MENU_PREFIX":"gnome-","XDG_RUNTIME_DIR":"/run/user/1000","npm_package_dependencies_react_redux":"^5.0.5","npm_config_color":"true","DISPLAY":":0","npm_package_dependencies_koa_static":"^3.0.0","npm_config_fetch_retry_mintimeout":"10000","npm_config_maxsockets":"50","LC_TELEPHONE":"vi_VN","LANG":"en_US.UTF-8","XDG_CURRENT_DESKTOP":"GNOME","npm_package_devDependencies_react_test_renderer":"^15.6.1","npm_package_devDependencies_webpack":"^2.6.0","npm_package_dependencies_react_dom":"^15.5.4","npm_package_dependencies_redux":"^3.6.0","npm_config_umask":"0002","LS_COLORS":"rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:","XMODIFIERS":"@im=ibus","XDG_SESSION_DESKTOP":"gnome","XAUTHORITY":"/run/user/1000/gdm/Xauthority","npm_package_main":"index.js","npm_package_devDependencies_dotenv":"^4.0.0","npm_package_devDependencies_html_loader":"^0.4.5","npm_package_gitHead":"bc3a4b8a5e39aa5fdd81db131297eb869df5c58d","npm_config_fetch_retry_maxtimeout":"60000","npm_config_loglevel":"warn","npm_config_logs_max":"10","npm_config_message":"%s","npm_lifecycle_script":"webpack && npm start","SSH_AUTH_SOCK":"/run/user/1000/keyring/ssh","npm_package_scripts_test":"jest","npm_package_devDependencies_webpack_dev_server":"^2.4.5","npm_package_dependencies_react_router":"^4.1.2","npm_config_ca":"","npm_config_cert":"","npm_config_global":"","npm_config_link":"","SHELL":"/bin/bash","LC_NAME":"vi_VN","npm_package_version":"1.0.0","npm_package_dependencies_knex":"^0.13.0","npm_config_access":"","npm_config_also":"","npm_config_save":"","npm_config_unicode":"true","npm_lifecycle_event":"dev","QT_ACCESSIBILITY":"1","GDMSESSION":"gnome","npm_package_scripts_build":"webpack -p","npm_config_argv":"{\"remain\":[],\"cooked\":[\"run\",\"dev\"],\"original\":[\"run\",\"dev\"]}","npm_config_long":"","npm_config_production":"","npm_config_searchlimit":"20","npm_config_unsafe_perm":"true","LESSCLOSE":"/usr/bin/lesspipe %s %s","npm_package_author":"","npm_package_dependencies_koa_bodyparser":"^4.2.0","npm_config_node_version":"7.10.0","npm_config_tag":"latest","LC_MEASUREMENT":"vi_VN","npm_package_devDependencies_babel_preset_stage_0":"^6.24.1","npm_config_git_tag_version":"true","npm_config_shrinkwrap":"true","GJS_DEBUG_OUTPUT":"stderr","LC_IDENTIFICATION":"vi_VN","npm_package_license":"ISC","npm_config_fetch_retry_factor":"10","npm_config_proprietary_attribs":"true","npm_config_save_exact":"","npm_config_strict_ssl":"true","XDG_VTNR":"7","QT_IM_MODULE":"ibus","npm_package_devDependencies_style_loader":"^0.18.0","npm_config_dev":"","npm_config_globalconfig":"/usr/etc/npmrc","npm_config_init_module":"/home/sieunhangao/.npm-init.js","npm_config_parseable":"","PWD":"/media/sieunhangao/Data/Project/react/testing-react","JAVA_HOME":"/usr/lib/jvm/java-8-oracle","npm_package_devDependencies_enzyme":"^2.9.1","npm_config_globalignorefile":"/usr/etc/npmignore","npm_execpath":"/usr/lib/node_modules/npm/bin/npm-cli.js","CLUTTER_IM_MODULE":"xim","ANDROID_HOME":"/home/sieunhangao/Android/Sdk","XDG_CONFIG_DIRS":"/etc/xdg/xdg-gnome:/etc/xdg","XDG_DATA_DIRS":"/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop","npm_package_devDependencies_css_loader":"^0.28.2","npm_package_devDependencies_image_webpack_loader":"^3.3.1","npm_config_cache_lock_retries":"10","npm_config_searchstaleness":"900","LC_NUMERIC":"vi_VN","npm_package_devDependencies_babel_preset_env":"^1.5.1","npm_package_devDependencies_extract_text_webpack_plugin":"^2.1.0","npm_config_save_prefix":"^","npm_config_scripts_prepend_node_path":"warn-only","LC_PAPER":"vi_VN","npm_config_group":"1000","npm_config_init_author_email":"","npm_config_searchexclude":"","npm_config_git":"git","npm_config_optional":"true","npm_package_devDependencies_babel_preset_react":"^6.24.1","npm_package_dependencies_pg":"^6.2.3","npm_package_dependencies_react":"^15.5.4","npm_config_json":"","DATABASE_URL":"postgres://xmvmpwalsagthi:5ecba1004453919d22f093c5bfe251e29844741799525ae02b8d1810fa572993@ec2-54-197-232-155.compute-1.amazonaws.com:5432/dcktrp0qkbns39"}.DATABASE_URL + '?ssl=true'
+    connection: {"GJS_DEBUG_TOPICS":"JS ERROR;JS LOG","LESSOPEN":"| /usr/bin/lesspipe %s","npm_config_cache_lock_stale":"60000","npm_package_devDependencies_babel_core":"^6.24.1","npm_package_devDependencies_chalk":"^1.1.3","npm_package_dependencies_bluebird":"latest","npm_config_legacy_bundling":"","npm_config_sign_git_tag":"","USER":"sieunhangao","J2SDKDIR":"/usr/lib/jvm/java-8-oracle","LC_TIME":"vi_VN","npm_package_devDependencies_jest":"^20.0.4","npm_config_user_agent":"npm/4.2.0 node/v7.10.0 linux x64","npm_config_always_auth":"","XDG_SEAT":"seat0","npm_config_bin_links":"true","npm_config_key":"","SSH_AGENT_PID":"1323","XDG_SESSION_TYPE":"x11","npm_package_devDependencies_file_loader":"^0.11.1","npm_package_devDependencies_gulp":"github:gulpjs/gulp#4.0","npm_config_description":"true","npm_config_fetch_retries":"2","npm_config_heading":"npm","npm_config_if_present":"","npm_config_init_version":"1.0.0","npm_config_user":"","npm_node_execpath":"/usr/bin/nodejs","LD_LIBRARY_PATH":"/opt/WebStorm-171.4694.29/bin:","SHLVL":"1","J2REDIR":"/usr/lib/jvm/java-8-oracle/jre","npm_package_devDependencies_babel_preset_es2015":"^6.24.1","npm_package_devDependencies_url_loader":"^0.5.8","HOME":"/home/sieunhangao","QT4_IM_MODULE":"xim","npm_config_force":"","DESKTOP_SESSION":"gnome","npm_package_devDependencies_babel_preset_es2017":"^6.24.1","npm_config_only":"","GIO_LAUNCHED_DESKTOP_FILE":"/home/sieunhangao/.local/share/applications/jetbrains-webstorm.desktop","npm_package_scripts_build_w":"webpack -w","npm_package_engines_node":"7.10.0","npm_package_dependencies_babel_polyfill":"^6.23.0","npm_config_cache_min":"10","npm_config_init_license":"ISC","QT_LINUX_ACCESSIBILITY_ALWAYS_ON":"1","GTK_MODULES":"gail:atk-bridge","npm_package_dependencies_koa_router":"^7.2.0","npm_package_dependencies_redux_form":"^7.0.1","npm_config_editor":"vi","npm_config_rollback":"true","npm_config_tag_version_prefix":"v","LC_MONETARY":"vi_VN","npm_package_devDependencies_rimraf":"^2.6.1","npm_package_dependencies_react_router_config":"^1.0.0-beta.3","npm_config_cache_max":"Infinity","npm_config_userconfig":"/home/sieunhangao/.npmrc","DBUS_SESSION_BUS_ADDRESS":"unix:abstract=/tmp/dbus-8bgddf0ECg,guid=baf2a0e89bc56ff0ae59532b596ebc2b","npm_package_dependencies_koa_nunjucks_2":"^3.0.2","npm_config_engine_strict":"","npm_config_init_author_name":"","npm_config_init_author_url":"","npm_config_tmp":"/tmp","GIO_LAUNCHED_DESKTOP_FILE_PID":"2450","npm_package_description":"","npm_package_devDependencies_babel_loader":"^7.0.0","npm_package_dependencies_cheerio":"^1.0.0-rc.1","npm_package_dependencies_material_ui":"^0.18.1","npm_package_dependencies_react_router_dom":"^4.1.2","npm_config_depth":"Infinity","npm_config_save_dev":"","npm_config_usage":"","npm_package_devDependencies_progress_bar_webpack_plugin":"^1.9.3","npm_config_cafile":"","npm_config_metrics_registry":"https://registry.npmjs.org/","npm_config_progress":"true","npm_config_https_proxy":"","MANDATORY_PATH":"/usr/share/gconf/gnome.mandatory.path","npm_package_scripts_dev":"webpack && npm start","npm_package_devDependencies_babel_jest":"^20.0.3","npm_config_onload_script":"","LOGNAME":"sieunhangao","GTK_IM_MODULE":"ibus","npm_package_dependencies_request":"^2.81.0","npm_config_rebuild_bundle":"true","npm_config_save_bundle":"","npm_config_shell":"/bin/bash","_":"/usr/bin/npm","npm_package_dependencies_react_tap_event_plugin":"^2.0.1","npm_config_dry_run":"","npm_config_prefix":"/usr","DEFAULTS_PATH":"/usr/share/gconf/gnome.default.path","npm_config_scope":"","npm_config_browser":"","npm_config_cache_lock_wait":"10000","npm_config_registry":"https://registry.npmjs.org/","npm_config_save_optional":"","npm_config_searchopts":"","npm_config_versions":"","XDG_SESSION_ID":"1","TERM":"xterm-256color","USERNAME":"sieunhangao","npm_package_dependencies_redux_logger":"^3.0.6","npm_config_cache":"/home/sieunhangao/.npm","npm_config_proxy":"","npm_config_send_metrics":"","GNOME_DESKTOP_SESSION_ID":"this-is-deprecated","npm_package_scripts_clear":"rimraf public","npm_package_scripts_start":"node index.js ","npm_package_devDependencies_html_webpack_plugin":"^2.28.0","npm_package_devDependencies_webpack_node_externals":"^1.6.0","npm_config_global_style":"","npm_config_ignore_scripts":"","npm_config_version":"","WINDOWPATH":"7","npm_config_local_address":"","npm_config_viewer":"man","PATH":"/usr/lib/node_modules/npm/bin/node-gyp-bin:/media/sieunhangao/Data/Project/react/testing-react/node_modules/.bin:/home/sieunhangao/bin:/home/sieunhangao/.local/bin:/home/sieunhangao/bin:/home/sieunhangao/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/home/sieunhangao/Android/Sdk/tools:/home/sieunhangao/Android/Sdk/platform-tools:/home/sieunhangao/Android/Sdk/tools:/home/sieunhangao/Android/Sdk/platform-tools","DERBY_HOME":"/usr/lib/jvm/java-8-oracle/db","SESSION_MANAGER":"local/sieunhangao-Inspiron-7537:@/tmp/.ICE-unix/1254,unix/sieunhangao-Inspiron-7537:/tmp/.ICE-unix/1254","npm_package_name":"demo","npm_package_dependencies_koa":"^2.2.0","NODE":"/usr/bin/nodejs","LC_ADDRESS":"vi_VN","XDG_MENU_PREFIX":"gnome-","XDG_RUNTIME_DIR":"/run/user/1000","npm_package_dependencies_react_redux":"^5.0.5","npm_config_color":"true","DISPLAY":":0","npm_package_dependencies_koa_static":"^3.0.0","npm_config_fetch_retry_mintimeout":"10000","npm_config_maxsockets":"50","LC_TELEPHONE":"vi_VN","LANG":"en_US.UTF-8","XDG_CURRENT_DESKTOP":"GNOME","npm_package_devDependencies_react_test_renderer":"^15.6.1","npm_package_devDependencies_webpack":"^2.6.0","npm_package_dependencies_react_dom":"^15.5.4","npm_package_dependencies_redux":"^3.6.0","npm_config_umask":"0002","LS_COLORS":"rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:","XMODIFIERS":"@im=ibus","XDG_SESSION_DESKTOP":"gnome","XAUTHORITY":"/run/user/1000/gdm/Xauthority","npm_package_main":"index.js","npm_package_devDependencies_dotenv":"^4.0.0","npm_package_devDependencies_html_loader":"^0.4.5","npm_package_gitHead":"6cbd6bcb9829e75149daa3f7ed53001dae913c24","npm_config_fetch_retry_maxtimeout":"60000","npm_config_loglevel":"warn","npm_config_logs_max":"10","npm_config_message":"%s","npm_lifecycle_script":"webpack && npm start","SSH_AUTH_SOCK":"/run/user/1000/keyring/ssh","npm_package_scripts_test":"jest","npm_package_devDependencies_webpack_dev_server":"^2.4.5","npm_package_dependencies_react_router":"^4.1.2","npm_config_ca":"","npm_config_cert":"","npm_config_global":"","npm_config_link":"","SHELL":"/bin/bash","LC_NAME":"vi_VN","npm_package_version":"1.0.0","npm_package_dependencies_knex":"^0.13.0","npm_config_access":"","npm_config_also":"","npm_config_save":"","npm_config_unicode":"true","npm_lifecycle_event":"dev","QT_ACCESSIBILITY":"1","GDMSESSION":"gnome","npm_package_scripts_build":"webpack -p","npm_config_argv":"{\"remain\":[],\"cooked\":[\"run\",\"dev\"],\"original\":[\"run\",\"dev\"]}","npm_config_long":"","npm_config_production":"","npm_config_searchlimit":"20","npm_config_unsafe_perm":"true","LESSCLOSE":"/usr/bin/lesspipe %s %s","npm_package_author":"","npm_package_dependencies_koa_bodyparser":"^4.2.0","npm_config_node_version":"7.10.0","npm_config_tag":"latest","LC_MEASUREMENT":"vi_VN","npm_package_devDependencies_babel_preset_stage_0":"^6.24.1","npm_config_git_tag_version":"true","npm_config_shrinkwrap":"true","GJS_DEBUG_OUTPUT":"stderr","LC_IDENTIFICATION":"vi_VN","npm_package_license":"ISC","npm_config_fetch_retry_factor":"10","npm_config_proprietary_attribs":"true","npm_config_save_exact":"","npm_config_strict_ssl":"true","XDG_VTNR":"7","QT_IM_MODULE":"ibus","npm_package_devDependencies_style_loader":"^0.18.0","npm_config_dev":"","npm_config_globalconfig":"/usr/etc/npmrc","npm_config_init_module":"/home/sieunhangao/.npm-init.js","npm_config_parseable":"","PWD":"/media/sieunhangao/Data/Project/react/testing-react","JAVA_HOME":"/usr/lib/jvm/java-8-oracle","npm_package_devDependencies_enzyme":"^2.9.1","npm_config_globalignorefile":"/usr/etc/npmignore","npm_execpath":"/usr/lib/node_modules/npm/bin/npm-cli.js","CLUTTER_IM_MODULE":"xim","ANDROID_HOME":"/home/sieunhangao/Android/Sdk","XDG_CONFIG_DIRS":"/etc/xdg/xdg-gnome:/etc/xdg","XDG_DATA_DIRS":"/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop","npm_package_devDependencies_css_loader":"^0.28.2","npm_package_devDependencies_image_webpack_loader":"^3.3.1","npm_config_cache_lock_retries":"10","npm_config_searchstaleness":"900","LC_NUMERIC":"vi_VN","npm_package_devDependencies_babel_preset_env":"^1.5.1","npm_package_devDependencies_extract_text_webpack_plugin":"^2.1.0","npm_config_save_prefix":"^","npm_config_scripts_prepend_node_path":"warn-only","LC_PAPER":"vi_VN","npm_config_group":"1000","npm_config_init_author_email":"","npm_config_searchexclude":"","npm_config_git":"git","npm_config_optional":"true","npm_package_devDependencies_babel_preset_react":"^6.24.1","npm_package_dependencies_pg":"^6.2.3","npm_package_dependencies_react":"^15.5.4","npm_config_json":"","DATABASE_URL":"postgres://xmvmpwalsagthi:5ecba1004453919d22f093c5bfe251e29844741799525ae02b8d1810fa572993@ec2-54-197-232-155.compute-1.amazonaws.com:5432/dcktrp0qkbns39"}.DATABASE_URL + '?ssl=true'
 });
 
 /***/ }),
-/* 15 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var aes = __webpack_require__(13);
-var cheerio = __webpack_require__(17);
-var Promise = __webpack_require__(16);
-var fs = __webpack_require__(19);
-var request = __webpack_require__(34);
+var aes = __webpack_require__(15);
+var cheerio = __webpack_require__(19);
+var Promise = __webpack_require__(18);
+var fs = __webpack_require__(21);
+var request = __webpack_require__(36);
 
 var requestOptions = {
     headers: {
@@ -1889,125 +1963,125 @@ function decodeUrl(url, password) {
 exports.getLinkDownloadByUrl = getLinkDownloadByUrl;
 
 /***/ }),
-/* 16 */
+/* 18 */
 /***/ (function(module, exports) {
 
 module.exports = require("bluebird");
 
 /***/ }),
-/* 17 */
+/* 19 */
 /***/ (function(module, exports) {
 
 module.exports = require("cheerio");
 
 /***/ }),
-/* 18 */
+/* 20 */
 /***/ (function(module, exports) {
 
 module.exports = require("dotenv");
 
 /***/ }),
-/* 19 */
+/* 21 */
 /***/ (function(module, exports) {
 
 module.exports = require("fs");
 
 /***/ }),
-/* 20 */
+/* 22 */
 /***/ (function(module, exports) {
 
 module.exports = require("knex");
 
 /***/ }),
-/* 21 */
+/* 23 */
 /***/ (function(module, exports) {
 
 module.exports = require("koa");
 
 /***/ }),
-/* 22 */
+/* 24 */
 /***/ (function(module, exports) {
 
 module.exports = require("koa-bodyparser");
 
 /***/ }),
-/* 23 */
+/* 25 */
 /***/ (function(module, exports) {
 
 module.exports = require("koa-nunjucks-2");
 
 /***/ }),
-/* 24 */
+/* 26 */
 /***/ (function(module, exports) {
 
 module.exports = require("koa-router");
 
 /***/ }),
-/* 25 */
+/* 27 */
 /***/ (function(module, exports) {
 
 module.exports = require("koa-static");
 
 /***/ }),
-/* 26 */
+/* 28 */
 /***/ (function(module, exports) {
 
 module.exports = require("material-ui/AppBar");
 
 /***/ }),
-/* 27 */
+/* 29 */
 /***/ (function(module, exports) {
 
 module.exports = require("material-ui/styles/MuiThemeProvider");
 
 /***/ }),
-/* 28 */
+/* 30 */
 /***/ (function(module, exports) {
 
 module.exports = require("material-ui/styles/colors");
 
 /***/ }),
-/* 29 */
+/* 31 */
 /***/ (function(module, exports) {
 
 module.exports = require("material-ui/styles/getMuiTheme");
 
 /***/ }),
-/* 30 */
+/* 32 */
 /***/ (function(module, exports) {
 
 module.exports = require("path");
 
 /***/ }),
-/* 31 */
+/* 33 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-dom/server");
 
 /***/ }),
-/* 32 */
+/* 34 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-router");
 
 /***/ }),
-/* 33 */
+/* 35 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-router-dom");
 
 /***/ }),
-/* 34 */
+/* 36 */
 /***/ (function(module, exports) {
 
 module.exports = require("request");
 
 /***/ }),
-/* 35 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(6);
-module.exports = __webpack_require__(5);
+__webpack_require__(7);
+module.exports = __webpack_require__(6);
 
 
 /***/ })

@@ -16,7 +16,7 @@ class HomeComponent extends PureComponent {
     render() {
         return (
             <div>
-                <AppBar/>
+                {/*<AppBar/>*/}
                 <Link to='/home/a'>a component</Link>
                 <Link to='/home/b'>b component</Link>
                 <p>{this.props.text}</p>

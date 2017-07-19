@@ -1,6 +1,7 @@
 import * as React from "react";
 import { renderRoutes } from "react-router-config";
 import HomeComponent from "./components/home.component";
+import FormComponent from "./components/form.component";
 
 const aComponent = (props) =>
     <div>
@@ -22,6 +23,10 @@ const NotFoundComponent = (props) =>
     </div>
 ;
 
+const DemoForm = (props) =>
+    <FormComponent onSubmit={console.log} />
+;
+
 const routes = [
     {
         component: HomeComponent,
@@ -29,11 +34,11 @@ const routes = [
             {
                 path     : '/home/',
                 exact    : true,
-                component: aComponent
+                component: DemoForm
             },
             {
                 path     : '/home/a',
-                component: aComponent
+                component: DemoForm
             },
             {
                 path     : '/home/b',
