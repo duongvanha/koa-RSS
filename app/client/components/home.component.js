@@ -4,6 +4,7 @@ import AppBar from 'material-ui/AppBar';
 import { renderRoutes } from "react-router-config";
 import { Link } from "react-router-dom";
 import { add } from "../actions";
+import { Helmet } from "react-helmet";
 
 class HomeComponent extends PureComponent {
 
@@ -13,15 +14,14 @@ class HomeComponent extends PureComponent {
         }, 500);
     }
 
-    componentWillMount() {
-        setTimeout(() => {
-            this.props.add('componentWillMount');
-        }, 500);
-    }
-
     render() {
         return (
             <div>
+                <Helmet>
+                    <title>Home Component</title>
+                    <meta name="description" content="Application"/>
+                    <link href="/style.css1" rel="stylesheet"/>
+                </Helmet>
                 {/*<AppBar/>*/}
                 <Link to='/home/a'>a component</Link>
                 <Link to='/home/b'>b component</Link>

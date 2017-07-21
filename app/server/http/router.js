@@ -12,6 +12,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import reducers from '../../client/reducers';
 import { createStore } from "redux";
 import { Provider } from "react-redux";
+import { Helmet } from 'react-helmet';
 
 let router    = new Router();
 let container = Container.instance();
@@ -42,7 +43,7 @@ router.get('*', async (ctx) => {
 
     const store = createStore(reducers, preloadedState);
 
-    let body = ReactDOMServer.renderToString(
+    let body     = ReactDOMServer.renderToString(
         <Provider store={store}>
             {/*<MuiThemeProvider muiTheme={muiTheme}>*/}
             <StaticRouter
@@ -54,7 +55,12 @@ router.get('*', async (ctx) => {
             {/*</MuiThemeProvider>*/}
         </Provider>
     );
-    await ctx.render('layout', {container: body, state: JSON.stringify(preloadedState).replace(/</g, '\\u003c')});
+    const helmet = Helmet.renderStatic();
+    await ctx.render('layout', {
+        container: body,
+        helmet,
+        state    : JSON.stringify(preloadedState).replace(/</g, '\\u003c')
+    });
 });
 
 module.exports = router.routes();

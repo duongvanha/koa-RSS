@@ -1,7 +1,9 @@
 <html lang="en">
-<head>
+<head {{helmet.htmlAttributes.toString()|safe}}>
+    {{helmet.title.toString()|safe}}
+    {{helmet.meta.toString()|safe}}
     <meta charset="UTF-8">
-    <title>Movie app</title>
+    {{helmet.link.toString()|safe}}
 <link href="/style.css" rel="stylesheet"></head>
 <body>
 <div class="container">

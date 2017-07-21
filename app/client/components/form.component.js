@@ -1,21 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
 import { Field } from 'redux-form';
 import { connect } from "react-redux";
 
-const renderField = (field) => (
-    <div className="input-row">
-        <input {...field.input} type="text"/>
-        {field.meta.touched && field.meta.error &&
-        <span className="error">{field.meta.error}</span>}
-    </div>
-);
+class renderField extends Component {
 
-let FormComponent = (props) => (
-    <form onSubmit={props.handleSubmit}>
-        <Field name="text" component={renderField}/>
-    </form>
-);
+    render() {
+        return (
+            <div className="input-row">
+                <input {...this.props.input} type="text"/>
+                {this.props.meta.touched && this.props.meta.error &&
+                <span className="error">{this.props.meta.error}</span>}
+            </div>
+        );
+    }
+}
+
+class FormComponent extends Component {
+
+    render() {
+        return (
+            <form onSubmit={this.props.handleSubmit}>
+                <Field name="text" component={renderField}/>
+            </form>
+        );
+    }
+}
 
 FormComponent = reduxForm({
     form: 'demo'

@@ -14,7 +14,12 @@ const VENDOR_LIBS = [
     'react-dom',
     'react-redux',
     'redux',
+    'redux-form',
     'react-tap-event-plugin',
+    'react-router',
+    'react-router-config',
+    'react-router-dom',
+    'redux-logger',
     'material-ui'
     /**
      * add more name library
