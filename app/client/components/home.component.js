@@ -20,7 +20,6 @@ class HomeComponent extends PureComponent {
                 <Helmet>
                     <title>Home Component</title>
                     <meta name="description" content="Application"/>
-                    <link href="/style.css1" rel="stylesheet"/>
                 </Helmet>
                 {/*<AppBar/>*/}
                 <Link to='/home/a'>a component</Link>
