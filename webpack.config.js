@@ -6,8 +6,9 @@ const nodeExternals     = require('webpack-node-externals');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 require('dotenv').config();
-const BUILD_DIR = path.join(__dirname);
-const APP_DIR   = path.join(__dirname, 'app');
+const BUILD_DIR    = path.join(__dirname);
+const APP_DIR      = path.join(__dirname, 'app');
+const isProduction = (process.argv.indexOf('-p') !== -1);
 
 const VENDOR_LIBS = [
     'react',
@@ -103,7 +104,8 @@ const server      = {
     },
     plugins  : [
         new webpack.DefinePlugin({
-            'process.env': JSON.stringify(process.env)
+            'process.env'    : JSON.stringify(process.env),
+            'process.env.env': JSON.stringify(isProduction ? 'prod' : 'dev')
         })
     ]
 };
