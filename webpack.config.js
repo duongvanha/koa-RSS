@@ -13,6 +13,7 @@ const VENDOR_LIBS = [
     'react',
     'react-dom',
     'react-redux',
+    'react-helmet',
     'redux',
     'redux-form',
     'react-tap-event-plugin',
