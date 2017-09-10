@@ -1,7 +1,5 @@
-const aes     = require('../aes');
 const cheerio = require('cheerio');
 const Promise = require('bluebird');
-const fs      = require('fs');
 const request = require('request');
 
 const requestOptions = {
@@ -14,7 +12,7 @@ const requestOptions = {
 function getData(url, opt) {
     return new Promise((resolve, reject) => {
         request(url, opt || requestOptions, (error, response, body) => {
-            if (!error && response.statusCode == 200) {
+            if(!error && response.statusCode === 200) {
                 return resolve(body);
             } else {
                 return reject(error);
@@ -24,8 +22,8 @@ function getData(url, opt) {
 }
 
 function getLinkDownloadByUrl(url) {
-    if (url.indexOf('http://www.phimMoi.net/') === -1 && url.indexOf('http://www.phimmoi.net/') === -1) url = `http://www.phimmoi.net/${url}`;
-    if (url.indexOf('html') === -1) url = `${url}xem-phim.html`;
+    if(url.indexOf('http://www.phimMoi.net/') === -1 && url.indexOf('http://www.phimmoi.net/') === -1) url = `http://www.phimmoi.net/${url}`;
+    if(url.indexOf('html') === -1) url = `${url}xem-phim.html`;
     return getData(url, null)
         .then(response => {
             let codeDownload = cheerio.load(response)('script[onload="checkEpisodeInfoLoaded(this)"]').attr('src');
@@ -33,9 +31,8 @@ function getLinkDownloadByUrl(url) {
         })
         .then(response => {
             const {episodeId, medias} = response;
-            const password            = `PhimMoi.Net@${episodeId}`;
-            if (medias) return medias.map(video => ({
-                url       : decodeUrl(video.url, password),
+            if(medias) return medias.map(video => ({
+                url       : video.url,
                 type      : video.type,
                 width     : video.width,
                 height    : video.height,
@@ -43,14 +40,6 @@ function getLinkDownloadByUrl(url) {
                 label     : video.resolution
             }));
         })
-}
-
-function decodeUrl(url, password) {
-    try {
-        //noinspection JSUnresolvedFunction
-        return aes.dec(url, password)
-    } catch (err) {
-    }
 }
 
 
