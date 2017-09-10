@@ -21,5 +21,6 @@ app.use(routers);
 let port = process.env.PORT || 8080;
 
 bootsTrapper(app).then((app) => {
+    console.log('port', port);
     app.listen(port, () => console.log(`app running port ${port}`));
 });
