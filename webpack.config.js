@@ -104,8 +104,8 @@ const server      = {
     },
     plugins  : [
         new webpack.DefinePlugin({
-            'process.env'    : JSON.stringify(process.env),
-            'process.env.env': JSON.stringify(isProduction ? 'prod' : 'dev')
+            'process.env.DATABASE_URL': JSON.stringify(process.env.DATABASE_URL),
+            'process.env.env'         : JSON.stringify(isProduction ? 'prod' : 'dev')
         })
     ]
 };
