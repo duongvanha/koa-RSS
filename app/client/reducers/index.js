@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
+import { routerReducer } from 'react-router-redux'
 
 const rootReducer = combineReducers({
     datas   : (state = {text: 'hello'}, action) => {
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
     demoForm: (state = {text: ''}, action) => {
         return state
     },
-    form    : formReducer
+    form    : formReducer,
+    routing: routerReducer
 });
 
 export default rootReducer;
