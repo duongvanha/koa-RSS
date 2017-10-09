@@ -65,7 +65,7 @@ const client      = {
         ]
     },
     plugins: [
-        new ProgressBarPlugin(),
+        // new ProgressBarPlugin(),
         new ExtractTextPlugin('style.css'),
         new webpack.optimize.CommonsChunkPlugin({
             name: ['vendor', 'manifest']
@@ -110,4 +110,27 @@ const server      = {
     ]
 };
 
-module.exports = [client, server];
+const ws = {
+    entry  : APP_DIR + '/client/service-worker.js',
+    output : {
+        path      : BUILD_DIR + '/public/',
+        // filename: '[name].[chunkhash].js',
+        filename  : 'ws.js'
+    },
+    module : {
+        rules: [
+            {
+                use    : 'babel-loader',
+                test   : /\.js$/,
+                exclude: /node_modules/
+            }
+        ]
+    },
+    plugins  : [
+        new webpack.DefinePlugin({
+            'process.env.env'         : JSON.stringify(isProduction ? 'prod' : 'dev')
+        })
+    ]
+}
+
+module.exports = [client, server, ws];

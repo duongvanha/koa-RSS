@@ -9,9 +9,9 @@ import { Helmet } from "react-helmet";
 class HomeComponent extends PureComponent {
 
     componentWillReceiveProps() {
-        setTimeout(() => {
-            this.props.add('componentWillReceiveProps');
-        }, 500);
+        // setTimeout(() => {
+        //     this.props.add('componentWillReceiveProps');
+        // }, 500);
     }
 
     render() {
@@ -24,7 +24,7 @@ class HomeComponent extends PureComponent {
                 {/*<AppBar/>*/}
                 <Link to='/home/a'>a component</Link>
                 <Link to='/home/b'>b component</Link>
-                <p>{this.props.text}</p>
+                <p>{ this.props.datas.text}</p>
                 {renderRoutes(this.props.route.routes)}
             </div>
         );
@@ -32,7 +32,7 @@ class HomeComponent extends PureComponent {
 }
 
 HomeComponent = connect(
-    ({datas}) => datas,
+    state => state,
     (dispatch, ownProps) => ({
         add: (text) => dispatch(add(text))
     })

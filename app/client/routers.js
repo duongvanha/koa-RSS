@@ -24,7 +24,7 @@ const NotFoundComponent = (props) =>
 ;
 
 const DemoForm = (props) =>
-    <FormComponent onSubmit={console.log} />
+    <FormComponent onSubmit={console.log}/>
 ;
 
 const routes = [
