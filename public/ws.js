@@ -67,10 +67,10 @@
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const doCache = "prod" === 'prod';
+const doCache = true || "prod" === 'prod';
 
 // Name our cache
-const CACHE_NAME     = 'my-pwa-cache-v' + "1";
+const CACHE_NAME     = 'my-pwa-cache-v' + "2";
 const cacheWhitelist = [CACHE_NAME];
 
 // Delete old caches that are not our current one!
@@ -81,10 +81,14 @@ self.addEventListener('install', event => doCache && event.waitUntil(addCache())
 
 // When the webpage goes to fetch files, we intercept that request and serve up the matching files
 // if we have them
-self.addEventListener('fetch', function (event) {
+let indexCached;
+self.addEventListener('fetch', async function (event) {
     if(doCache) {
+        if(event.request.url.match(/:\/\/[^/]*\/$/)) indexCached = event.request;
         event.respondWith(
-            caches.match(event.request).then(response => response || fetch(event.request))
+            caches.match(event.request)
+                .then(response => response || fetch(event.request))
+                .catch(err => caches.match(indexCached))
         )
     }
 });
@@ -98,15 +102,15 @@ async function clearCache() {
 
 async function addCache() {
     await clearCache();
-    const cache       = await caches.open(CACHE_NAME)
+    const cache       = await caches.open(CACHE_NAME);
     const urlsToCache = [
         '/',
         'manifest.js',
         'vendor.js',
         'bundle.js',
         'style.css'
-    ]
-    cache.addAll(urlsToCache)
+    ];
+    cache.addAll(urlsToCache);
     console.log('cached');
 }
 

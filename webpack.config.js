@@ -1,6 +1,6 @@
 const path              = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+// const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const webpack           = require('webpack');
 const nodeExternals     = require('webpack-node-externals');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
@@ -123,6 +123,6 @@ const ws = {
             'process.env.version': JSON.stringify(process.env.VERSION)
         })
     ]
-}
+};
 
 module.exports = [client, server, ws];

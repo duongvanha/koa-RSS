@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 // import injectTapEventPlugin from 'react-tap-event-plugin';
-import { HashRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { renderRoutes } from 'react-router-config';
 import routes from './routers';
 import reducers from './reducers/index';
@@ -23,9 +23,9 @@ const createStoreWithMiddleware = applyMiddleware(logger)(createStore);
 ReactDOM.render(
     <Provider store={createStoreWithMiddleware(reducers, preloadedState)}>
         {/*<MuiThemeProvider>*/}
-        <HashRouter>
+        <BrowserRouter>
             {renderRoutes(routes)}
-        </HashRouter>
+        </BrowserRouter>
         {/*</MuiThemeProvider>*/}
     </Provider>
     , document.querySelector('.container')
@@ -33,7 +33,7 @@ ReactDOM.render(
 
 if('serviceWorker' in navigator) {
     window.addEventListener('load', function () {
-        navigator.serviceWorker.register('ws.js')
+        navigator.serviceWorker.register('ws.js', {scope: './'})
             .then(function (registration) {
                 // Registration was successful
                 console.log('ServiceWorker registration successful with scope: ', registration.scope);

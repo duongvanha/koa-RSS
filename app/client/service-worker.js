@@ -1,4 +1,4 @@
-const doCache = process.env.env === 'prod';
+const doCache = true || process.env.env === 'prod';
 
 // Name our cache
 const CACHE_NAME     = 'my-pwa-cache-v' + process.env.version;
@@ -12,10 +12,14 @@ self.addEventListener('install', event => doCache && event.waitUntil(addCache())
 
 // When the webpage goes to fetch files, we intercept that request and serve up the matching files
 // if we have them
-self.addEventListener('fetch', function (event) {
+let indexCached;
+self.addEventListener('fetch', async function (event) {
     if(doCache) {
+        if(event.request.url.match(/:\/\/[^/]*\/$/)) indexCached = event.request;
         event.respondWith(
-            caches.match(event.request).then(response => response || fetch(event.request))
+            caches.match(event.request)
+                .then(response => response || fetch(event.request))
+                .catch(err => caches.match(indexCached))
         )
     }
 });
