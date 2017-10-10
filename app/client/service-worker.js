@@ -29,14 +29,14 @@ async function clearCache() {
 
 async function addCache() {
     await clearCache();
-    const cache       = await caches.open(CACHE_NAME)
+    const cache       = await caches.open(CACHE_NAME);
     const urlsToCache = [
         '/',
         'manifest.js',
         'vendor.js',
         'bundle.js',
         'style.css'
-    ]
-    cache.addAll(urlsToCache)
+    ];
+    cache.addAll(urlsToCache);
     console.log('cached');
 }
