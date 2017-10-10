@@ -113,22 +113,14 @@ const server      = {
 const ws = {
     entry  : APP_DIR + '/client/service-worker.js',
     output : {
-        path      : BUILD_DIR + '/public/',
+        path    : BUILD_DIR + '/public/',
         // filename: '[name].[chunkhash].js',
-        filename  : 'ws.js'
+        filename: 'ws.js'
     },
-    module : {
-        rules: [
-            {
-                use    : 'babel-loader',
-                test   : /\.js$/,
-                exclude: /node_modules/
-            }
-        ]
-    },
-    plugins  : [
+    plugins: [
         new webpack.DefinePlugin({
-            'process.env.env'         : JSON.stringify(isProduction ? 'prod' : 'dev')
+            'process.env.env'    : JSON.stringify(isProduction ? 'prod' : 'dev'),
+            'process.env.version': JSON.stringify(process.env.VERSION)
         })
     ]
 }

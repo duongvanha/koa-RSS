@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux'
-import AppBar from 'material-ui/AppBar';
-import { renderRoutes } from "react-router-config";
-import { Link } from "react-router-dom";
-import { add } from "../actions";
-import { Helmet } from "react-helmet";
+// import AppBar from 'material-ui/AppBar';
+import { renderRoutes } from 'react-router-config';
+import { Link } from 'react-router-dom';
+import { add } from '../actions';
+import { Helmet } from 'react-helmet';
 
 class HomeComponent extends PureComponent {
 
@@ -24,7 +24,7 @@ class HomeComponent extends PureComponent {
                 {/*<AppBar/>*/}
                 <Link to='/home/a'>a component</Link>
                 <Link to='/home/b'>b component</Link>
-                <p>{ this.props.datas.text}</p>
+                <p>{ this.props.datas.text }</p>
                 {renderRoutes(this.props.route.routes)}
             </div>
         );
