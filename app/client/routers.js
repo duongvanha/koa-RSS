@@ -12,7 +12,7 @@ const aComponent = (props) =>
 
 const bComponent = (props) =>
     <div>
-        b component
+        c component
         {renderRoutes(props.route.routes)}
     </div>
 ;
